@@ -1,0 +1,571 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sensys CFGI User Guide - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="Home.html">Introduction</a></li><li><a href="1-Sensys/1.1-Overview.html"><strong>1.</strong> Sensys</a></li><li><ul class="section"><li><a href="1-Sensys/1.2-Core-Features.html"><strong>1.1.</strong> Core features</a></li></ul></li><li><strong>2.</strong> Sensys Build and Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.01-Build-Dependencies.html"><strong>2.1.</strong> Build Dependencies</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.02-Pre-build-Configuration.html"><strong>2.2.</strong> Pre build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.03-Build-From-SRPMS.html"><strong>2.3.</strong> Build From SRPMS</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.04-Relocate-RPM-Install-Path.html"><strong>2.4.</strong> Relocate RPM Install Path</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.05-Build-From-Source-Tar-Files.html"><strong>2.5.</strong> Build From Source Tar Files</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.06-Build-From-GitHub-Repo.html"><strong>2.6.</strong> Build From GitHub Repo</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.07-Post-build-Configuration.html"><strong>2.7.</strong> Post build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.08-Setting-Up-pre-requisites-for-RAS-Monitoring.html"><strong>2.8.</strong> Setting Up pre requisites for RAS Monitoring</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.09-Startup-Instructions.html"><strong>2.9.</strong> Startup Instructions</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.10-Troubleshooting.html"><strong>2.10.</strong> Troubleshooting</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.11-Setting-MCA-Parameters.html"><strong>2.11.</strong> Setting MCA Parameters</a></li><li><strong>2.12.</strong> Database Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.1-Database-Server.html"><strong>2.12.1.</strong> Database Server</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html"><strong>2.12.2.</strong> Database Connectivity</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.3-Enabling-Data-Purge.html"><strong>2.12.3.</strong> Enabling Data Purge</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.4-Monitoring-Database-Size.html"><strong>2.12.4.</strong> Monitoring Database Size</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.5-Database-Distro-Specific-Examples.html"><strong>2.12.5.</strong> Database Distro Specific Examples</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.6-Database-ZeroMQ-Publishing.html"><strong>2.12.6.</strong> Database ZeroMQ Publishing</a></li></ul></li></ul></li><li><strong>3.</strong> Sensys User Guide</li><li><ul class="section"><li><a href="3-Sensys-User-Guide/3.1-Overview.html"><strong>3.1.</strong> Overview</a></li><li><a href="3-Sensys-User-Guide/3.2-orcmd.html"><strong>3.2.</strong> orcmd</a></li><li><a href="3-Sensys-User-Guide/3.3-orcmsched.html"><strong>3.3.</strong> orcmsched</a></li><li><a href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html" class="active"><strong>3.4.</strong> Sensys CFGI User Guide</a></li><li><a href="3-Sensys-User-Guide/3.5-Sensys-Regex.html"><strong>3.5.</strong> Sensys Regex</a></li><li><a href="3-Sensys-User-Guide/3.6-Sensys-Logical-Grouping.html"><strong>3.6.</strong> Sensys Logical Grouping</a></li><li><a href="3-Sensys-User-Guide/3.7-octl.html"><strong>3.7.</strong> octl</a></li><li><a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html"><strong>3.8.</strong> RAS Monitoring</a></li><li><a href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html"><strong>3.9.</strong> Data Smoothing Algorithms Analytics</a></li><li><a href="3-Sensys-User-Guide/3.10-ErrorManager-Notification.html"><strong>3.10.</strong> ErrorManager Notification</a></li><li><a href="3-Sensys-User-Guide/3.11-Diagnostics.html"><strong>3.11.</strong> Diagnostics</a></li><li><a href="3-Sensys-User-Guide/3.12-Sensys-Security-Aspects.html"><strong>3.12.</strong> Sensys Security Aspects</a></li><li><a href="3-Sensys-User-Guide/3.13-Sensys-Database-Multiple-Threads.html"><strong>3.13.</strong> Sensys Database Multiple Threads</a></li><li><a href="3-Sensys-User-Guide/3.14-Sensys-Database-Multi-Select.html"><strong>3.14.</strong> Sensys Database Multi Select</a></li></ul></li><li><strong>4.</strong> Developer Guide</li><li><ul class="section"><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.1-DB-Framework-API-Design.html"><strong>4.1.</strong> DB Framework API Design</a></li><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.2-DB-Framework-API.html"><strong>4.2.</strong> DB Framework API</a></li><li><a href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html"><strong>4.3.</strong> DB API</a></li><li><a href="4-Developer-Guide/4.3-Sensys-DB-Schema/4.3.1-DB-Schema-V2,0.html"><strong>4.4.</strong> DB Schema V2,0</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.1-Analytics-Plugin-API.html"><strong>4.5.</strong> Analytics Plugin API</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.2-Analytics-Plugin-Development.html"><strong>4.6.</strong> Analytics Plugin Development</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.3-Analytics-Plugin-Build-Install.html"><strong>4.7.</strong> Analytics Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.1-Sensor-Plugin-API.html"><strong>4.8.</strong> Sensor Plugin API</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.2-Sensor-Plugin-Development.html"><strong>4.9.</strong> Sensor Plugin Development</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.3-Sensor-Plugin-Build-Install.html"><strong>4.10.</strong> Sensor Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.6-dataContainer-reference.html"><strong>4.11.</strong> <code>dataContainer</code> class reference</a></li></ul></li><li><strong>5.</strong> Testing</li><li><ul class="section"><li><a href="5-Testing/5.1-Docker/5.1.1-Centos-Docker-Guide.html"><strong>5.1.</strong> Centos Docker Guide</a></li><li><a href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html"><strong>5.2.</strong> Multihost Docker</a></li><li><a href="5-Testing/5.1-Docker/5.1.3-Cluster-Docker.html"><strong>5.3.</strong> Cluster Docker</a></li></ul></li><li><strong>6.</strong> Appendix</li><li><ul class="section"><li><a href="Appendix/A.1-Terminology.html"><strong>6.1.</strong> Terminology</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.1-Following-the-Open-MPI-Model.html"><strong>6.2.</strong> Following the Open MPI Model</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.2-Contributing-to-the-Source-Code.html"><strong>6.3.</strong> Contributing to the Source Code</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.3-Development-Process.html"><strong>6.4.</strong> Development Process</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.4-Roles-and-Responsibilities.html"><strong>6.5.</strong> Roles and Responsibilities</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.5-Filing-Issues.html"><strong>6.6.</strong> Filing Issues</a></li><li><a href="Appendix/A.3-Maintaining-the-Wiki.html"><strong>6.7.</strong> Maintaining the Wiki</a></li></ul></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html#sensys-cfgi-user-guide" id="sensys-cfgi-user-guide"><h1>Sensys CFGI user guide</h1></a>
+<a class="header" href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html#introduction" id="introduction"><h2>Introduction</h2></a>
+<p>This Sensys configuration file &quot;orcm_sites.xml&quot; is used to feed in the cluster
+info node hierarchy, default mca parameters and authentication information to
+the Sensys runtime daemons.</p>
+<a class="header" href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html#sensys-cfgi-file-syntax" id="sensys-cfgi-file-syntax"><h2>Sensys CFGI file syntax</h2></a>
+<p>The CFGI file in a plain text ASCII file written in XML format.
+The grammar in the file is defined by the Backus-Naur desciption shown hereafter.</p>
+<ul>
+<li><code>&lt;configuration&gt; = &lt;version&gt; &lt;role&gt; &lt;junction&gt; [&lt;scheduler&gt;] [&lt;workflows&gt;] [&lt;ipmi&gt;] [&lt;snmp&gt;]</code></li>
+<li><code>&lt;junction&gt; = &lt;type&gt; &lt;name&gt; [&lt;controller&gt;] [&lt;junction\*&gt;]</code></li>
+<li><code>&lt;scheduler&gt; = &lt;shost&gt; &lt;port&gt; [&lt;mca-params\*&gt;]</code></li>
+<li><code>&lt;workflows&gt; = &lt;workflow\+&gt;</code></li>
+<li><code>&lt;ipmi&gt; = &lt;bmc\+&gt;</code></li>
+<li><code>&lt;snmp&gt; = &lt;config\+&gt;</code></li>
+</ul>
+<p>Because the CFGI is written in XML, the above tokens will have an appropriate representation. For example, the command <code>&lt;configuration&gt;</code> , in XML, is represented by the pair of tags:</p>
+<pre><code class="language-xml">&lt;configuration&gt; ... &lt;/configuration&gt;
+</code></pre>
+<p>Where the ellipsis here will hold the rest of the configuration.
+The command <strong>name</strong> (no bold, not between &lt; &gt;) makes reference to an attribute like in:</p>
+<pre><code class="language-xml">&lt;workflow name = &quot;some_name&quot;&gt; ... &lt;/workflow&gt;
+</code></pre>
+<a class="header" href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html#details-of-the-cfgi-grammar" id="details-of-the-cfgi-grammar"><h3>Details of the CFGI grammar</h3></a>
+<p>Each command line with be repeated here, and followed by details.  Items with a full description, like <code>&lt;junction&gt;</code>, will be addressed when their full description are presented.</p>
+<pre><code class="language-xml">&lt;configuration&gt; = &lt;version&gt; &lt;role&gt; &lt;junction&gt; [&lt;scheduler&gt;] [&lt;workflows&gt;] [&lt;ipmi&gt;] [&lt;snmp&gt;]
+</code></pre>
+<ul>
+<li><code>&lt;version&gt; = {1.0|3.0|3.1}</code> : A <strong>float</strong> indicating the version and subversion numbers. The format is as follows &quot;X.Y&quot; where X and Y are any integer; Y is the sub-version.</li>
+<li><code>&lt;role&gt; = RECORD</code> : Only one key word at this time: <strong>RECORD</strong>.  It is not case sensitive.  The key word <strong>RECORD</strong> refers to the creation of a configuration record. There can be only one configuration with the modifier RECORD.</li>
+<li><code>&lt;junction&gt; = &lt;type&gt; &lt;name&gt; [&lt;controller&gt;] [&lt;junction\*&gt;]</code>
+<ul>
+<li><code>&lt;type&gt; = {cluster|row|rack|node}</code>
+<ul>
+<li><strong>cluster</strong> is always the root of the hierarchy.  There can only be one junction of type cluster.  It must always be mentioned.</li>
+<li><strong>row</strong> &amp; <strong>rack</strong> are used in a 4-tiers hierarchy: <strong>cluster</strong>, <strong>row</strong>, <strong>rack</strong>, <strong>node</strong>. <strong>cluster</strong> is always the root of the hierarchy; and there can be only one cluster.  <strong>node</strong> are always leaf points in the hierarchy.  With <strong>cluster</strong> as root and <strong>node</strong> as leaf, the hierarchy always has a unique start point and well defined ending points.  Each junction must have a name.  Furthermore the name of siblings must be different.  For example, if a cluster contains two rows, these rows must not have the same name.  Currently, at most 4-tiers of hierarchy are supported and exactly the following order: <strong>cluster</strong>, <strong>row</strong>, <strong>rack</strong>, <strong>node</strong>.  If a row or a rack is omitted, a fictitious equivalent will be automatically inserted.</li>
+</ul>
+</li>
+<li><code>&lt;name&gt; = regex</code> : A <strong>regex</strong> expanding to one or more names.  A special character, &quot;@&quot;, is reserved to indicate that the name of the parent junction in the hierarchy will be used to replace the &quot;@&quot; character.  For example, if the parent junction is named &quot;rack1&quot; and its child junction as for <code>&lt;name&gt;=&quot;@_node&quot;</code>, then the child junction’s name string is &quot;rack1_node&quot;, where &quot;rack1&quot; of the parent replaced the &quot;@&quot; character.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-xml">&lt;controller&gt; = &lt;host&gt; &lt;port&gt; [&lt;aggregator&gt;] [&lt;mca-params\*&gt;]
+</code></pre>
+<ul>
+<li><code>&lt;host&gt; = regex</code> : A <strong>regex</strong> of an actual IP address or an IP resolvable name, of the machine hosting the controller.  It can include the hierarchical operator &quot;@&quot; as explained in <code>&lt;name&gt;</code>.  If it does, this &quot;@&quot; operator will refer to the immediate junction hosting this controller. There is a strong relationship between the hosting junction name and its controller host value.
+<ul>
+<li>If the hosting junction’s name is a <strong>regex</strong>, one must use &quot;@&quot; as the controller host value.</li>
+<li>If the hosting junction’s name is a <strong>cstring</strong> and not a <strong>regex</strong>, then the controller host value can also be a <strong>cstring</strong>.</li>
+<li>EXCEPTION: For node junction, if the hosting junction’s name is a <strong>cstring</strong> and not a <strong>regex</strong>, then its controller host value must have be exactly that node junction’s name.</li>
+<li>NOTE: When in doubt about a controller host name, use &quot;@&quot;.</li>
+</ul>
+</li>
+<li><code>&lt;aggregator&gt; = {yes|no}</code> : If yes, than that particular junction or scheduler will designated as an accumulator.</li>
+<li><code>&lt;mca-params&gt; = cslist</code> : A <strong>cslist</strong> of <strong>string</strong>, where each <strong>string</strong> contains a single tag-value pairs, with the &quot;=&quot; as separator.  Use multiple statements for multiple specification.  All multiple statements must be grouped together in the XML file.</li>
+</ul>
+<pre><code class="language-xml">&lt;scheduler&gt; = &lt;shost&gt; &lt;port&gt; [&lt;mca-params\*&gt;]
+</code></pre>
+<ul>
+<li><code>&lt;shost&gt; = regex</code> : A <strong>regex</strong> of an actual IP address or an IP resolvable name, of the machine hosting the controller.  It can include the hierarchical operator '@' as explained in <code>&lt;name&gt;</code>.  If it does, this '@' operator will refer to the immediate junction hosting this controller. There is a strong relationship between the hosting junction name and its controller host value.
+<ul>
+<li>If the hosting junction’s name is a <strong>regex</strong>, one must use '@' as the controller host value.</li>
+<li>If the hosting junction’s name is a <strong>cstring</strong> and not a <strong>regex</strong>, then the controller host value can also be a <strong>cstring</strong>.</li>
+<li>EXCEPTION: For node junction, if the hosting junction’s name is a <strong>cstring</strong> and not a <strong>regex</strong>, then its controller host value must have be exactly that node junction’s name.</li>
+<li>NOTE: When in doubt about a controller host name, use '@'.</li>
+</ul>
+</li>
+<li><code>&lt;mca-params&gt; = cslist</code> : A <strong>cslist</strong> of <strong>string</strong>, where each <strong>string</strong> contains a single tag-value pairs, with the &quot;=&quot; as separator.  Use multiple statements for multiple specification.  All multiple statements must be grouped together in the XML file.</li>
+</ul>
+<pre><code class="language-xml">&lt;workflows&gt; = &lt;workflow\+&gt; [&lt;aggregator&gt;]
+</code></pre>
+<p>You can find a full workflow documentation and examples in section <a href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html">Data-Smoothing-Algorithms-Analytics</a></p>
+<ul>
+<li><code>&lt;aggregator&gt; = string</code> : A <strong>string</strong> that contains a valid hostname indicating to which aggregator(s) this workflow will be submitted to.</li>
+<li><code>&lt;workflow&gt; = name &lt;step\+&gt;</code> : A <strong>string</strong> that contains this workflow name. This is user defined.</li>
+</ul>
+<pre><code class="language-xml">&lt;step&gt; = name {(&lt;hostname&gt; &lt;data_group&gt;)|(&lt;compute&gt; [&lt;db&gt;])|(&lt;win_size&gt; &lt;compute&gt; [&lt;type&gt;])|([&lt;severity&gt;] [&lt;fault_type&gt;] [&lt;store_event&gt;] [&lt;notifier_action&gt;] &lt;label_mask&gt; [&lt;time_window&gt;] &lt;count_threshold&gt;)| (&lt;nodelist&gt; &lt;compute&gt; [&lt;interval&gt;] [&lt;timeout&gt;])|(&lt;msg_regex&gt; &lt;severity&gt; &lt;notifier&gt;)|(&lt;policy&gt;)|(&lt;policy&gt; &lt;suppress_repeat&gt; [&lt;category&gt;] [&lt;severity&gt;] [&lt;time&gt;])|(&lt;policy&gt; &lt;exec_name&gt; [&lt;exec_argv&gt;])}
+</code></pre>
+<ul>
+<li><code>name = {filter|aggregate|threshold|window|cott|spatial|genex}</code> : The name of one of the multiple tasks that can be performed by a workflow.</li>
+<li><code>&lt;hostname&gt; = regex</code> : Used by <strong>filter</strong>. This indicates the nodes from which a data will be filtered.</li>
+<li><code>&lt;data_group&gt; = {componentpower|coretemp|dmidata|errcounts|freq|ipmi|mcedata|nodepower|resusage|sigar|snmp|syslog|udsensors}</code> : Used by <strong>filter</strong>. This is a sensor name from which the data will be filtered.</li>
+<li><code>&lt;compute&gt; = {average|min|max|sd}</code> : Used by <strong>aggregate</strong>, <strong>window</strong> and <strong>spatial</strong>. Computes the average, minimum, maximum or standard deviation value over the data gathered from the chosen sensor and rules in <strong>filter</strong>.</li>
+<li><code>&lt;db&gt; = {yes|no}</code> : Used by <strong>aggregate</strong>. Optional. Defaults to <strong>no</strong>. Defines if the data will be stored into the database.</li>
+<li><code>&lt;win_size&gt; = uint</code> : Used by <strong>window</strong>. It's an integer that indicates the amount of time or samples from which a computation (<strong>compute</strong>) will be performed. If the integer its followed by &quot;h&quot;(hours), &quot;m&quot;(minutes) or &quot;s&quot;(seconds - default if no unit is provided) then <type> must be <strong>time</strong> and it will be taken as time, if not, <type> must be <strong>counter</strong> and it will be taken as number of samples.</li>
+<li><code>&lt;type&gt; = {counter|time}</code> : Used by <strong>window</strong>. Optional. Defaults to <strong>time</strong>. Indicates if &lt;win_size&gt; it's given by an amount of time(<strong>time</strong>) or an amount of samples(<strong>counter</strong>).</li>
+<li><code>&lt;severity&gt; = {emerg|alert|crit|error|warn}</code> : Used by <strong>cott</strong>, <strong>genex</strong> and <strong>threshold</strong>.
+<ul>
+<li><strong>cot</strong> : Optional. Defaults to <strong>error</strong>. Acts like a severity filter for filtering errors that come from <strong>errcounts</strong> sensor.</li>
+<li><strong>genex</strong> : Filters the severity of the system message to be caught.</li>
+<li><strong>threshold</strong> : Has effect under the &lt;suppress_repeat&gt; mode. Filters the severity of the message to be suppresed.</li>
+</ul>
+</li>
+<li><code>&lt;fault_type&gt; = {hard|soft}</code> : Used by <strong>cott</strong>. Optional. Defaults to <strong>hard</strong>. Acts like a fault type filter for filtering errors that come from <strong>errcounts</strong> sensor.</li>
+<li><code>&lt;store_event&gt; = {yes|no}</code> : Used by <strong>cott</strong>. Optional. Defaults to <strong>yes</strong>. Defines if the event will be stored into the database.</li>
+<li><code>&lt;notifier_action&gt; = {none|email|syslog}</code> : Used by <strong>cott</strong>. Optional. Defaults to <strong>none</strong>. Defines the way in which the event will be communicated.</li>
+<li><code>&lt;label_mask&gt; = string</code> : Used by <strong>cott</strong>. A string to search for the errcounts sensor. &quot;<strong>*</strong>&quot; is taken as a wildcard.</li>
+<li><code>&lt;time_window&gt; = uint</code> : Used by <strong>cott</strong>. Optional. Defaults to 1 second. Defines the time window in which the data will be searched for. Requires a character that denotes the unit of the integer: s - for seconds, m - for minutes, h - for hours, d - for days.</li>
+<li><code>&lt;count_threshold&gt; = uint</code> : Used by <strong>cott</strong>. This denotes the number of new item counts within the &lt;time_window&gt; which after the the event is fired (inclusive).</li>
+<li><code>&lt;nodelist&gt; = regex</code> : Used by <strong>spatial</strong>. The list of nodes that the aggregation will be conducted. Can be also a logical group.</li>
+<li><code>&lt;interval&gt; = uint</code> : Used by <strong>spatial</strong>. Optional. Defaults to 60 seconds. It's an integer which it's default unit is seconds. It indicates the &quot;sleeping length&quot; between 2 consecutive cycling. This is to give user the ability to control the granularity of cycling if he/she does not want the cycling to go as fast as it can go.</li>
+<li><code>&lt;timeout&gt; = uint</code> : Used by <strong>spatial</strong>. Optional. Defaults to 60 seconds. It's an integer which it's default unit is seconds. It means the maximum waiting time upon the first sample of a cycle comes before doing the computation. In the case of node failure happens, this attribute avoids waiting endlessly.</li>
+<li><code>&lt;msg_regex&gt; = string</code> : Used by <strong>genex</strong>. It's a string containing a formal regular expression with POSIX Classes expressions (ASCII/Unicode/Shorthand Expressions are not allowed). This represents a regex filter from which a system meessage must pass to be caught.</li>
+<li><code>&lt;notifier&gt; = smtp</code> : Used by <strong>genex</strong>. Optional. There is only one value for this parameter: <strong>smtp</strong>. Must be specified if an email notification is required.</li>
+<li><code>&lt;policy&gt; = cslist</code> : Used by <strong>threshold</strong>. It's a comma separated list of the policies of the data generated by <strong>syslog</strong>. Defines which messages will write a message to the syslog. A policy has the format: <code>&quot;&lt;threshold_type&gt;&quot;|&quot;&lt;treshold_value&gt;&quot;|&quot;&lt;severity&gt;&quot;|&quot;&lt;notification_mechanism&gt;&quot;</code></li>
+<li><code>&lt;suppress_repeat&gt; = yes</code> : Used by <strong>threshold</strong>. Enables suppress repeats for specific plugins. If no additional attributes are specified, all events generated by the plugin will be suppressed for time period determined by the analytics_base_suppress_repeat MCA parameter.</li>
+<li><code>&lt;category&gt; = {HARD_FAULT|SOFT_FAULT}</code> : Used by <strong>threshold</strong> under the &lt;suppress_repeat&gt; mode. Defines if hard or soft faults are being suppresed.</li>
+<li><code>&lt;time&gt; = uint</code> : Used by <strong>threshold</strong> under the &lt;suppress_repeat&gt; mode. All events that match the severity and category parameters will be suppressed for time period specified using this parameter. All other events will be suppressed time period determined by analytics_base_suppress_repeat MCA parameter. Requires a character that denotes the unit of the integer:
+s - for seconds, m - for minutes, h - for hours.</li>
+<li><code>&lt;exec_name&gt; = string</code> : Used by <strong>threshold</strong> under the launch exec mode. Defines the name of the executable to be launched by the scheduler if some <strong>filter</strong> conditions and a message that matchs with <policy> are found. Logical group name is recommended.</li>
+<li><code>&lt;exec_argv&gt; = cslist</code> : Used by <strong>threshold</strong> under the launch exec mode. Optional. Defaults to an empty list. Comma separated argument list of running the exec.</li>
+</ul>
+<pre><code class="language-xml">&lt;policy&gt; = &quot;&lt;threshold_type&gt;&quot;|&quot;&lt;treshold_value&gt;&quot;|&quot;&lt;severity&gt;&quot;|&quot;&lt;notification_mechanism&gt;&quot;
+</code></pre>
+<ul>
+<li><code>&lt;threshold_type&gt; = {hi|low}</code></li>
+<li><code>&lt;threshold_value&gt; = float</code> : Can be also an integer number. Is the threshold boundary of sensor measurement.</li>
+<li><code>&lt;severity&gt; = {emerg|alert|crit|err|warning|notice|info|debug}</code> : severity/priority of the RAS event that is triggered by the policy; severity level follows RFC 5424 syslog protocol.
+There are some deprecated serevity names that may could work on your system:
+<ul>
+<li><strong>error</strong>(same as <strong>err</strong>), <strong>warn</strong>(same as <strong>warning</strong>), <strong>panic</strong>(same as <strong>emerg</strong>).</li>
+</ul>
+</li>
+<li><code>&lt;notification_mechanism&gt; = {syslog|smtp}</code> : Notification mechanism for communicate the event.</li>
+</ul>
+<pre><code class="language-xml">&lt;ipmi&gt; = &lt;bmc_node\+&gt;
+</code></pre>
+<p>You can find a full ipmi documentation and examples in section ipmi of <a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html">RAS-Monitoring</a></p>
+<pre><code class="language-xml">&lt;bmc_node&gt; = name &lt;bmc_address&gt; &lt;user&gt; &lt;pass&gt; &lt;auth_method&gt; &lt;priv_level&gt; &lt;aggregator&gt;
+</code></pre>
+<ul>
+<li><code>name = string</code> : A string that contains this bmc name. This is user defined.</li>
+<li><code>&lt;bmc_address&gt; = string</code> : Is the IP address of the BMC. This may not be the same as the IP address of the node.</li>
+<li><code>&lt;user&gt; = string</code> : Is the username of the remote BMC nodes for retrieving the metrics via the IPMI interface.</li>
+<li><code>&lt;pass&gt; = string</code> : Is the password of the remote BMC nodes for retrieving the metrics via the IPMI interface, for the above configured username.</li>
+<li><code>&lt;auth_method&gt; = {NONE|MD2|MD5|UNUSED|PASSWORD|AUTH_OEM}</code> : Optional. Defaults to <strong>PASSWORD</strong>. Is the authentication method.</li>
+<li><code>&lt;priv_level&gt; = {CALLBACK|USER|OPERATOR|ADMIN|OEM}</code> : Optional. Defaults to <strong>USER</strong>. Are the privilege levels.</li>
+<li><code>&lt;aggregator&gt; = string</code> : Is the hostname of the aggregator that receives the metrics.</li>
+</ul>
+<pre><code class="language-xml">&lt;snmp&gt; = &lt;config\+&gt;
+</code></pre>
+<p>You can find a full snmp documentation and examples in section snmp of <a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html">RAS-Monitoring</a></p>
+<pre><code class="language-xml">&lt;config&gt; = name version user pass auth sec location &lt;aggregator&gt; &lt;hostname&gt; &lt;oids&gt;
+</code></pre>
+<ul>
+<li><code>name = string</code> : A string that contains this snmp name. This is user defined.</li>
+<li><code>version = {1|3}</code> : Specifies the SNMP version to use.</li>
+<li><code>user = string</code> : On SNMPv1. Is the community user of the device. On SNMPv3. Is the username of the credential to access the device.</li>
+<li><code>pass = string</code> : On SNMPv3. Is the password of the credential to access the device.</li>
+<li><code>auth = {MD5|SHA1}</code> : On SNMPv3. Optional. Defaults to <strong>MD5</strong>. Is the encryption mechanism.</li>
+<li><code>sec = {NOAUTH|AUTHNOPRIV|AUTHPRIV}</code> : On SNMPv3. Optional. Defaults to <strong>AUTHPRIV</strong>. Is the security access method. In case of using <strong>AUTHPRIV</strong>, the default protocol on Net-SNMP library will be used (<strong>DES</strong> in most cases, unless being disabled at compile time in the library).</li>
+<li><code>location = string</code> : Optional. Provides additional info for locating the device.</li>
+<li><code>&lt;aggregator&gt; = string</code> : Is a single string specifying which aggregator would be in charge of collecting the SNMP data of the device.</li>
+<li><code>&lt;hostname&gt; = regex</code> : Is the device hostname or ip address. This can be a comma separated list, logical group and/or regular expression.</li>
+<li><code>&lt;oids&gt; = cslist</code> : Is the comma separated list of oids to query. Both numerical OIDs and textual MIB names are supported.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html#xml-example" id="xml-example"><h2>XML example</h2></a>
+<p>Typically the file is written in the directory <code>$PATH2SENSYS/orcm/etc/orcm-site.xml</code>.  Sensys will look for this file by name.</p>
+<p>The Sensys XML parser only parse a simplified XML format.  The simplification are as follows:</p>
+<ul>
+<li>XML attributes are not supported</li>
+<li>Quoted strings can only use double quotes “.</li>
+</ul>
+<p>A prototype CFGI file written in XML is provided hereafter.  It presents a cluster with the following configuration:</p>
+<ul>
+<li>A 4-tier hierarchy: cluster, row, rack, junction</li>
+<li>1 Scheduler</li>
+<li>1 row named row1 without a controller</li>
+<li>4 racks in the single row, locally called <code>&quot;agg01&quot;, &quot;agg02&quot;, &quot;agg03&quot;, &quot;agg04&quot;</code></li>
+<li>1024 nodes equally distributed among the racks, locally called <code>&quot;node0000&quot;, ..., &quot;node1023&quot;</code></li>
+<li>Each rack and node has a controller</li>
+</ul>
+<p>The example has in-lined comments which provides further details.</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;configuration&gt;
+    &lt;!-- Version is fixed to 3.1 --&gt;
+    &lt;version&gt;3.1&lt;/version&gt;
+    &lt;!-- We need a single RECORD --&gt;
+    &lt;role&gt;RECORD&lt;/role&gt;
+    &lt;junction&gt;
+        &lt;!-- We need a single root for the hierarchy --&gt;
+        &lt;type&gt;cluster&lt;/type&gt;
+        &lt;name&gt;master3&lt;/name&gt;
+        &lt;junction&gt;
+            &lt;type&gt;row&lt;/type&gt;
+            &lt;name&gt;row1&lt;/name&gt;
+            &lt;junction&gt;
+                &lt;type&gt;rack&lt;/type&gt;
+                &lt;name&gt;agg01&lt;/name&gt;
+                &lt;controller&gt;
+                    &lt;host&gt;agg01&lt;/host&gt;
+                    &lt;port&gt;55805&lt;/port&gt;
+                    &lt;aggregator&gt;yes&lt;/aggregator&gt;
+                &lt;/controller&gt;
+                &lt;junction&gt;
+                    &lt;type&gt;node&lt;/type&gt;
+                    &lt;name&gt;node[4:0-255]&lt;/name&gt;
+                    &lt;controller&gt;
+                        &lt;!-- This controller takes its host name from its row’s name --&gt;
+                        &lt;!-- The @ operator does the unique selection --&gt;
+                        &lt;host&gt;@&lt;/host&gt;
+                        &lt;port&gt;55805&lt;/port&gt;
+                        &lt;aggregator&gt;no&lt;/aggregator&gt;
+                    &lt;/controller&gt;
+                &lt;/junction&gt;
+            &lt;/junction&gt;
+            &lt;junction&gt;
+                &lt;type&gt;rack&lt;/type&gt;
+                &lt;name&gt;agg02&lt;/name&gt;
+                &lt;controller&gt;
+                    &lt;host&gt;agg02&lt;/host&gt;
+                    &lt;port&gt;55805&lt;/port&gt;
+                    &lt;aggregator&gt;yes&lt;/aggregator&gt;
+                &lt;/controller&gt;
+                &lt;junction&gt;
+                    &lt;type&gt;node&lt;/type&gt;
+                    &lt;name&gt;node[4:256-511]&lt;/name&gt;
+                    &lt;controller&gt;
+                        &lt;host&gt;@&lt;/host&gt;
+                        &lt;port&gt;55805&lt;/port&gt;
+                        &lt;aggregator&gt;no&lt;/aggregator&gt;
+                    &lt;/controller&gt;
+                &lt;/junction&gt;
+            &lt;/junction&gt;
+            &lt;junction&gt;
+                &lt;type&gt;rack&lt;/type&gt;
+                &lt;name&gt;agg03&lt;/name&gt;
+                &lt;controller&gt;
+                    &lt;host&gt;agg03&lt;/host&gt;
+                    &lt;port&gt;55805&lt;/port&gt;
+                    &lt;aggregator&gt;yes&lt;/aggregator&gt;
+                &lt;/controller&gt;
+                &lt;junction&gt;
+                    &lt;type&gt;node&lt;/type&gt;
+                    &lt;name&gt;node[4:512-767]&lt;/name&gt;
+                    &lt;controller&gt;
+                        &lt;host&gt;@&lt;/host&gt;
+                        &lt;port&gt;55805&lt;/port&gt;
+                        &lt;aggregator&gt;no&lt;/aggregator&gt;
+                    &lt;/controller&gt;
+                &lt;/junction&gt;
+            &lt;/junction&gt;
+            &lt;junction&gt;
+                &lt;type&gt;rack&lt;/type&gt;
+                &lt;name&gt;agg04&lt;/name&gt;
+                &lt;controller&gt;
+                    &lt;host&gt;agg04&lt;/host&gt;
+                    &lt;port&gt;55805&lt;/port&gt;
+                    &lt;aggregator&gt;yes&lt;/aggregator&gt;
+                &lt;/controller&gt;
+                &lt;junction&gt;
+                    &lt;type&gt;node&lt;/type&gt;
+                    &lt;name&gt;node[4:768-1023]&lt;/name&gt;
+                    &lt;controller&gt;
+                        &lt;host&gt;@&lt;/host&gt;
+                        &lt;port&gt;55805&lt;/port&gt;
+                        &lt;aggregator&gt;no&lt;/aggregator&gt;
+                    &lt;/controller&gt;
+                &lt;/junction&gt;
+            &lt;/junction&gt;
+        &lt;/junction&gt;
+    &lt;/junction&gt;
+    &lt;scheduler&gt;
+        &lt;!—shost identifies the node that houses the Sensys scheduler. Only one allowed --&gt;
+        &lt;shost&gt;master01&lt;/shost&gt;
+        &lt;port&gt;55820&lt;/port&gt;
+    &lt;/scheduler&gt;
+    &lt;workflows&gt;
+        &lt;aggregator&gt;agg01&lt;/aggregator&gt;
+        &lt;workflow name = &quot;wf1&quot;&gt;
+            &lt;step name = &quot;filter&quot;&gt;
+                &lt;data_group&gt;syslog&lt;/data_group&gt;
+            &lt;/step&gt;
+            &lt;step name = &quot;genex&quot;&gt;
+                &lt;msg_regex&gt;access granted&lt;/msg_regex&gt;
+                &lt;severity&gt;info&lt;/severity&gt;
+                &lt;notifier&gt;smtp&lt;/notifier&gt;
+            &lt;/step&gt;
+        &lt;/workflow&gt;
+    &lt;/workflows&gt;
+    &lt;ipmi&gt;
+        &lt;bmc_node name=&quot;node0004&quot;&gt;
+            &lt;bmc_address&gt;192.168.0.104&lt;/bmc_address&gt;
+            &lt;user&gt;bmc_username_01&lt;/user&gt;
+            &lt;pass&gt;12345678&lt;/pass&gt;
+            &lt;auth_method&gt;PASSWORD&lt;/auth_method&gt;
+            &lt;priv_level&gt;USER&lt;/priv_level&gt;
+            &lt;aggregator&gt;agg01&lt;/aggregator&gt;
+        &lt;/bmc_node&gt;
+    &lt;/ipmi&gt;
+    &lt;snmp&gt;
+        &lt;config name=&quot;snmp1&quot; version=&quot;3&quot; user=&quot;user&quot; pass=&quot;12345678&quot; auth=&quot;MD5&quot; sec=&quot;AUTHNOPRIV&quot;&gt;
+            &lt;aggregator&gt;agg01&lt;/aggregator&gt;
+            &lt;hostname&gt;server[2:0-20],server21&lt;/hostname&gt;
+            &lt;oids&gt;1.3.6.1.4.1.343.1.1.3.1,1.3.6.1.4.1.343.1.1.3.4&lt;/oids&gt;
+        &lt;/config&gt;
+        &lt;config name=&quot;snmp2&quot; version=&quot;1&quot; user=&quot;user&quot; location=&quot;X Lab&quot;&gt;
+            &lt;aggregator&gt;agg02&lt;/aggregator&gt;
+            &lt;hostname&gt;switches[2:0-20],switch21&lt;/hostname&gt;
+            &lt;oids&gt;1.3.6.1.4.1.343.1.1.3.1,1.3.6.1.4.1.343.1.1.3.4&lt;/oids&gt;
+        &lt;/config&gt;
+    &lt;/snmp&gt;
+&lt;/configuration&gt;
+</code></pre>
+<a class="header" href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html#running-multiple-aggregators-on-one-node" id="running-multiple-aggregators-on-one-node"><h2>Running multiple aggregators on one node</h2></a>
+<p>Currently, Sensys supports running multiple aggregators on one node. The reason to support this is that at extreme scales, a single aggregator will be saturated given the large number of compute nodes and extreme volume of data. In this case, multiple aggregators will be needed. However, we do not want each aggregator to run on separate node, because we want as many compute nodes as possible to run applications. Given that a compute node will likely have much higher parallelism (e.g 1000 cores) at extreme scales, running multiple aggregators on one node will be a good choice.</p>
+<p>To run multiple aggregators on the same node, Sensys needs to distinguish between them with the combination of logical hostname and port number. Assuming the actual hostname of the node is master01, and the external ip address of the node is: X.X.X.X. In the /etc/hosts file, there should be one line specifying the mapping of the actual hostname and the external ip address with the format:</p>
+<pre><code>X.X.X.X   master01
+</code></pre>
+<p>For example, if the user/admin wants to run 4 aggregators on the same node, he/she can define the logical hostnames (aliases) for the node by appending the aliases to master01 in the /etc/hosts file as follows assuming that the aliases are agg01, agg02, agg03 and agg04:</p>
+<pre><code>X.X.X.X   master01 agg01 agg02 agg03 agg04
+</code></pre>
+<p>The mapping of the logical hostnames to the node ip for the aggregators needs to be copied to the corresponding compute nodes as well in their /etc/hosts files, in order for the compute nodes to
+recognize the logical hostnames of the aggregators.</p>
+<p>In the configuration file, each aggregator must be given an unique logical hostname, as well as an unique port number. When running multiple aggregators on the same node, each aggregator needs to specify the unique port number (the exact same ones in the configuration file) with the mca parameter
+<code>--omca cfgi_base_port_number</code>, or with the <code>-p</code> option.</p>
+<p>An example to configure 4 aggregators on the same node with hostname master01 is shown as follows:</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;configuration&gt;
+    &lt;version&gt;3.1&lt;/version&gt;
+    &lt;role&gt;RECORD&lt;/role&gt;
+    &lt;junction&gt;
+        &lt;type&gt;cluster&lt;/type&gt;
+        &lt;name&gt;default_cluster&lt;/name&gt;
+        &lt;junction&gt;
+            &lt;type&gt;row&lt;/type&gt;
+            &lt;name&gt;default_row&lt;/name&gt;
+            &lt;junction&gt;
+                &lt;type&gt;rack&lt;/type&gt;
+                &lt;name&gt;rack1&lt;/name&gt;
+                &lt;controller&gt;
+                    &lt;host&gt;agg01&lt;/host&gt;
+                    &lt;port&gt;55805&lt;/port&gt;
+                    &lt;aggregator&gt;yes&lt;/aggregator&gt;
+                &lt;/controller&gt;
+                &lt;junction&gt;
+                    &lt;type&gt;node&lt;/type&gt;
+                    &lt;name&gt;node[4:0-255]&lt;/name&gt;
+                    &lt;controller&gt;
+                        &lt;host&gt;@&lt;/host&gt;
+                        &lt;port&gt;55805&lt;/port&gt;
+                        &lt;aggregator&gt;no&lt;/aggregator&gt;
+                    &lt;/controller&gt;
+                &lt;/junction&gt;
+            &lt;/junction&gt;
+            &lt;junction&gt;
+                &lt;type&gt;rack&lt;/type&gt;
+                &lt;name&gt;rack2&lt;/name&gt;
+                &lt;controller&gt;
+                    &lt;host&gt;agg02&lt;/host&gt;
+                    &lt;port&gt;55806&lt;/port&gt;
+                    &lt;aggregator&gt;yes&lt;/aggregator&gt;
+                &lt;/controller&gt;
+                &lt;junction&gt;
+                    &lt;type&gt;node&lt;/type&gt;
+                    &lt;name&gt;node[4:256-511]&lt;/name&gt;
+                    &lt;controller&gt;
+                        &lt;host&gt;@&lt;/host&gt;
+                        &lt;port&gt;55805&lt;/port&gt;
+                        &lt;aggregator&gt;no&lt;/aggregator&gt;
+                    &lt;/controller&gt;
+                &lt;/junction&gt;
+            &lt;/junction&gt;
+            &lt;junction&gt;
+                &lt;type&gt;rack&lt;/type&gt;
+                &lt;name&gt;rack3&lt;/name&gt;
+                &lt;controller&gt;
+                    &lt;host&gt;agg03&lt;/host&gt;
+                    &lt;port&gt;55807&lt;/port&gt;
+                    &lt;aggregator&gt;yes&lt;/aggregator&gt;
+                &lt;/controller&gt;
+                &lt;junction&gt;
+                    &lt;type&gt;node&lt;/type&gt;
+                    &lt;name&gt;node[4:512-767]&lt;/name&gt;
+                    &lt;controller&gt;
+                        &lt;host&gt;@&lt;/host&gt;
+                        &lt;port&gt;55805&lt;/port&gt;
+                        &lt;aggregator&gt;no&lt;/aggregator&gt;
+                    &lt;/controller&gt;
+                &lt;/junction&gt;
+            &lt;/junction&gt;
+            &lt;junction&gt;
+                &lt;type&gt;rack&lt;/type&gt;
+                &lt;name&gt;rack4&lt;/name&gt;
+                &lt;controller&gt;
+                    &lt;host&gt;agg04&lt;/host&gt;
+                    &lt;port&gt;55808&lt;/port&gt;
+                    &lt;aggregator&gt;yes&lt;/aggregator&gt;
+                &lt;/controller&gt;
+                &lt;junction&gt;
+                    &lt;type&gt;node&lt;/type&gt;
+                    &lt;name&gt;node[4:768-1023]&lt;/name&gt;
+                    &lt;controller&gt;
+                        &lt;host&gt;@&lt;/host&gt;
+                        &lt;port&gt;55805&lt;/port&gt;
+                        &lt;aggregator&gt;no&lt;/aggregator&gt;
+                    &lt;/controller&gt;
+                &lt;/junction&gt;
+            &lt;/junction&gt;
+        &lt;/junction&gt;
+    &lt;/junction&gt;
+    &lt;scheduler&gt;
+        &lt;shost&gt;master01&lt;/shost&gt;
+        &lt;port&gt;55820&lt;/port&gt;
+    &lt;/scheduler&gt;
+    &lt;workflows&gt;
+        &lt;aggregator&gt;agg01&lt;/aggregator&gt;
+        &lt;workflow name = &quot;wf1&quot;&gt;
+            &lt;step name = &quot;filter&quot;&gt;
+                &lt;data_group&gt;syslog&lt;/data_group&gt;
+            &lt;/step&gt;
+            &lt;step name = &quot;genex&quot;&gt;
+                &lt;msg_regex&gt;access granted&lt;/msg_regex&gt;
+                &lt;severity&gt;info&lt;/severity&gt;
+                &lt;notifier&gt;smtp&lt;/notifier&gt;
+            &lt;/step&gt;
+        &lt;/workflow&gt;
+    &lt;/workflows&gt;
+    &lt;ipmi&gt;
+        &lt;bmc_node name=&quot;node0004&quot;&gt;
+            &lt;bmc_address&gt;192.168.0.104&lt;/bmc_address&gt;
+            &lt;user&gt;bmc_username_01&lt;/user&gt;
+            &lt;pass&gt;12345678&lt;/pass&gt;
+            &lt;auth_method&gt;PASSWORD&lt;/auth_method&gt;
+            &lt;priv_level&gt;USER&lt;/priv_level&gt;
+            &lt;aggregator&gt;agg01&lt;/aggregator&gt;
+        &lt;/bmc_node&gt;
+    &lt;/ipmi&gt;
+    &lt;snmp&gt;
+        &lt;config name=&quot;snmp1&quot; version=&quot;3&quot; user=&quot;user&quot; pass=&quot;12345678&quot; auth=&quot;MD5&quot; sec=&quot;AUTHNOPRIV&quot;&gt;
+            &lt;aggregator&gt;agg01&lt;/aggregator&gt;
+            &lt;hostname&gt;server[2:0-20],server21&lt;/hostname&gt;
+            &lt;oids&gt;1.3.6.1.4.1.343.1.1.3.1,1.3.6.1.4.1.343.1.1.3.4&lt;/oids&gt;
+        &lt;/config&gt;
+        &lt;config name=&quot;snmp2&quot; version=&quot;1&quot; user=&quot;user&quot; location=&quot;X Lab&quot;&gt;
+            &lt;aggregator&gt;agg02&lt;/aggregator&gt;
+            &lt;hostname&gt;switches[2:0-20],switch21&lt;/hostname&gt;
+            &lt;oids&gt;1.3.6.1.4.1.343.1.1.3.1,1.3.6.1.4.1.343.1.1.3.4&lt;/oids&gt;
+        &lt;/config&gt;
+    &lt;/snmp&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>To run the 4 aggregators on the same node, each aggregator needs to specify its port number as follows:</p>
+<pre><code>% orcmd --omca cfgi\_base\_port_number 55805
+% orcmd --omca cfgi\_base\_port_number 55806
+% orcmd --omca cfgi\_base\_port_number 55807
+% orcmd --omca cfgi\_base\_port_number 55808
+</code></pre>
+<p>or use the short -p option as follows:</p>
+<pre><code>% orcmd -p 55805
+% orcmd -p 55806
+% orcmd -p 55807
+% orcmd -p 55808
+</code></pre>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a href="3-Sensys-User-Guide/3.3-orcmsched.html" class="mobile-nav-chapters previous">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="3-Sensys-User-Guide/3.5-Sensys-Regex.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="3-Sensys-User-Guide/3.3-orcmsched.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="3-Sensys-User-Guide/3.5-Sensys-Regex.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>

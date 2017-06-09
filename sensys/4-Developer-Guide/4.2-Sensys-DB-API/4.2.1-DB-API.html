@@ -1,0 +1,705 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DB API - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="../../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="Home.html">Introduction</a></li><li><a href="1-Sensys/1.1-Overview.html"><strong>1.</strong> Sensys</a></li><li><ul class="section"><li><a href="1-Sensys/1.2-Core-Features.html"><strong>1.1.</strong> Core features</a></li></ul></li><li><strong>2.</strong> Sensys Build and Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.01-Build-Dependencies.html"><strong>2.1.</strong> Build Dependencies</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.02-Pre-build-Configuration.html"><strong>2.2.</strong> Pre build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.03-Build-From-SRPMS.html"><strong>2.3.</strong> Build From SRPMS</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.04-Relocate-RPM-Install-Path.html"><strong>2.4.</strong> Relocate RPM Install Path</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.05-Build-From-Source-Tar-Files.html"><strong>2.5.</strong> Build From Source Tar Files</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.06-Build-From-GitHub-Repo.html"><strong>2.6.</strong> Build From GitHub Repo</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.07-Post-build-Configuration.html"><strong>2.7.</strong> Post build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.08-Setting-Up-pre-requisites-for-RAS-Monitoring.html"><strong>2.8.</strong> Setting Up pre requisites for RAS Monitoring</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.09-Startup-Instructions.html"><strong>2.9.</strong> Startup Instructions</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.10-Troubleshooting.html"><strong>2.10.</strong> Troubleshooting</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.11-Setting-MCA-Parameters.html"><strong>2.11.</strong> Setting MCA Parameters</a></li><li><strong>2.12.</strong> Database Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.1-Database-Server.html"><strong>2.12.1.</strong> Database Server</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html"><strong>2.12.2.</strong> Database Connectivity</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.3-Enabling-Data-Purge.html"><strong>2.12.3.</strong> Enabling Data Purge</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.4-Monitoring-Database-Size.html"><strong>2.12.4.</strong> Monitoring Database Size</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.5-Database-Distro-Specific-Examples.html"><strong>2.12.5.</strong> Database Distro Specific Examples</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.6-Database-ZeroMQ-Publishing.html"><strong>2.12.6.</strong> Database ZeroMQ Publishing</a></li></ul></li></ul></li><li><strong>3.</strong> Sensys User Guide</li><li><ul class="section"><li><a href="3-Sensys-User-Guide/3.1-Overview.html"><strong>3.1.</strong> Overview</a></li><li><a href="3-Sensys-User-Guide/3.2-orcmd.html"><strong>3.2.</strong> orcmd</a></li><li><a href="3-Sensys-User-Guide/3.3-orcmsched.html"><strong>3.3.</strong> orcmsched</a></li><li><a href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html"><strong>3.4.</strong> Sensys CFGI User Guide</a></li><li><a href="3-Sensys-User-Guide/3.5-Sensys-Regex.html"><strong>3.5.</strong> Sensys Regex</a></li><li><a href="3-Sensys-User-Guide/3.6-Sensys-Logical-Grouping.html"><strong>3.6.</strong> Sensys Logical Grouping</a></li><li><a href="3-Sensys-User-Guide/3.7-octl.html"><strong>3.7.</strong> octl</a></li><li><a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html"><strong>3.8.</strong> RAS Monitoring</a></li><li><a href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html"><strong>3.9.</strong> Data Smoothing Algorithms Analytics</a></li><li><a href="3-Sensys-User-Guide/3.10-ErrorManager-Notification.html"><strong>3.10.</strong> ErrorManager Notification</a></li><li><a href="3-Sensys-User-Guide/3.11-Diagnostics.html"><strong>3.11.</strong> Diagnostics</a></li><li><a href="3-Sensys-User-Guide/3.12-Sensys-Security-Aspects.html"><strong>3.12.</strong> Sensys Security Aspects</a></li><li><a href="3-Sensys-User-Guide/3.13-Sensys-Database-Multiple-Threads.html"><strong>3.13.</strong> Sensys Database Multiple Threads</a></li><li><a href="3-Sensys-User-Guide/3.14-Sensys-Database-Multi-Select.html"><strong>3.14.</strong> Sensys Database Multi Select</a></li></ul></li><li><strong>4.</strong> Developer Guide</li><li><ul class="section"><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.1-DB-Framework-API-Design.html"><strong>4.1.</strong> DB Framework API Design</a></li><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.2-DB-Framework-API.html"><strong>4.2.</strong> DB Framework API</a></li><li><a href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html" class="active"><strong>4.3.</strong> DB API</a></li><li><a href="4-Developer-Guide/4.3-Sensys-DB-Schema/4.3.1-DB-Schema-V2,0.html"><strong>4.4.</strong> DB Schema V2,0</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.1-Analytics-Plugin-API.html"><strong>4.5.</strong> Analytics Plugin API</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.2-Analytics-Plugin-Development.html"><strong>4.6.</strong> Analytics Plugin Development</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.3-Analytics-Plugin-Build-Install.html"><strong>4.7.</strong> Analytics Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.1-Sensor-Plugin-API.html"><strong>4.8.</strong> Sensor Plugin API</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.2-Sensor-Plugin-Development.html"><strong>4.9.</strong> Sensor Plugin Development</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.3-Sensor-Plugin-Build-Install.html"><strong>4.10.</strong> Sensor Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.6-dataContainer-reference.html"><strong>4.11.</strong> <code>dataContainer</code> class reference</a></li></ul></li><li><strong>5.</strong> Testing</li><li><ul class="section"><li><a href="5-Testing/5.1-Docker/5.1.1-Centos-Docker-Guide.html"><strong>5.1.</strong> Centos Docker Guide</a></li><li><a href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html"><strong>5.2.</strong> Multihost Docker</a></li><li><a href="5-Testing/5.1-Docker/5.1.3-Cluster-Docker.html"><strong>5.3.</strong> Cluster Docker</a></li></ul></li><li><strong>6.</strong> Appendix</li><li><ul class="section"><li><a href="Appendix/A.1-Terminology.html"><strong>6.1.</strong> Terminology</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.1-Following-the-Open-MPI-Model.html"><strong>6.2.</strong> Following the Open MPI Model</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.2-Contributing-to-the-Source-Code.html"><strong>6.3.</strong> Contributing to the Source Code</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.3-Development-Process.html"><strong>6.4.</strong> Development Process</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.4-Roles-and-Responsibilities.html"><strong>6.5.</strong> Roles and Responsibilities</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.5-Filing-Issues.html"><strong>6.6.</strong> Filing Issues</a></li><li><a href="Appendix/A.3-Maintaining-the-Wiki.html"><strong>6.7.</strong> Maintaining the Wiki</a></li></ul></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html#db-api" id="db-api"><h1>DB API</h1></a>
+<p>NOTE: currently under development.</p>
+<a class="header" href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html#api-functions" id="api-functions"><h2>API Functions</h2></a>
+<a class="header" href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html#main-api-functions" id="main-api-functions"><h3>Main API Functions</h3></a>
+<pre><code>record_data_sample(hostname varchar,
+                   data_group varchar,
+                   data_item varchar,
+                   time_stamp varchar,
+                   data_type_id integer,
+                   value_int bigint,
+                   value_real double precision,
+                   value_str varchar,
+                   units varchar)
+</code></pre>
+<ul>
+<li>Synopsis: records a data sample corresponding to metric data being collected for a node on the cluster, for example: system environmental data, performance data, power management states, etc.</li>
+<li>Notes:
+<ul>
+<li>The following records will be added if they don't already exist: host and data item.</li>
+</ul>
+</li>
+<li>Parameters:
+<ul>
+<li>hostname</li>
+<li>data_group: the name of the group this sample belongs to.  This allows grouping data items and avoiding name conflicts with data being collected by different Sensys components.</li>
+<li>data_item: the name of the data item that was collected.</li>
+<li>time_stamp: the time stamp at which the sample was collected.</li>
+<li>data_type_id: the data type ID (as assigned by the application).</li>
+<li>value_int: the actual value of the sample when the value is of type integer.  Specify NULL if not of this type.</li>
+<li>value_real: the actual value of the sample when the value is of type real.  Specify NULL if not of this type.</li>
+<li>value_str: the actual value of the sample when the value is of type string.  Specify NULL if not of this type.</li>
+<li>units: the data units for the sample (if applicable).</li>
+</ul>
+</li>
+<li>Returns: void.</li>
+</ul>
+<pre><code>set_node_feature(hostname varchar,
+                 feature varchar,
+                 data_type_id integer,
+                 value_int bigint,
+                 value_real double precision,
+                 value_str varchar,
+                 units varchar)
+</code></pre>
+<ul>
+<li>Synopsis: sets a particular feature for a given node, for example: number of sockets, cache, RAM, etc.  This is part of the inventory and it is useful for characterizing nodes (information that may be needed by the resource manager).</li>
+<li>Notes:
+<ul>
+<li>The following records will be added if they don't already exist: host and feature.</li>
+<li>If the specified feature has not already been defined for the given node, it will be defined automatically.  Otherwise, it will simply be updated with the new value.</li>
+</ul>
+</li>
+<li>Parameters:
+<ul>
+<li>hostname</li>
+<li>feature: the name of the feature.</li>
+<li>data_type_id: the data type ID (as assigned by the application).</li>
+<li>value_int: the actual value of the feature when the value is of type integer.  Specify NULL if not of this type.</li>
+<li>value_real: the actual value of the feature when the value is of type real.  Specify NULL if not of this type.</li>
+<li>value_str: the actual value of the feature when the value is of type string.  Specify NULL if not of this type.</li>
+<li>units: the data units for the feature value (if applicable).</li>
+</ul>
+</li>
+<li>Returns: void.</li>
+</ul>
+<pre><code>record_diag_test(hostname varchar,
+                 diag_type varchar,
+                 diag_subtype varchar,
+                 start_time timestamp without time zone,
+                 end_time timestamp without time zone,
+                 component_index integer,
+                 test_result varchar)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new instance of a diagnostic test that has been run.</li>
+<li>Parameters:
+<ul>
+<li>hostname</li>
+<li>diag_type: the name of the diagnostic type corresponding to the test.</li>
+<li>diag_subtype: the name of the diagnostic sub type corresponding to the test.</li>
+<li>start_time: the test's start time.</li>
+<li>end_time: the test's end time.</li>
+<li>component_index: an index to identify a particular instance of the component type that was tested.</li>
+<li>test_result: the test result.</li>
+</ul>
+</li>
+<li>Returns: void.</li>
+</ul>
+<pre><code>record_diag_test_config(hostname varchar,
+                        diag_type varchar,
+                        diag_subtype varchar,
+                        start_time timestamp without time zone,
+                        test_param varchar,
+                        value_int bigint,
+                        value_real double precision,
+                        value_str varchar,
+                        units varchar)
+</code></pre>
+<ul>
+<li>Synopsis: adds a test parameter associated to a diagnostic test that has been run.</li>
+<li>Parameters:
+<ul>
+<li>hostname</li>
+<li>diag_type: the name of the diagnostic type corresponding to the test.</li>
+<li>diag_subtype: the name of the diagnostic sub type corresponding to the test.</li>
+<li>start_time: the test's start time.</li>
+<li>test_param: the name of the test parameter being added to the test.</li>
+<li>value_int: the actual value of the test parameter when the value is of type integer.  Specify NULL if not of this type.</li>
+<li>value_real: the actual value of the test parameter when the value is of type real.  Specify NULL if not of this type.</li>
+<li>value_str: the actual value of the test parameter when the value is of type string.  Specify NULL if not of this type.</li>
+<li>units: the data units for the test parameter (if applicable).</li>
+</ul>
+</li>
+<li>Returns: void.</li>
+</ul>
+<pre><code>record_node_calibration_data(calibration_id integer,
+                             frequency integer,
+                             hostname varchar,
+                             run_time double precision,
+                             idle_power double precision,
+                             min_power double precision,
+                             avg_power double precision,
+                             max_power double precision,
+                             peak_power double precision,
+                             temperature double precision)
+</code></pre>
+<ul>
+<li>Synopsis: adds a node calibration data set for a particular node within a given calibration.</li>
+<li>Parameters:
+<ul>
+<li>calibration_id: the calibration ID this node calibration data belongs to.</li>
+<li>frequency: the frequency used during the iteration this node calibration data belongs to.</li>
+<li>hostname</li>
+<li>run_time</li>
+<li>idle_power</li>
+<li>min_power</li>
+<li>avg_power</li>
+<li>max_power</li>
+<li>peak_power</li>
+<li>temperature</li>
+</ul>
+</li>
+<li>Returns: void.</li>
+</ul>
+<a class="header" href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html#secondary-api-functions-helper-functions" id="secondary-api-functions-helper-functions"><h3>Secondary API Functions (Helper Functions)</h3></a>
+<pre><code>add_calibration(start_time timestamp,
+                workload_name varchar)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new calibration record which can later be used to record node calibration data.</li>
+<li>Parameters:
+<ul>
+<li>start_time: the start time for this calibration.</li>
+<li>workload_name: the name of the workload used for the calibration.</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the newly added calibration.</li>
+</ul>
+<pre><code>add_calibration_iteration(calibration_id integer,
+                          frequency integer)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new calibration iteration to a calibration.</li>
+<li>Parameters:
+<ul>
+<li>calibration_id: the calibration ID this iteration belongs to.</li>
+<li>frequency: the frequency used during this iteration.</li>
+</ul>
+</li>
+<li>Returns: integer: the iteration number.</li>
+</ul>
+<pre><code>add_data_item(data_item varchar,
+              data_type integer)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new data item that can be used when recording data samples.</li>
+<li>Parameters:
+<ul>
+<li>data_item: the name of the data item.</li>
+<li>data_type: the data item type: 1 for numeric and 2 for string.</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the newly added data item.</li>
+</ul>
+<pre><code>add_data_sample(node_id integer,
+                data_item_id integer,
+                time_stamp timestamp,
+                value_int bigint,
+                value_real double precision,
+                value_str varchar,
+                units varchar)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new data sample representing metric data corresponding to a node in the cluster.</li>
+<li>Parameters:
+<ul>
+<li>node_id: the node's ID as assigned to it in the database.</li>
+<li>data_item_id: the data item's ID as assigned to it in the database.</li>
+<li>time_stamp: the time stamp at which the sample was collected.</li>
+<li>value_int: the actual value of the sample when the value is of type integer.  Specify NULL if not of this type.</li>
+<li>value_real: the actual value of the sample when the value is of type real.  Specify NULL if not of this type.</li>
+<li>value_str: the actual value of the sample when the value is of type string.  Specify NULL if not of this type.</li>
+<li>units: the data units for the sample (if applicable).</li>
+</ul>
+</li>
+<li>Returns: void.</li>
+</ul>
+<pre><code>add_data_type(data_type_id integer,
+              name varchar)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new data type that can be associated to data samples, node features, diagnostic test parameters, etc.</li>
+<li>Parameters:
+<ul>
+<li>data_type_id: the ID as assigned to it by the application (which it can use later for casting when retrieving data from the database).</li>
+<li>name: the name of the data type.</li>
+</ul>
+</li>
+<li>Returns: void.</li>
+</ul>
+<pre><code>add_diag(diag_type_id integer,
+         diag_subtype_id integer)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new diagnostic test definition, composed of a diagnostic type and a sub type.</li>
+<li>Parameters:
+<ul>
+<li>diag_type_id: the diagnostic type ID as assigned to it in the database.</li>
+<li>diag_subtype_id: the diagnostic subtype ID as assigned to it in the database.</li>
+</ul>
+</li>
+<li>Returns: void.</li>
+</ul>
+<pre><code>add_diag_subtype(name varchar)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new diagnostic test sub type.</li>
+<li>Parameters:
+<ul>
+<li>name: the name of the diagnostic sub type.</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the newly added diagnostic sub type.</li>
+</ul>
+<pre><code>add_diag_test(node_id integer,
+              diag_type_id integer,
+              diag_subtype_id integer,
+              start_time timestamp without time zone,
+              end_time timestamp without time zone,
+              component_index integer,
+              test_result_id integer)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new instance of a diagnostic test that has been run.</li>
+<li>Parameters:
+<ul>
+<li>node_id: the ID of the node (as assigned to it in the database) where the test was run.</li>
+<li>diag_type_id: the ID of the diagnostic type (as assigned to it in the database) corresponding to the test.</li>
+<li>diag_subtype_id: the ID of the diagnostic sub type (as assigned to it in the database) corresponding to the test.</li>
+<li>start_time: the test's start time.</li>
+<li>end_time: the test's end time.</li>
+<li>component_index: an index to identify a particular instance of the component type that was tested.</li>
+<li>test_result_id: the ID corresponding to the test result (as assigned to it in the database).</li>
+</ul>
+</li>
+<li>Returns: void.</li>
+</ul>
+<pre><code>add_diag_test_config(node_id integer,
+                     diag_type_id integer,
+                     diag_subtype_id integer,
+                     start_time timestamp without time zone,
+                     test_param_id integer,
+                     value_int bigint,
+                     value_real double precision,
+                     value_str varchar,
+                     units varchar)
+</code></pre>
+<ul>
+<li>Synopsis: adds a test parameter associated to a diagnostic test that has been run.</li>
+<li>Parameters:
+<ul>
+<li>node_id: the ID of the node (as assigned to it in the database) where the test was run.</li>
+<li>diag_type_id: the ID of the diagnostic type (as assigned to it in the database) corresponding to the test.</li>
+<li>diag_subtype_id: the ID of the diagnostic sub type (as assigned to it in the database) corresponding to the test.</li>
+<li>start_time: the test's start time.</li>
+<li>test_param_id: the ID of the test parameter (as assigned to it in the database) being added to the test.</li>
+<li>value_int: the actual value of the test parameter when the value is of type integer.  Specify NULL if not of this type.</li>
+<li>value_real: the actual value of the test parameter when the value is of type real.  Specify NULL if not of this type.</li>
+<li>value_str: the actual value of the test parameter when the value is of type string.  Specify NULL if not of this type.</li>
+<li>units: the data units for the test parameter (if applicable).</li>
+</ul>
+</li>
+<li>Returns: void.</li>
+</ul>
+<pre><code>add_diag_type(name varchar)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new diagnostic test type.</li>
+<li>Parameters:
+<ul>
+<li>name: the name of the diagnostic type.</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the newly added diagnostic type.</li>
+</ul>
+<pre><code>add_feature(feature varchar,
+            data_type_id integer)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new feature that can later be used to set features for nodes.</li>
+<li>Parameters:
+<ul>
+<li>feature: the name of the feature.</li>
+<li>data_type_id: the ID of the data type (as defined by the application) for this feature.</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the newly added feature.</li>
+</ul>
+<pre><code>add_node(hostname varchar)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new node.</li>
+<li>Parameters:
+<ul>
+<li>hostname</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the newly added node.</li>
+</ul>
+<pre><code>add_node_calibration_data(calibration_id integer,
+                          iteration integer,
+                          node_id integer,
+                          run_time double precision,
+                          idle_power double precision,
+                          min_power double precision,
+                          avg_power double precision,
+                          max_power double precision,
+                          peak_power double precision,
+                          temperature double precision)
+</code></pre>
+<ul>
+<li>Synopsis: adds a node calibration data set for a particular node within a given calibration.</li>
+<li>Parameters:
+<ul>
+<li>calibration_id: the calibration ID this node calibration data belongs to.</li>
+<li>iteration: the iteration number within the calibration.</li>
+<li>node_id: the node ID (as assigned to it in the database).</li>
+<li>run_time</li>
+<li>idle_power</li>
+<li>min_power</li>
+<li>avg_power</li>
+<li>max_power</li>
+<li>peak_power</li>
+<li>temperature</li>
+</ul>
+</li>
+<li>Returns: void.</li>
+</ul>
+<pre><code>add_node_feature(node_id integer,
+                 feature_id integer,
+                 value_int bigint,
+                 value_real double precision,
+                 value_str varchar,
+                 units varchar)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new feature for a given node.</li>
+<li>Parameters:
+<ul>
+<li>node_id: the node's ID as assigned to it in the database.</li>
+<li>feature_id: the feature's ID as assigned to it in the database.</li>
+<li>value_int: the actual value of the node feature when the value is of type integer.  Specify NULL if not of this type.</li>
+<li>value_real: the actual value of the node feature when the value is of type real.  Specify NULL if not of this type.</li>
+<li>value_str: the actual value of the node feature when the value is of type string.  Specify NULL if not of this type.</li>
+<li>units: the data units for the node feature value (if applicable).</li>
+</ul>
+</li>
+<li>Returns: void.</li>
+</ul>
+<pre><code>add_test_param(test_param varchar,
+               data_type_id integer)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new test parameter that can later be used to specify parameters for diagnostics tests.</li>
+<li>Parameters:
+<ul>
+<li>test_param: the name of the test parameter.</li>
+<li>data_type_id: the ID of the data type (as defined by the application) for this test parameter.</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the newly added test parameter.</li>
+</ul>
+<pre><code>add_test_result(test_result varchar)
+</code></pre>
+<ul>
+<li>Synopsis: adds a new test result that can later be used to specify results for diagnostics tests.</li>
+<li>Parameters:
+<ul>
+<li>test_result: the name or description of the test result.</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the newly added test result.</li>
+</ul>
+<pre><code>data_type_exists(data_type_id varchar)
+</code></pre>
+<ul>
+<li>Synopsis: checks whether a specified data type exists or not.</li>
+<li>Parameters:
+<ul>
+<li>data_type_id: the ID of the data type (as defined by the application).</li>
+</ul>
+</li>
+<li>Returns: boolean: true if the data type already exists and false otherwise.</li>
+</ul>
+<pre><code>diag_exists(diag_type varchar,
+            diag_subtype varchar)
+</code></pre>
+<ul>
+<li>Synopsis: checks whether a specified diagnostic type-sub-type combination exists or not.</li>
+<li>Parameters:
+<ul>
+<li>diag_type: the name of the diagnostic type.</li>
+<li>diag_subtype: the name of the diagnostic sub type.</li>
+</ul>
+</li>
+<li>Returns: boolean: true if the diagnostic type-sub-type combination already exists and false otherwise.</li>
+</ul>
+<pre><code>diag_exists(diag_type_id integer,
+            diag_subtype_id integer)
+</code></pre>
+<ul>
+<li>Synopsis: checks whether a specified diagnostic type-sub-type combination exists or not.</li>
+<li>Parameters:
+<ul>
+<li>diag_type_id: the ID of the diagnostic type (as assigned to it in the database).</li>
+<li>diag_subtype_id: the ID of the diagnostic sub type (as assigned to it in the database).</li>
+</ul>
+</li>
+<li>Returns: boolean: true if the diagnostic type-sub-type combination already exists and false otherwise.</li>
+</ul>
+<pre><code>get_data_item_id(data_item varchar)
+</code></pre>
+<ul>
+<li>Synopsis: gets the ID for a given data item as assigned to it in the database.</li>
+<li>Parameters:
+<ul>
+<li>data_item: the name of the data item.</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the given data item.  If the specified data item is not found, 0 is returned.</li>
+</ul>
+<pre><code>get_diag_subtype_id(diag_subtype varchar)
+</code></pre>
+<ul>
+<li>Synopsis: gets the ID for a given diagnostic sub type as assigned to it in the database.</li>
+<li>Parameters:
+<ul>
+<li>diag_subtype: the name of the diagnostic sub type.</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the given diagnostic sub type.  If not found, 0 is returned.</li>
+</ul>
+<pre><code>get_diag_type_id(diag_type varchar)
+</code></pre>
+<ul>
+<li>Synopsis: gets the ID for a given diagnostic type as assigned to it in the database.</li>
+<li>Parameters:
+<ul>
+<li>diag_type: the name of the diagnostic type.</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the given diagnostic type.  If not found, 0 is returned.</li>
+</ul>
+<pre><code>get_feature_id(feature varchar)
+</code></pre>
+<ul>
+<li>Synopsis: gets the ID for a given feature as assigned to it in the database.</li>
+<li>Parameters:
+<ul>
+<li>feature: the name of the feature.</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the given feature.  If the specified data item is not found, 0 is returned.</li>
+</ul>
+<pre><code>get_node_id(hostname varchar)
+</code></pre>
+<ul>
+<li>Synopsis: gets the ID for a given node as assigned to it in the database.</li>
+<li>Parameters:
+<ul>
+<li>hostname</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the given node.  If the specified node is not found, 0 is returned.</li>
+</ul>
+<pre><code>get_test_param_id(test_param varchar)
+</code></pre>
+<ul>
+<li>Synopsis: gets the ID for a given test parameter as assigned to it in the database.</li>
+<li>Parameters:
+<ul>
+<li>test_param: the name of the test parameter.</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the given test parameter.  If not found, 0 is returned.</li>
+</ul>
+<pre><code>get_test_result_id(test_result varchar)
+</code></pre>
+<ul>
+<li>Synopsis: gets the ID for a given test result type as assigned to it in the database.</li>
+<li>Parameters:
+<ul>
+<li>test_result: the name of the test result type.</li>
+</ul>
+</li>
+<li>Returns: integer: the ID of the given test result type.  If not found, 0 is returned.</li>
+</ul>
+<pre><code>node_feature_exists(node_id integer,
+                    feature_id integer)
+</code></pre>
+<ul>
+<li>Synopsis: check if a given feature has been defined for a particular node.</li>
+<li>Parameters:
+<ul>
+<li>node_id: the node ID as assigned to it in the database.</li>
+<li>feature_id: the feature ID as assigned to it in the database.</li>
+</ul>
+</li>
+<li>Returns: boolean: true if the given feature has been defined for the given node and false otherwise.</li>
+</ul>
+<pre><code>update_node_feature(node_id integer,
+                    feature_id integer,
+                    value_int bigint,
+                    value_real double precision,
+                    value_str varchar,
+                    units varchar)
+</code></pre>
+<ul>
+<li>Synopsis: apply changes to a given node feature.</li>
+<li>Parameters:
+<ul>
+<li>node_id: the node's ID as assigned to it in the database.</li>
+<li>feature_id: the feature ID as assigned to it in the database.</li>
+<li>value_int: the actual value of the feature when the value is of type integer.  Specify NULL if not of this type.</li>
+<li>value_real: the actual value of the feature when the value is of type real.  Specify NULL if not of this type.</li>
+<li>value_str: the actual value of the feature when the value is of type string.  Specify NULL if not of this type.</li>
+<li>units: the data units for the feature value (if applicable).</li>
+</ul>
+</li>
+<li>Returns: void.</li>
+</ul>
+<a class="header" href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html#db-views" id="db-views"><h3>DB Views</h3></a>
+<pre><code>data_samples_view
+</code></pre>
+<ul>
+<li>Synopsis: provides a view to all the data samples that have been collected.</li>
+<li>Columns:
+<ul>
+<li>node_id: the ID of the node as assigned to it in the database.</li>
+<li>hostname</li>
+<li>data_item_id: the ID of the data item as assigned to it in the database.</li>
+<li>data_item: the name of the data item.</li>
+<li>data_type: the data item type: 1 for numeric and 2 for string.</li>
+<li>time_stamp: the time stamp at which the sample was collected.</li>
+<li>value_int: the actual value of the sample (if integer, NULL otherwise).</li>
+<li>value_real: the actual value of the sample (if real, NULL otherwise).</li>
+<li>value_str: the actual value of the sample (if string, NULL otherwise).</li>
+<li>units: the sample units (if applicable).</li>
+</ul>
+</li>
+</ul>
+<pre><code>node_features_view
+</code></pre>
+<ul>
+<li>Synopsis: provides a view to all the node features that have been set for all nodes.  Further filtering is necessary to retrieve the features of a particular node.</li>
+<li>Columns:
+<ul>
+<li>node_id: the node ID as assigned to it in the database.</li>
+<li>hostname</li>
+<li>feature_id: the feature ID as assigned to it in the database.</li>
+<li>feature: the feature name.</li>
+<li>value_int: the actual value of the feature (if integer, NULL otherwise).</li>
+<li>value_real: the actual value of the feature (if real, NULL otherwise).</li>
+<li>value_str: the actual value of the feature (if string, NULL otherwise).</li>
+<li>units: the value units (if applicable).</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.2-DB-Framework-API.html" class="mobile-nav-chapters previous">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="4-Developer-Guide/4.3-Sensys-DB-Schema/4.3.1-DB-Schema-V2,0.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.2-DB-Framework-API.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="4-Developer-Guide/4.3-Sensys-DB-Schema/4.3.1-DB-Schema-V2,0.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>

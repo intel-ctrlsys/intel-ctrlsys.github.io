@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sensor Plugin Build Install - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="../../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="Home.html">Introduction</a></li><li><a href="1-Sensys/1.1-Overview.html"><strong>1.</strong> Sensys</a></li><li><ul class="section"><li><a href="1-Sensys/1.2-Core-Features.html"><strong>1.1.</strong> Core features</a></li></ul></li><li><strong>2.</strong> Sensys Build and Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.01-Build-Dependencies.html"><strong>2.1.</strong> Build Dependencies</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.02-Pre-build-Configuration.html"><strong>2.2.</strong> Pre build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.03-Build-From-SRPMS.html"><strong>2.3.</strong> Build From SRPMS</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.04-Relocate-RPM-Install-Path.html"><strong>2.4.</strong> Relocate RPM Install Path</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.05-Build-From-Source-Tar-Files.html"><strong>2.5.</strong> Build From Source Tar Files</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.06-Build-From-GitHub-Repo.html"><strong>2.6.</strong> Build From GitHub Repo</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.07-Post-build-Configuration.html"><strong>2.7.</strong> Post build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.08-Setting-Up-pre-requisites-for-RAS-Monitoring.html"><strong>2.8.</strong> Setting Up pre requisites for RAS Monitoring</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.09-Startup-Instructions.html"><strong>2.9.</strong> Startup Instructions</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.10-Troubleshooting.html"><strong>2.10.</strong> Troubleshooting</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.11-Setting-MCA-Parameters.html"><strong>2.11.</strong> Setting MCA Parameters</a></li><li><strong>2.12.</strong> Database Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.1-Database-Server.html"><strong>2.12.1.</strong> Database Server</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html"><strong>2.12.2.</strong> Database Connectivity</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.3-Enabling-Data-Purge.html"><strong>2.12.3.</strong> Enabling Data Purge</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.4-Monitoring-Database-Size.html"><strong>2.12.4.</strong> Monitoring Database Size</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.5-Database-Distro-Specific-Examples.html"><strong>2.12.5.</strong> Database Distro Specific Examples</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.6-Database-ZeroMQ-Publishing.html"><strong>2.12.6.</strong> Database ZeroMQ Publishing</a></li></ul></li></ul></li><li><strong>3.</strong> Sensys User Guide</li><li><ul class="section"><li><a href="3-Sensys-User-Guide/3.1-Overview.html"><strong>3.1.</strong> Overview</a></li><li><a href="3-Sensys-User-Guide/3.2-orcmd.html"><strong>3.2.</strong> orcmd</a></li><li><a href="3-Sensys-User-Guide/3.3-orcmsched.html"><strong>3.3.</strong> orcmsched</a></li><li><a href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html"><strong>3.4.</strong> Sensys CFGI User Guide</a></li><li><a href="3-Sensys-User-Guide/3.5-Sensys-Regex.html"><strong>3.5.</strong> Sensys Regex</a></li><li><a href="3-Sensys-User-Guide/3.6-Sensys-Logical-Grouping.html"><strong>3.6.</strong> Sensys Logical Grouping</a></li><li><a href="3-Sensys-User-Guide/3.7-octl.html"><strong>3.7.</strong> octl</a></li><li><a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html"><strong>3.8.</strong> RAS Monitoring</a></li><li><a href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html"><strong>3.9.</strong> Data Smoothing Algorithms Analytics</a></li><li><a href="3-Sensys-User-Guide/3.10-ErrorManager-Notification.html"><strong>3.10.</strong> ErrorManager Notification</a></li><li><a href="3-Sensys-User-Guide/3.11-Diagnostics.html"><strong>3.11.</strong> Diagnostics</a></li><li><a href="3-Sensys-User-Guide/3.12-Sensys-Security-Aspects.html"><strong>3.12.</strong> Sensys Security Aspects</a></li><li><a href="3-Sensys-User-Guide/3.13-Sensys-Database-Multiple-Threads.html"><strong>3.13.</strong> Sensys Database Multiple Threads</a></li><li><a href="3-Sensys-User-Guide/3.14-Sensys-Database-Multi-Select.html"><strong>3.14.</strong> Sensys Database Multi Select</a></li></ul></li><li><strong>4.</strong> Developer Guide</li><li><ul class="section"><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.1-DB-Framework-API-Design.html"><strong>4.1.</strong> DB Framework API Design</a></li><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.2-DB-Framework-API.html"><strong>4.2.</strong> DB Framework API</a></li><li><a href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html"><strong>4.3.</strong> DB API</a></li><li><a href="4-Developer-Guide/4.3-Sensys-DB-Schema/4.3.1-DB-Schema-V2,0.html"><strong>4.4.</strong> DB Schema V2,0</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.1-Analytics-Plugin-API.html"><strong>4.5.</strong> Analytics Plugin API</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.2-Analytics-Plugin-Development.html"><strong>4.6.</strong> Analytics Plugin Development</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.3-Analytics-Plugin-Build-Install.html"><strong>4.7.</strong> Analytics Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.1-Sensor-Plugin-API.html"><strong>4.8.</strong> Sensor Plugin API</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.2-Sensor-Plugin-Development.html"><strong>4.9.</strong> Sensor Plugin Development</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.3-Sensor-Plugin-Build-Install.html" class="active"><strong>4.10.</strong> Sensor Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.6-dataContainer-reference.html"><strong>4.11.</strong> <code>dataContainer</code> class reference</a></li></ul></li><li><strong>5.</strong> Testing</li><li><ul class="section"><li><a href="5-Testing/5.1-Docker/5.1.1-Centos-Docker-Guide.html"><strong>5.1.</strong> Centos Docker Guide</a></li><li><a href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html"><strong>5.2.</strong> Multihost Docker</a></li><li><a href="5-Testing/5.1-Docker/5.1.3-Cluster-Docker.html"><strong>5.3.</strong> Cluster Docker</a></li></ul></li><li><strong>6.</strong> Appendix</li><li><ul class="section"><li><a href="Appendix/A.1-Terminology.html"><strong>6.1.</strong> Terminology</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.1-Following-the-Open-MPI-Model.html"><strong>6.2.</strong> Following the Open MPI Model</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.2-Contributing-to-the-Source-Code.html"><strong>6.3.</strong> Contributing to the Source Code</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.3-Development-Process.html"><strong>6.4.</strong> Development Process</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.4-Roles-and-Responsibilities.html"><strong>6.5.</strong> Roles and Responsibilities</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.5-Filing-Issues.html"><strong>6.6.</strong> Filing Issues</a></li><li><a href="Appendix/A.3-Maintaining-the-Wiki.html"><strong>6.7.</strong> Maintaining the Wiki</a></li></ul></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.3-Sensor-Plugin-Build-Install.html#build-and-installation-of-a-sensor-plugin" id="build-and-installation-of-a-sensor-plugin"><h1>Build and installation of a sensor plugin</h1></a>
+<p>Considering the dynamic architecture of the <code>udsensors</code> plugins, it only has one dependency with the SenSys plugins library, which contains the symbols of the <code>dataContainer</code> class. Plugins can be installed in any location, and the path should be passed to the monitoring system by means of a MCA variable. There are two methods to build a plugin library:</p>
+<a class="header" href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.3-Sensor-Plugin-Build-Install.html#build-plugin-library-as-part-of-sensys" id="build-plugin-library-as-part-of-sensys"><h2>Build Plugin Library as part of Sensys</h2></a>
+<p>To build your plugin as part of the Sensys build system you will need to perform the following steps:</p>
+<ol>
+<li>
+<p>Create a directory for your plugin code under <code>orcm/sensor/udsensor</code>. For example: orcm/sensor/udsensor/rand_generator.</p>
+</li>
+<li>
+<p>A <code>Makefile.am</code> file for your plugin library is needed.
+A Makefile for the example <code>rand_generator</code> plugin would look like this:</p>
+<pre><code>rand_generator_sources = \
+    rand_generator/rand_generator.hpp \
+    rand_generator/rand_generator.cpp
+
+if WITH_RAND_GENERATOR # set if --with-rand-generator=yes option is passed in configure step
+    component_install += libudplugin_rand_generator.la
+endif
+
+libudplugin_rand_generator_la_SOURCES = $(rand_generator_sources)
+libudplugin_rand_generator_la_LDFLAGS = -module -avoid-version
+libudplugin_rand_generator_la_LIBADD  = $(top_builddir)/orcm/common/libsensysplugins.la
+</code></pre>
+<p>And it can be found here: <code>orcm/sensor/udsensor/rand_generator/Makefile.am</code>.</p>
+<p><strong>Note:</strong> The library name must start with a <code>libudplugin_</code> prefix, so udsensor can find it and load the plugin.</p>
+</li>
+<li>
+<p>Include your plugin Makefile in the udsensor Makefile.</p>
+<p>Find the <code>include</code> directive at the end of the <code>orcm/sensor/udsensor/Makefile.am</code> file and append your Makefile.am at the end of the line.</p>
+<pre><code>include rand_generator/Makefile.am
+</code></pre>
+<p><strong>Note:</strong> Whitespace is required between include and the file names.</p>
+</li>
+<li>
+<p>Add a configuration to enable/disable your plugin compilation.</p>
+<p>You could add a configure parameter to specify whether you want your plugin to be compiled or not. To do so, you will need to add something like this in the <code>orcm/mca/sensor/udsensors/configure.m4</code> file:</p>
+<pre><code>AC_ARG_WITH([rand_generator],
+            [AC_HELP_STRING([--with-rand-generator],
+                            [Build rand_generator sensor plugin support (default: no)])],
+                            [], with_rand_generator=no)
+
+AM_CONDITIONAL([WITH_RAND_GENERATOR], [test &quot;$with_rand_generator&quot; = &quot;yes&quot;])
+</code></pre>
+<p>With this option, you could add <code>--with-rand-generator=yes</code> or <code>--with-rand-generator=no</code>  to the <code>./configure</code> command to enable or disable compilation of your plugin.
+Another way to do it is by adding <code>with_rand_generator=yes</code> or <code>with_rand_generator=no</code> in your platform configuration file; i.e. <code>contrib/platform/intel/hillsboro/orcm-linux</code>.</p>
+<p><strong>Note:</strong> If you use option <code>--with-udsensors=no</code> or <code>with_udsensors=no</code>, any udsensor code or plugin will be built.</p>
+</li>
+<li>
+<p>Follow steps for building Sensys from <a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.05-Build-From-Source-Tar-Files.html">source tar</a> or a <a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.06-Build-From-GitHub-Repo.html">repository</a></p>
+</li>
+</ol>
+<a class="header" href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.3-Sensor-Plugin-Build-Install.html#build-plugin-library-outside-sensys" id="build-plugin-library-outside-sensys"><h2>Build Plugin Library outside Sensys</h2></a>
+<p>Assuming the monitoring system is installed in <code>/opt/sensys</code>, and using GNU <code>g++</code> compiler, the following compilation command can be used:</p>
+<pre><code>    g++ -O3 -fPIC -I/opt/sensys/include/openmpi/ -L/opt/sensys/lib/ -shared -rdynamic \
+         -lsensysplugins rand_generator.cpp -o libudplugin_rand_generator.so
+</code></pre>
+<p>The following <code>Makefile</code> example can be customized for convenience:</p>
+<pre><code>    SENSORPLUGIN=rand_generator
+    PLUGINPREFIX=libudplugin_
+    CXX=g++
+    SENSYSPATH=/opt/sensys
+    SENSYSLIBPATH=$(SENSYSPATH)/lib
+    PLUGININSTALLPATH=$(SENSYSLIBPATH)/openmpi
+    CXXFLAGS=-O3 -fPIC -I$(SENSYSPATH)/include/openmpi/
+    LDFLAGS=-L$(SENSYSLIBPATH) -shared -rdynamic -lsensysplugins
+
+    all:
+            $(CXX) $(CXXFLAGS) $(LDFLAGS) $(SENSORPLUGIN).cpp -o $(PLUGINPREFIX)$(SENSORPLUGIN).so
+
+    install: all
+            install $(PLUGINPREFIX)$(SENSORPLUGIN).so $(PLUGININSSTALLPATH)
+
+    clean:
+            -rm *.o
+            -rm *.so
+</code></pre>
+<a class="header" href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.3-Sensor-Plugin-Build-Install.html#loading-plugins-into-the-monitoring-system" id="loading-plugins-into-the-monitoring-system"><h2>Loading plugins into the monitoring system</h2></a>
+<p>All of the user defined sensor plugins are being handled by a Sensys sensor plugin named <code>udsensors</code>. The sampling would be performed at the specified sample rate for that plugin, serially requesting the samples to each of the registered plugins.</p>
+<p>The following MCA parameters are supported for <code>udsensors</code>:</p>
+<ul>
+<li><strong>use_progress_thread</strong>: Use a dedicated progress thread for <code>udsensors</code> sensors [default: false]. This is a thread for the whole <code>udsensors</code> handler, not for each of the user defined plugins.</li>
+<li><strong>sample_rate</strong>: Sample rate in seconds. As with every other sensor plugin, this sample rate is applicable if the handler is running on its own thread. If not, it will sample at the base sample rate.</li>
+<li><strong>collect_metrics</strong>: Enable metric collection for the udsensors plugin.</li>
+<li><strong>path</strong> : User-defined sensors path. By default, sensors would be searched in the installation path, within the <code>lib/openmpi</code> directory.</li>
+</ul>
+<p>Assuming that user defined plugins and headers are located in the default path, the simplest way to start the daemon for sampling <code>udsensors</code> is:</p>
+<pre><code>    % orcmd --omca sensor heartbeat,udsensors
+</code></pre>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.2-Sensor-Plugin-Development.html" class="mobile-nav-chapters previous">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="4-Developer-Guide/4.6-dataContainer-reference.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.2-Sensor-Plugin-Development.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="4-Developer-Guide/4.6-dataContainer-reference.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>

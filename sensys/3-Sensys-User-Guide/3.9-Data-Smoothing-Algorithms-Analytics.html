@@ -1,0 +1,435 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Data Smoothing Algorithms Analytics - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="Home.html">Introduction</a></li><li><a href="1-Sensys/1.1-Overview.html"><strong>1.</strong> Sensys</a></li><li><ul class="section"><li><a href="1-Sensys/1.2-Core-Features.html"><strong>1.1.</strong> Core features</a></li></ul></li><li><strong>2.</strong> Sensys Build and Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.01-Build-Dependencies.html"><strong>2.1.</strong> Build Dependencies</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.02-Pre-build-Configuration.html"><strong>2.2.</strong> Pre build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.03-Build-From-SRPMS.html"><strong>2.3.</strong> Build From SRPMS</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.04-Relocate-RPM-Install-Path.html"><strong>2.4.</strong> Relocate RPM Install Path</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.05-Build-From-Source-Tar-Files.html"><strong>2.5.</strong> Build From Source Tar Files</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.06-Build-From-GitHub-Repo.html"><strong>2.6.</strong> Build From GitHub Repo</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.07-Post-build-Configuration.html"><strong>2.7.</strong> Post build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.08-Setting-Up-pre-requisites-for-RAS-Monitoring.html"><strong>2.8.</strong> Setting Up pre requisites for RAS Monitoring</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.09-Startup-Instructions.html"><strong>2.9.</strong> Startup Instructions</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.10-Troubleshooting.html"><strong>2.10.</strong> Troubleshooting</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.11-Setting-MCA-Parameters.html"><strong>2.11.</strong> Setting MCA Parameters</a></li><li><strong>2.12.</strong> Database Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.1-Database-Server.html"><strong>2.12.1.</strong> Database Server</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html"><strong>2.12.2.</strong> Database Connectivity</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.3-Enabling-Data-Purge.html"><strong>2.12.3.</strong> Enabling Data Purge</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.4-Monitoring-Database-Size.html"><strong>2.12.4.</strong> Monitoring Database Size</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.5-Database-Distro-Specific-Examples.html"><strong>2.12.5.</strong> Database Distro Specific Examples</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.6-Database-ZeroMQ-Publishing.html"><strong>2.12.6.</strong> Database ZeroMQ Publishing</a></li></ul></li></ul></li><li><strong>3.</strong> Sensys User Guide</li><li><ul class="section"><li><a href="3-Sensys-User-Guide/3.1-Overview.html"><strong>3.1.</strong> Overview</a></li><li><a href="3-Sensys-User-Guide/3.2-orcmd.html"><strong>3.2.</strong> orcmd</a></li><li><a href="3-Sensys-User-Guide/3.3-orcmsched.html"><strong>3.3.</strong> orcmsched</a></li><li><a href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html"><strong>3.4.</strong> Sensys CFGI User Guide</a></li><li><a href="3-Sensys-User-Guide/3.5-Sensys-Regex.html"><strong>3.5.</strong> Sensys Regex</a></li><li><a href="3-Sensys-User-Guide/3.6-Sensys-Logical-Grouping.html"><strong>3.6.</strong> Sensys Logical Grouping</a></li><li><a href="3-Sensys-User-Guide/3.7-octl.html"><strong>3.7.</strong> octl</a></li><li><a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html"><strong>3.8.</strong> RAS Monitoring</a></li><li><a href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html" class="active"><strong>3.9.</strong> Data Smoothing Algorithms Analytics</a></li><li><a href="3-Sensys-User-Guide/3.10-ErrorManager-Notification.html"><strong>3.10.</strong> ErrorManager Notification</a></li><li><a href="3-Sensys-User-Guide/3.11-Diagnostics.html"><strong>3.11.</strong> Diagnostics</a></li><li><a href="3-Sensys-User-Guide/3.12-Sensys-Security-Aspects.html"><strong>3.12.</strong> Sensys Security Aspects</a></li><li><a href="3-Sensys-User-Guide/3.13-Sensys-Database-Multiple-Threads.html"><strong>3.13.</strong> Sensys Database Multiple Threads</a></li><li><a href="3-Sensys-User-Guide/3.14-Sensys-Database-Multi-Select.html"><strong>3.14.</strong> Sensys Database Multi Select</a></li></ul></li><li><strong>4.</strong> Developer Guide</li><li><ul class="section"><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.1-DB-Framework-API-Design.html"><strong>4.1.</strong> DB Framework API Design</a></li><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.2-DB-Framework-API.html"><strong>4.2.</strong> DB Framework API</a></li><li><a href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html"><strong>4.3.</strong> DB API</a></li><li><a href="4-Developer-Guide/4.3-Sensys-DB-Schema/4.3.1-DB-Schema-V2,0.html"><strong>4.4.</strong> DB Schema V2,0</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.1-Analytics-Plugin-API.html"><strong>4.5.</strong> Analytics Plugin API</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.2-Analytics-Plugin-Development.html"><strong>4.6.</strong> Analytics Plugin Development</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.3-Analytics-Plugin-Build-Install.html"><strong>4.7.</strong> Analytics Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.1-Sensor-Plugin-API.html"><strong>4.8.</strong> Sensor Plugin API</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.2-Sensor-Plugin-Development.html"><strong>4.9.</strong> Sensor Plugin Development</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.3-Sensor-Plugin-Build-Install.html"><strong>4.10.</strong> Sensor Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.6-dataContainer-reference.html"><strong>4.11.</strong> <code>dataContainer</code> class reference</a></li></ul></li><li><strong>5.</strong> Testing</li><li><ul class="section"><li><a href="5-Testing/5.1-Docker/5.1.1-Centos-Docker-Guide.html"><strong>5.1.</strong> Centos Docker Guide</a></li><li><a href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html"><strong>5.2.</strong> Multihost Docker</a></li><li><a href="5-Testing/5.1-Docker/5.1.3-Cluster-Docker.html"><strong>5.3.</strong> Cluster Docker</a></li></ul></li><li><strong>6.</strong> Appendix</li><li><ul class="section"><li><a href="Appendix/A.1-Terminology.html"><strong>6.1.</strong> Terminology</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.1-Following-the-Open-MPI-Model.html"><strong>6.2.</strong> Following the Open MPI Model</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.2-Contributing-to-the-Source-Code.html"><strong>6.3.</strong> Contributing to the Source Code</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.3-Development-Process.html"><strong>6.4.</strong> Development Process</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.4-Roles-and-Responsibilities.html"><strong>6.5.</strong> Roles and Responsibilities</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.5-Filing-Issues.html"><strong>6.6.</strong> Filing Issues</a></li><li><a href="Appendix/A.3-Maintaining-the-Wiki.html"><strong>6.7.</strong> Maintaining the Wiki</a></li></ul></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#data-smoothing-algorithms-and-analytics" id="data-smoothing-algorithms-and-analytics"><h1>Data Smoothing Algorithms and Analytics</h1></a>
+<p>Analytics is a framework to run user defined data smoothing algorithms on any source data that comes to the framework. Analytics provide different plug-ins which can do the analysis on the source data based on users request. A user can request the analysis of source data through workflows. Below is the sample of a workflow file:</p>
+<pre><code class="language-XML">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+    &lt;workflows&gt;
+    &lt;aggregator&gt;*aggregator_name*&lt;/aggregator&gt;
+    &lt;workflow name = &quot;wf1&quot;&gt;
+        &lt;step name = &quot;filter&quot;&gt;
+            &lt;hostname&gt;*node_name*&lt;/hostname&gt;
+            &lt;data_group&gt;*sensor_name*&lt;/data_group&gt;
+        &lt;core&gt;*core_id*&lt;/core&gt;
+        &lt;/step&gt;
+        &lt;step name = &quot;aggregate&quot;&gt;
+            &lt;compute&gt;average&lt;/compute&gt;
+        &lt;/step&gt;
+    &lt;/workflow&gt;
+    &lt;/workflows&gt;
+</code></pre>
+<p>In which, the <code>node_name</code>, <code>sensor_name</code> and <code>core_id</code> could be a comma separated list. In the above example, if user specifies hostname as <code>node1</code>, <code>data_group</code> as <code>coretemp</code> and <code>core</code> as <code>core 1</code>, <code>core 2</code>, then the aggregate plugin will do an average of the coretemp values of core 1 and core 2.</p>
+<p>The below diagram provides an overview of Analytics Framework in a cluster environment and different analytics plug-ins are descibed later in this page.</p>
+<p>Analytics framework runs only on the aggregator node. The actions to be performed by the Analytics framework are submitted by OCTL tool. The OCTL tool can be run by administrator from any management nodes from network. The details of implementation of OCTL tool is provided in the <strong>OCTL</strong> section of this document. The details of implementation of Analytic framework are provided in the <strong>Analytics Framework</strong> seciton of this document.</p>
+<p><img src="1-Sensys/Overview.png" alt="Analytics Framework Overview" /></p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#octl" id="octl"><h2>OCTL</h2></a>
+<p><img src="3-Sensys-User-Guide/OCTL_Overview.png" alt="OCTL Overview" /></p>
+<p><img src="3-Sensys-User-Guide/OCTL_Flow.png" alt="OCTL Flow Chart" /></p>
+<p><strong>NOTE</strong>: Please refer to the OCTL tool wiki page for the usage.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#analytics-framework" id="analytics-framework"><h2>Analytics Framework</h2></a>
+<p><img src="3-Sensys-User-Guide/Analytics_details.png" alt="Working of Analytics Framework" /></p>
+<p><img src="3-Sensys-User-Guide/Analytics_flow.png" alt="Analytics Framework Flow Chart" /></p>
+<p>There are currently six plug-ins (Filter, Aggregate, Threshold, Window, Cott and Spatial) supported in Analytics Framework. In addition to these plug-ins, there is a optioanl DB Storage Attribute which will allow the plug-in to log the data into database. Besides, there are a couple of MCA parameters that would allow user to determine whether log the raw data and event data to database or not. Short description of all the plug-ins, attribute, and the mca parameters are given below.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#filter" id="filter"><h3>Filter</h3></a>
+<p>The role of the FILTER plug-in is to compare the user requested information with the actual source data sent by the aggregator. By doing this we make sure that we analyze only user requested data instead of analyzing any unnecessary data. After validating the data this plug-in will pass on this information to average or any other plug-in. The first workflow step in a workflow is always the Filter, which is mandatory.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#workflow-example" id="workflow-example"><h4>Workflow Example:</h4></a>
+<pre><code class="language-XML">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+    &lt;workflows&gt;
+    &lt;aggregator&gt;aggregator1&lt;/aggregator&gt;
+    &lt;workflow name = &quot;wf1&quot;&gt;
+        &lt;step name = &quot;filter&quot;&gt;
+            &lt;hostname&gt;c[2:1-8]&lt;/hostname&gt;
+            &lt;data_group&gt;coretemp&lt;/data_group&gt;
+        &lt;core&gt;core0&lt;/core&gt;
+        &lt;/step&gt;
+    &lt;/workflow&gt;
+    &lt;/workflows&gt;
+</code></pre>
+<p>In the above example, the aggregator tag indicates which aggregator(s) this workflow will be submitted to. The filter workflow step has three attributes, namely <code>hostname</code>, <code>data_group</code>, and <code>core id</code>. These attributes match the <em>key</em> of the source data (in this case, the sensor). This example filters the core 0's coretemp data for all the nodes <code>c01</code>, <code>c02</code>, ..., <code>c08</code>.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#aggregate" id="aggregate"><h3>Aggregate</h3></a>
+<p>The aggregate plugin performs running average, minimum and maximum aggregation operations.The running average is the average of all the data up to the current data value. Average plug-in utilizes the data received from the previous workflow step. The formula for doing average is as follows:</p>
+<pre><code>    A(N+1) = (N * A(N) + new_sample) / (N + 1)
+</code></pre>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#workflow-example-1" id="workflow-example-1"><h4>Workflow Example:</h4></a>
+<pre><code class="language-XML">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+    &lt;workflows&gt;
+    &lt;aggregator&gt;aggregator1&lt;/aggregator&gt;
+    &lt;workflow name = &quot;wf1&quot;&gt;
+        &lt;step name = &quot;filter&quot;&gt;
+            &lt;hostname&gt;c01,c02&lt;/hostname&gt;
+            &lt;data_group&gt;coretemp&lt;/data_group&gt;
+        &lt;/step&gt;
+        &lt;step name = &quot;aggregate&quot;&gt;
+            &lt;compute&gt;average&lt;/compute&gt;
+        &lt;/step&gt;
+    &lt;/workflow&gt;
+    &lt;/workflows&gt;
+</code></pre>
+<p>In the above example, the coretemp sensor data of nodes <code>c01</code> and <code>c02</code> will be passed down to the aggregate plugin to do an average across <code>c01</code> and <code>c02</code>.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#aggregate-plugin-attributes" id="aggregate-plugin-attributes"><h4>Aggregate plugin attributes:</h4></a>
+<ul>
+<li><code>compute</code>: (<em>Required</em>) This specifies the computation type. Currently, there are three types of computations supported, namely: average, min and max.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#threshold" id="threshold"><h3>Threshold</h3></a>
+<p>The threshold plugin does level checking on data and generates syslog/email notification for all out-of-bounds values. User shall specify high and low bounds using workflow parameters.</p>
+<p>A typical policy includes:</p>
+<ul>
+<li>Threshold type: high or low</li>
+<li>Threshold value: threshold boundary of sensor measurement</li>
+<li>Severity: severity/priority of the RAS event that is triggered by the policy; severity level follows RFC 5424 syslog protocol</li>
+<li>Notification mechanism: notification mechanism of the event, syslog or SMTP email</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#workflow-example-2" id="workflow-example-2"><h4>Workflow Example:</h4></a>
+<pre><code class="language-XML">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+    &lt;workflows&gt;
+    &lt;aggregator&gt;aggregator1&lt;/aggregator&gt;
+    &lt;workflow name = &quot;wf1&quot;&gt;
+        &lt;step name = &quot;filter&quot;&gt;
+            &lt;hostname&gt;c[2:1-8]&lt;/hostname&gt;
+            &lt;data_group&gt;coretemp&lt;/data_group&gt;
+        &lt;/step&gt;
+        &lt;step name = &quot;threshold&quot;&gt;
+            &lt;policy&gt;hi|100|crit|smtp,low|2-|warn|syslog&lt;/policy&gt;
+        &lt;/step&gt;
+    &lt;/workflow&gt;
+    &lt;/workflows&gt;
+</code></pre>
+<p>The above workflow means that for values higher than 100, send an email reporting a critical event, and for values lower than 20, write a warning message to the syslog.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#window" id="window"><h3>Window</h3></a>
+<p>The window plugin calculates the statistics (average, min, max, and standard deviation (sd)) of the values of the coming samples within a time/counter window. The boundaries (left and right) of the window are incrementing (sliding) with a sliding size. In the current implementation, the sliding size equals to the window size.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#workflow-example-3" id="workflow-example-3"><h4>Workflow Example:</h4></a>
+<p><em>Workflow 1:</em></p>
+<pre><code class="language-XML">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+    &lt;workflows&gt;
+    &lt;aggregator&gt;aggregator1&lt;/aggregator&gt;
+    &lt;workflow name = &quot;wf1&quot;&gt;
+        &lt;step name = &quot;filter&quot;&gt;
+            &lt;hostname&gt;c02&lt;/hostname&gt;
+            &lt;data_group&gt;coretemp&lt;/data_group&gt;
+        &lt;/step&gt;
+        &lt;step name = &quot;window&quot;&gt;
+            &lt;win_size&gt;1h&lt;/win_size&gt;
+            &lt;compute&gt;average&lt;/compute&gt;
+            &lt;type&gt;time&lt;/type&gt;
+        &lt;/step&gt;
+    &lt;/workflow&gt;
+    &lt;/workflows&gt;
+</code></pre>
+<p><em>Workflow 2:</em></p>
+<pre><code class="language-XML">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+    &lt;workflows&gt;
+    &lt;aggregator&gt;aggregator1&lt;/aggregator&gt;
+    &lt;workflow name = &quot;wf1&quot;&gt;
+        &lt;step name = &quot;filter&quot;&gt;
+            &lt;hostname&gt;c01&lt;/hostname&gt;
+            &lt;data_group&gt;coretemp&lt;/data_group&gt;
+        &lt;/step&gt;
+        &lt;step name = &quot;window&quot;&gt;
+            &lt;win_size&gt;10&lt;/win_size&gt;
+            &lt;compute&gt;sd&lt;/compute&gt;
+            &lt;type&gt;counter&lt;/type&gt;
+        &lt;/step&gt;
+    &lt;/workflow&gt;
+    &lt;/workflows&gt;
+</code></pre>
+<p>The first workflow specifies a timing window of 1 hour to do average for the <code>coretemp</code> sensor data of node <code>c02</code>, while the second workflow specifies a counter window of 10 samples to do the standard deviation for the <code>coretemp</code> sensor data of node <code>c01</code>.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#window-plugin-attributes" id="window-plugin-attributes"><h4>Window plugin attributes:</h4></a>
+<ul>
+<li><code>win_size</code>: (<em>Required</em>) size of the window</li>
+<li><code>compute</code>: (<em>Required</em>) the type of computation (average, min, max, sd). For now, only one computation is allowed in one workflow step.</li>
+<li><code>type</code>: (<em>Optional</em>) the type of the window. By default it is <em>time</em> window
+<ul>
+<li><code>type=time</code>: the window is a time window. By default, the unit of the win_size is second. When the users want to do computation with units of minute, hour, day. We are not supporting units longer than day(e.g. weeks, months, years, etc). The users can either set the unit with a <code>unit</code> attribute, or convert the value to seconds. For example: <code>win_size=3600</code> means a one-hour window, this equals to set: <code>win_size=1;unit=hour</code></li>
+<li><code>type=counter</code>: the window is a counter window, meaning the number of samples. For example: <code>win_size=200</code> means doing computation for the last 200 samples.</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#count-over-time-threshold-cott" id="count-over-time-threshold-cott"><h3>Count Over Time Threshold (cott)</h3></a>
+<p>This analytics plugin is designed to take the incoming absolute count data during sampling and will fire an event when the calculated count delta is greater than or equal to the threshold value within the specified time window.  The <code>errcounts</code> sensor plugin can be used as direct input to this analytic plugin.</p>
+<p>Understand that the input values for a given data label (or key) are the current count and not a change of the count since the last data associated with the label.  This means if you get a change value you will need an accumulator-like plugin to get a count to input into this plugin.</p>
+<p>The output of this plugin is the incoming data.  It only examines and triggers events.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#sample-workflow-file" id="sample-workflow-file"><h4>Sample Workflow File:</h4></a>
+<pre><code class="language-XML">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+    &lt;workflows&gt;
+    &lt;aggregator&gt;aggregator1&lt;/aggregator&gt;
+    &lt;workflow name = &quot;wf1&quot;&gt;
+        &lt;step name = &quot;filter&quot;&gt;
+            &lt;data_group&gt;errcounts&lt;/data_group&gt;
+        &lt;/step&gt;
+        &lt;step name = &quot;cott&quot;&gt;
+            &lt;severity&gt;error&lt;/severity&gt;
+            &lt;fault_type&gt;soft&lt;/fault_type&gt;
+            &lt;store_event&gt;yes&lt;/store_event&gt;
+            &lt;notifier_action&gt;smtp&lt;/notifier_action&gt;
+            &lt;label_mask&gt;CPU_SrcID#*_Channel#*_DIMM#*_CE&lt;/label_mask&gt;
+            &lt;time_window&gt;60s&lt;/time_window&gt;
+            &lt;count_threshold&gt;10&lt;/count_threshold&gt;
+        &lt;/step&gt;
+    &lt;/workflow&gt;
+    &lt;/workflows&gt;
+</code></pre>
+<p>In this example, the filter returns only data from the <code>errcounts</code> plugin to use as input to the <code>cott</code> analytics plugin.  The plugin looks for a count change of 10 within a time window of 60 seconds.  The example when triggered will fire an event of <em>error</em> severity and as a <em>soft</em> fault.  It also will store the event in the event database.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#workflow-arguments" id="workflow-arguments"><h4>Workflow Arguments:</h4></a>
+<ul>
+<li><code>label_mask</code>: (<em>Required</em>) This specifies the data labels (key) to match using wildcard syntax.</li>
+<li><code>count_threshold</code>: (<em>Required</em>) This denotes the number of new item counts within the <code>time_window</code> which after the the event is fired (inclusive).</li>
+<li><code>severity</code>: (<em>Optional</em>) This defaults to <code>error</code> and can only be <code>emerg</code>, <code>alert</code>, <code>crit</code>, <code>error</code>, <code>warn</code>.</li>
+<li><code>fault_type</code>: (<em>Optional</em>) This defaults to <code>hard</code> and can only be <code>hard</code> or <code>soft</code>.</li>
+<li><code>store_event</code>: (<em>Optional</em>) This defaults to <code>yes</code> and can only be <code>yes</code> or <code>no</code>.</li>
+<li><code>notifier_action</code> (<em>Optional</em>) This defaults to <code>none</code> and can only be <code>none</code>, <code>email</code>, <code>syslog</code>.</li>
+<li><code>time_window</code>: (<em>Optional</em>) This defaults to 1 second; the format is a number followed by a character denoting the unit of the number:</li>
+<li><code>s</code> - seconds</li>
+<li><code>m</code> - minutes</li>
+<li><code>h</code> - hours</li>
+<li><code>d</code> - days</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#spatial" id="spatial"><h3>Spatial</h3></a>
+<p>The spatial plugin is used in the purpose of doing spatial (not temporal) data aggregations across a rack or a sub-group of nodes of a rack. The groups of nodes can be defined in the logical group configuration file. When doing the computation for a group of nodes, there will be one sample per node for all the nodes.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#sample-workflow-file-1" id="sample-workflow-file-1"><h4>Sample Workflow File:</h4></a>
+<pre><code class="language-XML">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+    &lt;workflows&gt;
+    &lt;aggregator&gt;aggregator1&lt;/aggregator&gt;
+    &lt;workflow name = &quot;wf1&quot;&gt;
+        &lt;step name = &quot;filter&quot;&gt;
+            &lt;hostname&gt;$rack1&lt;/hostname&gt;
+            &lt;data_group&gt;coretemp&lt;/data_group&gt;
+        &lt;/step&gt;
+        &lt;step name = &quot;spatial&quot;&gt;
+            &lt;nodelist&gt;$rack1&lt;/win_size&gt;
+            &lt;compute&gt;average&lt;/compute&gt;
+            &lt;interval&gt;10&lt;/interval&gt;
+            &lt;timeout&gt;20&lt;/timeout&gt;
+        &lt;/step&gt;
+    &lt;/workflow&gt;
+    &lt;/workflows&gt;
+</code></pre>
+<p>The above workflow does average for the <code>coretemp</code> sensor data for all the compute nodes defined in group <code>rack1</code> in logical group, every 10 seconds. See Section 3.5 for logical group file definition.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#spatial-plugin-attributes" id="spatial-plugin-attributes"><h4>Spatial Plugin Attributes:</h4></a>
+<ul>
+<li><code>nodelist</code>: (<em>Required</em>) The list of nodes that the aggregation will be conducted</li>
+<li><code>compute</code>: (<em>Required</em>) the type of computation (average, min, max, sd). For now, only one computation is allowed in one workflow step.</li>
+<li><code>interval</code>: (<em>Optional</em>) It is a timing attribute with the unit of <code>second</code>. It indicates the <em>sleeping length</em> between 2 consecutive cycling. This is to give the user the ability to control the granularity of cycling if he/she does not want the cycling to go as fast as it can go. The default value is 60 seconds.</li>
+<li><code>timeout</code>: (<em>Optional</em>) It is a timing attribute with the unit of <code>second</code>. It means the maximum waiting time upon the first sample of a cycle comes before doing the computation. In the case of node failure happens, this attribute avoids waiting endlessly. The default value is 60 seconds.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#general-exception-genex" id="general-exception-genex"><h3>General Exception (genex)</h3></a>
+<p>The <code>genex</code> plugin purpose is to catch any message and filter all that contains a given word or set of words. The plugin filter criteria is also based on the severity given to the message. Coincidences can generate event notifications.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#workflow-example-4" id="workflow-example-4"><h4>Workflow Example:</h4></a>
+<pre><code class="language-XML">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+    &lt;workflows&gt;
+    &lt;aggregator&gt;aggregator1&lt;/aggregator&gt;
+    &lt;workflow name = &quot;wf1&quot;&gt;
+        &lt;step name = &quot;filter&quot;&gt;
+            &lt;data_group&gt;syslog&lt;/data_group&gt;
+        &lt;/step&gt;
+        &lt;step name = &quot;genex&quot;&gt;
+            &lt;msg_regex&gt;access_denied&lt;/msg_regex&gt;
+            &lt;severity&gt;critical&lt;/severity&gt;
+            &lt;notifier&gt;smtp&lt;/notifier&gt;
+        &lt;/step&gt;
+    &lt;/workflow&gt;
+    &lt;/workflows&gt;
+</code></pre>
+<p>The above workflow means that for the messages that contains the string <code>access denied</code> with a critical severity will send an e-mail reporting a critical event.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#db-storage-attribute" id="db-storage-attribute"><h2>DB Storage Attribute</h2></a>
+<p>The role of the DB storage attribute is to store the analyzed data in the database. This attribute is optional and will be activated only if user has requested the data to be stored in the database.
+Example</p>
+<pre><code class="language-XML">    &lt;step name = &quot;aggregate&quot;&gt;
+        &lt;compute&gt;average&lt;/compute&gt;
+        &lt;db&gt;yes&lt;/db&gt;
+    &lt;/step&gt;
+</code></pre>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#store-raw-sensor-data" id="store-raw-sensor-data"><h3>Store raw sensor data</h3></a>
+<p>Using an MCA parameter from the analytics code, sensor raw data logging to Database is controlled. The MCA parameter that controls the sensor raw data logging to DB is <code>analytics_base_store_raw_data</code></p>
+<p>To turn the sensor raw data logging to true, use the below command</p>
+<pre><code># orcmd --omca store_raw_data true
+</code></pre>
+<p>To turn the sensor raw data logging to false, use the below command</p>
+<pre><code># orcmd --omca store_raw_data false
+</code></pre>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#store-only-events" id="store-only-events"><h3>Store only events</h3></a>
+<p>Using an MCA parameter from the analytics code, event data logging to Database is controlled. The MCA parameter that controls the event data logging to DB is &quot;analytics_base_store_event_data&quot;</p>
+<p>To turn the event data logging to true, use the below command</p>
+<pre><code># orcmd --omca store_event_data true
+</code></pre>
+<p>To turn the event data logging to false, use the below command</p>
+<pre><code># orcmd --omca store_event_data false
+</code></pre>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#suppress-repeat" id="suppress-repeat"><h3>Suppress repeat</h3></a>
+<p>The suppress repeat MCA attribute specifies the time period during which all repeat events will be suppressed. An event is considered a repeat if reporter, severity, type and key value match those of an earlier event. The MCA parameter that controls the event data logging to DB is <code>analytics_base_suppress_repeat</code></p>
+<p>To suppress repeat events for a time interval <code>T</code>, use below command</p>
+<pre><code># orcmd --omca analytics_base_suppress_event &lt;T&gt;
+</code></pre>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#workflow-example-5" id="workflow-example-5"><h4>Workflow Example:</h4></a>
+<pre><code class="language-XML">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+    &lt;workflows&gt;
+    &lt;aggregator&gt;aggregator1&lt;/aggregator&gt;
+    &lt;workflow name = &quot;wf1&quot;&gt;
+        &lt;step name = &quot;filter&quot;&gt;
+            &lt;hostname&gt;c[2:1-8]&lt;/hostname&gt;
+            &lt;data_group&gt;coretemp&lt;/data_group&gt;
+        &lt;/step&gt;
+        &lt;step name = &quot;threshold&quot;&gt;
+            &lt;policy&gt;hi|100|crit|smtp,low|2|warn|syslog&lt;/policy&gt;
+            &lt;suppress_repeat&gt;yes&lt;/suppress_repeat&gt;
+            &lt;category&gt;HARD_FAULT&lt;/category&gt;
+            &lt;severity&gt;crit&lt;/severity&gt;
+            &lt;time&gt;20m&lt;/time&gt;
+        &lt;/step&gt;
+    &lt;/workflow&gt;
+    &lt;/workflows&gt;
+</code></pre>
+<p>To suppress a certain category or severity of events at a different rate, every plugin supports additional attributes</p>
+<ul>
+<li><code>suppress_repeat</code>: (<em>Required</em>) Enables suppress repeats for specific plugins. If no additional attributes are specified, all events generated by the plugin will be suppressed for time period determined by the <code>analytics_base_suppress_repeat</code> MCA parameter.</li>
+<li><code>category</code>: (<em>Optional</em>) Event category. Allowed types are HARD_FAULT and SOFT_FAULT</li>
+<li><code>severity</code>: (<em>Optional</em>) Event severity. Allowed types are <code>emerg</code>, <code>alert</code>, <code>crit</code>, <code>error</code>, <code>warn</code>, <code>notice</code>, <code>info</code> and <code>debug</code>. All matching this parameter or with a higher value will be suppressed at a different rate.</li>
+<li><code>time</code>: (<em>Optional</em>) All events that match the severity and category parameters will be suppressed for time period specified using this parameter. All other events will be suppressed time period determined by <code>analytics_base_suppress_repeat</code> MCA parameter.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#launch-an-executable-for-a-given-event" id="launch-an-executable-for-a-given-event"><h2>Launch an executable for a given event</h2></a>
+<p>This feature allows user to specify an executable to be launched when an event happened. The user specifies the event and executable in the workflow file that is submitted through OCTL. The aggregator will process the workflow and send a command to the scheduler for launching the executable. The executable will be located at the scheduler side. The path of the executable is only visible to the scheduler. The workflow file only specifies the exec name. Regarding the exec name, it is recommended to define a logical group name for the exec and to expose only the logical group name in the workflow file.</p>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#workflow-example-6" id="workflow-example-6"><h4>Workflow Example:</h4></a>
+<pre><code class="language-XML">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+    &lt;workflows&gt;
+    &lt;aggregator&gt;aggregator1&lt;/aggregator&gt;
+    &lt;workflow name = &quot;wf1&quot;&gt;
+        &lt;step name = &quot;filter&quot;&gt;
+            &lt;hostname&gt;c01&lt;/hostname&gt;
+            &lt;data_group&gt;coretemp&lt;/data_group&gt;
+        &lt;/step&gt;
+        &lt;step name = &quot;threshold&quot;&gt;
+            &lt;policy&gt;hi|30|crit|exec&lt;/policy&gt;
+            &lt;exec_name&gt;$exec1&lt;/exec_name&gt;
+            &lt;exec_argv&gt;argv1,argv2,argv3&lt;/exec_argv&gt;
+        &lt;/step&gt;
+    &lt;/workflow&gt;
+    &lt;/workflows&gt;
+</code></pre>
+<p>The above workflow means that for compute node <code>c01</code>, if the core temperature is higher than 30, it would be critical and the aggregator would notify the scheduler to launch the <code>exec</code> with a logical group name of <code>exec1</code>, along with the three arguments, namely <code>argv1</code>, <code>argv2</code>, and <code>argv3</code>.</p>
+<p>The fourth element of the policy in the threshold plugin is <code>exec</code>, meaning launching an executable. There are two attributes associated with the <code>exec</code>:</p>
+<ul>
+<li><code>exec_name</code>: (<em>Mandatory</em>) The name of the executable to be launched by the scheduler. Logical group name is recommended.</li>
+<li><code>exec_argv</code>: (<em>Optional</em>) Comma separated argument list of running the exec.</li>
+</ul>
+<p>The logical group name of the executable should be defined using octl logical group command before running all the daemons, such as:</p>
+<pre><code>$ octl grouping add exec1 hello_world
+</code></pre>
+<a class="header" href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html#mca-parameter-of-the-exec-path" id="mca-parameter-of-the-exec-path"><h4>MCA Parameter of the exec Path:</h4></a>
+<p>At the scheduler side, an MCA parameter, named <code>event_exec_path</code> (or with the <code>-e</code> option) is provided to allow the scheduler to specify the path of the executables to be launched. By default, the path points to <code>orcm_install/bin</code> folder. Below are the examples to specify the parameter:</p>
+<pre><code>$ ./orcmsched -e /usr/bin
+</code></pre>
+<pre><code>$ ./orcmsched --omca event_exec_path /usr/bin
+</code></pre>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html" class="mobile-nav-chapters previous">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="3-Sensys-User-Guide/3.10-ErrorManager-Notification.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="3-Sensys-User-Guide/3.10-ErrorManager-Notification.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>

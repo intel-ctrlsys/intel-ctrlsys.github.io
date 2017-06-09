@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sensys Logical Grouping - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="Home.html">Introduction</a></li><li><a href="1-Sensys/1.1-Overview.html"><strong>1.</strong> Sensys</a></li><li><ul class="section"><li><a href="1-Sensys/1.2-Core-Features.html"><strong>1.1.</strong> Core features</a></li></ul></li><li><strong>2.</strong> Sensys Build and Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.01-Build-Dependencies.html"><strong>2.1.</strong> Build Dependencies</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.02-Pre-build-Configuration.html"><strong>2.2.</strong> Pre build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.03-Build-From-SRPMS.html"><strong>2.3.</strong> Build From SRPMS</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.04-Relocate-RPM-Install-Path.html"><strong>2.4.</strong> Relocate RPM Install Path</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.05-Build-From-Source-Tar-Files.html"><strong>2.5.</strong> Build From Source Tar Files</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.06-Build-From-GitHub-Repo.html"><strong>2.6.</strong> Build From GitHub Repo</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.07-Post-build-Configuration.html"><strong>2.7.</strong> Post build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.08-Setting-Up-pre-requisites-for-RAS-Monitoring.html"><strong>2.8.</strong> Setting Up pre requisites for RAS Monitoring</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.09-Startup-Instructions.html"><strong>2.9.</strong> Startup Instructions</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.10-Troubleshooting.html"><strong>2.10.</strong> Troubleshooting</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.11-Setting-MCA-Parameters.html"><strong>2.11.</strong> Setting MCA Parameters</a></li><li><strong>2.12.</strong> Database Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.1-Database-Server.html"><strong>2.12.1.</strong> Database Server</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html"><strong>2.12.2.</strong> Database Connectivity</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.3-Enabling-Data-Purge.html"><strong>2.12.3.</strong> Enabling Data Purge</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.4-Monitoring-Database-Size.html"><strong>2.12.4.</strong> Monitoring Database Size</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.5-Database-Distro-Specific-Examples.html"><strong>2.12.5.</strong> Database Distro Specific Examples</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.6-Database-ZeroMQ-Publishing.html"><strong>2.12.6.</strong> Database ZeroMQ Publishing</a></li></ul></li></ul></li><li><strong>3.</strong> Sensys User Guide</li><li><ul class="section"><li><a href="3-Sensys-User-Guide/3.1-Overview.html"><strong>3.1.</strong> Overview</a></li><li><a href="3-Sensys-User-Guide/3.2-orcmd.html"><strong>3.2.</strong> orcmd</a></li><li><a href="3-Sensys-User-Guide/3.3-orcmsched.html"><strong>3.3.</strong> orcmsched</a></li><li><a href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html"><strong>3.4.</strong> Sensys CFGI User Guide</a></li><li><a href="3-Sensys-User-Guide/3.5-Sensys-Regex.html"><strong>3.5.</strong> Sensys Regex</a></li><li><a href="3-Sensys-User-Guide/3.6-Sensys-Logical-Grouping.html" class="active"><strong>3.6.</strong> Sensys Logical Grouping</a></li><li><a href="3-Sensys-User-Guide/3.7-octl.html"><strong>3.7.</strong> octl</a></li><li><a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html"><strong>3.8.</strong> RAS Monitoring</a></li><li><a href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html"><strong>3.9.</strong> Data Smoothing Algorithms Analytics</a></li><li><a href="3-Sensys-User-Guide/3.10-ErrorManager-Notification.html"><strong>3.10.</strong> ErrorManager Notification</a></li><li><a href="3-Sensys-User-Guide/3.11-Diagnostics.html"><strong>3.11.</strong> Diagnostics</a></li><li><a href="3-Sensys-User-Guide/3.12-Sensys-Security-Aspects.html"><strong>3.12.</strong> Sensys Security Aspects</a></li><li><a href="3-Sensys-User-Guide/3.13-Sensys-Database-Multiple-Threads.html"><strong>3.13.</strong> Sensys Database Multiple Threads</a></li><li><a href="3-Sensys-User-Guide/3.14-Sensys-Database-Multi-Select.html"><strong>3.14.</strong> Sensys Database Multi Select</a></li></ul></li><li><strong>4.</strong> Developer Guide</li><li><ul class="section"><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.1-DB-Framework-API-Design.html"><strong>4.1.</strong> DB Framework API Design</a></li><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.2-DB-Framework-API.html"><strong>4.2.</strong> DB Framework API</a></li><li><a href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html"><strong>4.3.</strong> DB API</a></li><li><a href="4-Developer-Guide/4.3-Sensys-DB-Schema/4.3.1-DB-Schema-V2,0.html"><strong>4.4.</strong> DB Schema V2,0</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.1-Analytics-Plugin-API.html"><strong>4.5.</strong> Analytics Plugin API</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.2-Analytics-Plugin-Development.html"><strong>4.6.</strong> Analytics Plugin Development</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.3-Analytics-Plugin-Build-Install.html"><strong>4.7.</strong> Analytics Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.1-Sensor-Plugin-API.html"><strong>4.8.</strong> Sensor Plugin API</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.2-Sensor-Plugin-Development.html"><strong>4.9.</strong> Sensor Plugin Development</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.3-Sensor-Plugin-Build-Install.html"><strong>4.10.</strong> Sensor Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.6-dataContainer-reference.html"><strong>4.11.</strong> <code>dataContainer</code> class reference</a></li></ul></li><li><strong>5.</strong> Testing</li><li><ul class="section"><li><a href="5-Testing/5.1-Docker/5.1.1-Centos-Docker-Guide.html"><strong>5.1.</strong> Centos Docker Guide</a></li><li><a href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html"><strong>5.2.</strong> Multihost Docker</a></li><li><a href="5-Testing/5.1-Docker/5.1.3-Cluster-Docker.html"><strong>5.3.</strong> Cluster Docker</a></li></ul></li><li><strong>6.</strong> Appendix</li><li><ul class="section"><li><a href="Appendix/A.1-Terminology.html"><strong>6.1.</strong> Terminology</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.1-Following-the-Open-MPI-Model.html"><strong>6.2.</strong> Following the Open MPI Model</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.2-Contributing-to-the-Source-Code.html"><strong>6.3.</strong> Contributing to the Source Code</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.3-Development-Process.html"><strong>6.4.</strong> Development Process</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.4-Roles-and-Responsibilities.html"><strong>6.5.</strong> Roles and Responsibilities</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.5-Filing-Issues.html"><strong>6.6.</strong> Filing Issues</a></li><li><a href="Appendix/A.3-Maintaining-the-Wiki.html"><strong>6.7.</strong> Maintaining the Wiki</a></li></ul></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="3-Sensys-User-Guide/3.6-Sensys-Logical-Grouping.html#logical-grouping" id="logical-grouping"><h1>Logical Grouping</h1></a>
+<p>Sensys provide a service which allows one to associate to a tag (group) any sequence of members.  Where it is enabled, this tag can then be used as a shortcut for that member list.</p>
+<p>Logical grouping can be used by the following services provided by the Sensys octl facility:</p>
+<ul>
+<li><code>resource</code></li>
+<li><code>diag</code></li>
+<li><code>sensor</code></li>
+</ul>
+<p>For example, within the octl sensor service, in order to tell that a logical grouping is to be used instead of a node regex, one must specify the tag prepended by the <code>$</code> character.  For instance, assuming that <code>abc</code> is the tag to which we asscociated three nodes: <code>n1</code>, <code>n2</code> and <code>n3</code>:</p>
+<pre><code>    abc &lt;--&gt; n1,n2,n3
+</code></pre>
+<p>Then one would use $abc in order to tell the octl sensor service that all three nodes (<code>n1</code>, <code>n2</code>, <code>n3</code>) are to be used. In the interactive mode, single quotes need to be put in order to recognize the <code>$</code> to present Shell expansion, like <code>'$'</code>.</p>
+<p>In octl, we offer a command line tool, namely <strong>grouping</strong>, to allow users to specify logical groups. In total, there are three ways to specify the logical groups: octl batch mode, octl interactive mode and modifying the storage file directly.  The batch and interactive mode both uses the same commands:</p>
+<pre><code>
+[octl] grouping add &lt;tag&gt; &lt;regex&gt;
+
+[octl] grouping remove &lt;tag&gt; &lt;regex&gt;
+
+[octl] grouping list &lt;tag&gt; &lt;regex&gt;
+
+</code></pre>
+<p>The above example shows to use octl grouping in the batch mode: (<code>[octl]</code>). The <code>&lt;tag&gt;</code> is any valid text string, representing a group name; if white spaces are in <code>&lt;tag&gt;</code>, use quotes in order to prevent automatic splitting.  <code>&lt;regex&gt;</code> is an Sensys regex.</p>
+<p>Both the remove and list command support a wildcard represented by the character <code>*</code>. Replacing <code>&lt;tag&gt;</code> by <code>*</code> indicates that all <code>&lt;tag&gt;</code> are to be selected; similarly for <code>&lt;regex&gt;</code>. Again, in the interactive mode, single quotes need to be put in order to present shell expansion to <code>*</code>. Currently, the remove command of logical grouping does not support partial success. It is either totally success, or failed. For example, one operation is that we remove some nodes from all the groups (<code>*</code>). If there are nodes that do not exist in some groups, then the whole remove operation will fail and no nodes will be removed from any group.</p>
+<p>The output from grouping list will be in the same format as the one used by the storage file. Note that the form in which the data is stored in the file will always end up being the form used by the logical grouping facility, and not necessarily the one a user used when the user built the logical file.</p>
+<p>The third way to specify a logical grouping is to edit directly the storage file used.  The default location of the logical group can be found at:</p>
+<pre><code>    &lt;user install directory&gt;/etc/orcm-default-config.xml
+</code></pre>
+<p>Remember that <code>orcm-default-config.xml</code> will contain other sections like workflows, ipmi etc. too</p>
+<p>In addition, the user may want to put all the logical groups in a specific file. Logical group allows users to specify their own logical group file with -l or --omca logical_group_config_file parameter. For example:</p>
+<pre><code>In batch mode
+    $ octl -l my_file
+    $ octl --omca logical_group_config_file my_file
+
+Interactive mode
+    $ octl -l my_file grouping add group1 node1
+    $ octl --omca logical_group_config_file my_file grouping add group1 node1
+</code></pre>
+<p>When the <code>orcmd</code> starts, it first reads the logical group file (if the file is not in the default location, use <code>-l</code> or <code>--omca logical_group_configure_file</code> to specify) and loads all the groups in memory. Therefore, all the groups should be defined before starting orcmd. After starting orcmd, the modifications of the logical group do not take effects.</p>
+<p>The logicalgroup contents are stored in a XML file in limited ASCII format.  The format is as follows:</p>
+<ul>
+<li>The acceptable text characters are ASCII characters inclusively from ASCII 33 to ASCII 126.</li>
+<li>The character <code>#</code> (ASCII 35), if it is the first character of a line, causes the line to be ignored.</li>
+<li><code>&lt;group&gt;</code> is an element with a name attribute and members element in it.</li>
+<li><code>name</code> attribute is a text string with acceptable ASCII characters.</li>
+<li><code>&lt;members&gt;</code> element is a comma separated list of regex specifying nodes:
+<code>node[2:1-100],node201</code></li>
+<li>Duplicated members are removed from one group.</li>
+</ul>
+<p>A sample logical group section in orcm-default-config.xml is as follows</p>
+<pre><code class="language-XML">    &lt;logicalgroup&gt;
+        &lt;group name=&quot;rack&quot;&gt;
+            &lt;members&gt;rack1,rack2,rack[1:3-4]&lt;/members&gt;
+        &lt;/group&gt;
+    &lt;/logicalgroup&gt;
+</code></pre>
+<p>The following example imitates what on can do for setting up a file holding tags for a small cluster.
+First, assuming that the storage file does not already exist, one could perform the following commands:</p>
+<pre><code>$ ./octl grouping add Cluster cluster1
+$ ./octl grouping add Row row1
+$ ./octl grouping add Rack rack[1:1-2]
+$ ./octl grouping add CN node[1:1-4]
+$ ./octl grouping add Row1 rack[1:1-2]
+$ ./octl grouping add Rack1 node[1:1-2]
+$ ./octl grouping add Rack2 node[1:3-4]
+</code></pre>
+<p>Using the command</p>
+<pre><code>$ ./octl grouping list '*' '*'
+</code></pre>
+<p>can be used to confirm what we have added to logical groups.  Note the use of single quotes in order to prevent Shell expansion for the interactive mode.
+Listing for Rack1 yields</p>
+<pre><code>$ ./octl grouping list Rack1 '*'
+$ group name=Rack1
+$ member list=node1,node2
+</code></pre>
+<p>Having confirmed that then one could use this grouping to get the sensor inventory:</p>
+<pre><code>$ ./octl sensor get inventory '$'Rack1
+</code></pre>
+<p>which will output the inventory for nodes &quot;node1&quot; and &quot;node2&quot;.</p>
+<p>In addition, logical group supports nested group parsing. For example, with the above logical groups, if the user wants to list the sensor inventory for all the nodes (<code>node1</code>, <code>node2</code>, <code>node3</code>, <code>node4</code>) in the <code>row1</code>, he/she can simply do:</p>
+<pre><code>$ ./octl sensor get inventory '$'Row
+</code></pre>
+<p>which will be parsed all the way from row to rack to compute nodes.</p>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a href="3-Sensys-User-Guide/3.5-Sensys-Regex.html" class="mobile-nav-chapters previous">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="3-Sensys-User-Guide/3.7-octl.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="3-Sensys-User-Guide/3.5-Sensys-Regex.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="3-Sensys-User-Guide/3.7-octl.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>

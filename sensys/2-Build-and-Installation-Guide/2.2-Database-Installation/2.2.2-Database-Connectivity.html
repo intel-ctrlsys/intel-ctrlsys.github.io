@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Database Connectivity - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="../../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="Home.html">Introduction</a></li><li><a href="1-Sensys/1.1-Overview.html"><strong>1.</strong> Sensys</a></li><li><ul class="section"><li><a href="1-Sensys/1.2-Core-Features.html"><strong>1.1.</strong> Core features</a></li></ul></li><li><strong>2.</strong> Sensys Build and Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.01-Build-Dependencies.html"><strong>2.1.</strong> Build Dependencies</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.02-Pre-build-Configuration.html"><strong>2.2.</strong> Pre build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.03-Build-From-SRPMS.html"><strong>2.3.</strong> Build From SRPMS</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.04-Relocate-RPM-Install-Path.html"><strong>2.4.</strong> Relocate RPM Install Path</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.05-Build-From-Source-Tar-Files.html"><strong>2.5.</strong> Build From Source Tar Files</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.06-Build-From-GitHub-Repo.html"><strong>2.6.</strong> Build From GitHub Repo</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.07-Post-build-Configuration.html"><strong>2.7.</strong> Post build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.08-Setting-Up-pre-requisites-for-RAS-Monitoring.html"><strong>2.8.</strong> Setting Up pre requisites for RAS Monitoring</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.09-Startup-Instructions.html"><strong>2.9.</strong> Startup Instructions</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.10-Troubleshooting.html"><strong>2.10.</strong> Troubleshooting</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.11-Setting-MCA-Parameters.html"><strong>2.11.</strong> Setting MCA Parameters</a></li><li><strong>2.12.</strong> Database Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.1-Database-Server.html"><strong>2.12.1.</strong> Database Server</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html" class="active"><strong>2.12.2.</strong> Database Connectivity</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.3-Enabling-Data-Purge.html"><strong>2.12.3.</strong> Enabling Data Purge</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.4-Monitoring-Database-Size.html"><strong>2.12.4.</strong> Monitoring Database Size</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.5-Database-Distro-Specific-Examples.html"><strong>2.12.5.</strong> Database Distro Specific Examples</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.6-Database-ZeroMQ-Publishing.html"><strong>2.12.6.</strong> Database ZeroMQ Publishing</a></li></ul></li></ul></li><li><strong>3.</strong> Sensys User Guide</li><li><ul class="section"><li><a href="3-Sensys-User-Guide/3.1-Overview.html"><strong>3.1.</strong> Overview</a></li><li><a href="3-Sensys-User-Guide/3.2-orcmd.html"><strong>3.2.</strong> orcmd</a></li><li><a href="3-Sensys-User-Guide/3.3-orcmsched.html"><strong>3.3.</strong> orcmsched</a></li><li><a href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html"><strong>3.4.</strong> Sensys CFGI User Guide</a></li><li><a href="3-Sensys-User-Guide/3.5-Sensys-Regex.html"><strong>3.5.</strong> Sensys Regex</a></li><li><a href="3-Sensys-User-Guide/3.6-Sensys-Logical-Grouping.html"><strong>3.6.</strong> Sensys Logical Grouping</a></li><li><a href="3-Sensys-User-Guide/3.7-octl.html"><strong>3.7.</strong> octl</a></li><li><a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html"><strong>3.8.</strong> RAS Monitoring</a></li><li><a href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html"><strong>3.9.</strong> Data Smoothing Algorithms Analytics</a></li><li><a href="3-Sensys-User-Guide/3.10-ErrorManager-Notification.html"><strong>3.10.</strong> ErrorManager Notification</a></li><li><a href="3-Sensys-User-Guide/3.11-Diagnostics.html"><strong>3.11.</strong> Diagnostics</a></li><li><a href="3-Sensys-User-Guide/3.12-Sensys-Security-Aspects.html"><strong>3.12.</strong> Sensys Security Aspects</a></li><li><a href="3-Sensys-User-Guide/3.13-Sensys-Database-Multiple-Threads.html"><strong>3.13.</strong> Sensys Database Multiple Threads</a></li><li><a href="3-Sensys-User-Guide/3.14-Sensys-Database-Multi-Select.html"><strong>3.14.</strong> Sensys Database Multi Select</a></li></ul></li><li><strong>4.</strong> Developer Guide</li><li><ul class="section"><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.1-DB-Framework-API-Design.html"><strong>4.1.</strong> DB Framework API Design</a></li><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.2-DB-Framework-API.html"><strong>4.2.</strong> DB Framework API</a></li><li><a href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html"><strong>4.3.</strong> DB API</a></li><li><a href="4-Developer-Guide/4.3-Sensys-DB-Schema/4.3.1-DB-Schema-V2,0.html"><strong>4.4.</strong> DB Schema V2,0</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.1-Analytics-Plugin-API.html"><strong>4.5.</strong> Analytics Plugin API</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.2-Analytics-Plugin-Development.html"><strong>4.6.</strong> Analytics Plugin Development</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.3-Analytics-Plugin-Build-Install.html"><strong>4.7.</strong> Analytics Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.1-Sensor-Plugin-API.html"><strong>4.8.</strong> Sensor Plugin API</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.2-Sensor-Plugin-Development.html"><strong>4.9.</strong> Sensor Plugin Development</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.3-Sensor-Plugin-Build-Install.html"><strong>4.10.</strong> Sensor Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.6-dataContainer-reference.html"><strong>4.11.</strong> <code>dataContainer</code> class reference</a></li></ul></li><li><strong>5.</strong> Testing</li><li><ul class="section"><li><a href="5-Testing/5.1-Docker/5.1.1-Centos-Docker-Guide.html"><strong>5.1.</strong> Centos Docker Guide</a></li><li><a href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html"><strong>5.2.</strong> Multihost Docker</a></li><li><a href="5-Testing/5.1-Docker/5.1.3-Cluster-Docker.html"><strong>5.3.</strong> Cluster Docker</a></li></ul></li><li><strong>6.</strong> Appendix</li><li><ul class="section"><li><a href="Appendix/A.1-Terminology.html"><strong>6.1.</strong> Terminology</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.1-Following-the-Open-MPI-Model.html"><strong>6.2.</strong> Following the Open MPI Model</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.2-Contributing-to-the-Source-Code.html"><strong>6.3.</strong> Contributing to the Source Code</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.3-Development-Process.html"><strong>6.4.</strong> Development Process</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.4-Roles-and-Responsibilities.html"><strong>6.5.</strong> Roles and Responsibilities</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.5-Filing-Issues.html"><strong>6.6.</strong> Filing Issues</a></li><li><a href="Appendix/A.3-Maintaining-the-Wiki.html"><strong>6.7.</strong> Maintaining the Wiki</a></li></ul></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html#database-connectivity" id="database-connectivity"><h1>Database connectivity</h1></a>
+<p>This section provides instructions to configure clients to connect to the Sensys DB.  This is required for clients that will need to communicate with the database (e.g. clients that need to run Sensys with the DB component enabled, like an aggregator node).</p>
+<p>Sensys provides support for two database connection methods:</p>
+<ul>
+<li>Connecting via the PostgreSQL client library</li>
+<li>Connecting via ODBC</li>
+</ul>
+<a class="header" href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html#connecting-via-the-postgresql-client-library" id="connecting-via-the-postgresql-client-library"><h2>Connecting via the PostgreSQL Client Library</h2></a>
+<a class="header" href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html#software-requirements" id="software-requirements"><h3>Software Requirements</h3></a>
+<table><thead><tr><td> Package                     </td><td> Version              </td><td> Req. </td><td> Notes                        </td></tr></thead>
+<tr><td> PostgreSQL Client           </td><td> 9.2 or higher        </td><td> Yes  </td><td> Required on database clients </td></tr>
+<tr><td> PostgreSQL shared libraries </td><td> 9.2 or higher        </td><td> Yes  </td><td> Installed as a dependency    </td></tr>
+</table>
+<p>The PostgreSQL client library is going to be required for Sensys nodes that need to connect to the database.  This is usually for nodes with the aggregator role.</p>
+<a class="header" href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html#configuring-the-sensys-db-postgres-component" id="configuring-the-sensys-db-postgres-component"><h3>Configuring the Sensys DB postgres Component</h3></a>
+<p>Once the PostgreSQL client package is installed, clients should be able to link to the PostgreSQL libraries and use the native API to communicate with the database.  In the case of Sensys, the following MCA parameters are required to tell the Sensys <code>postgres</code> component how to connect to the database:</p>
+<ul>
+<li><strong>db_postgres_uri:</strong> the URI for the host where the PostgreSQL server process is running.  This can be specified in the following format: <code>&lt;host&gt;:&lt;port&gt;</code>.  The port is optional.  If left blank, it will use the PostgreSQL default port.</li>
+<li><strong>db_postgres_database:</strong> the name of the database (e.g. orcmdb).</li>
+<li><strong>db_postgres_user:</strong> the user and password in the following format: <code>&lt;user&gt;:&lt;password&gt;</code>.</li>
+</ul>
+<a class="header" href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html#connecting-via-odbc" id="connecting-via-odbc"><h2>Connecting via ODBC</h2></a>
+<p>To complete the following steps, the following files are needed (found in the Sensys repository in the <code>contrib/database</code> directory):</p>
+<ul>
+<li>psql_odbc_driver.ini</li>
+<li>orcmdb_psql.ini</li>
+</ul>
+<a class="header" href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html#software-requirements-1" id="software-requirements-1"><h3>Software Requirements</h3></a>
+<table><thead><tr><td> Package                </td><td> Version              </td><td> Req. </td><td> Notes                            </td></tr></thead>
+<tr><td> unixODBC               </td><td> 2.2.14 or higher     </td><td> Yes  </td><td> Required on the database clients </td></tr>
+<tr><td> PostgreSQL ODBC driver </td><td> 09.03.0210 or higher </td><td> Yes  </td><td> Required on the database clients </td></tr>
+<tr><td> PostgreSQL Client      </td><td> 9.2 or higher        </td><td> No   </td><td> Optional on management machines </td></tr>
+</table>
+<p><strong>Note:</strong> The PostgreSQL client may be installed on any machine for administrative tasks: testing the database connection, data and schema management, etc.</p>
+<p>These client packages are generally required on nodes with the role of aggregator.</p>
+<a class="header" href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html#installation-overview" id="installation-overview"><h3>Installation Overview</h3></a>
+<p>Configuring the clients for connecting to the database requires:</p>
+<ol>
+<li>Installing an ODBC driver manager</li>
+<li>Installing the ODBC driver for the desired DBMS</li>
+<li>Configuring a DSN</li>
+</ol>
+<p>Before installing the DBMS ODBC driver, it’s necessary to install the ODBC driver manager: unixODBC.  The unixODBC package provides the necessary functionality to allow clients to connect to a database via ODBC.  In addition, for developing and building applications that will use ODBC, the unixODBC development package is necessary.  So the development package is necessary for building Sensys with ODBC support.</p>
+<p>After installing the unixODBC driver manager, execute the following command: <code>odbcinst –j</code>.  Note where unixODBC installed the configuration files for: drivers, system data sources and user data sources.  These files will be needed in the following sections.</p>
+<p>Please refer to the <a href="http://www.unixodbc.org/">unixODBC</a> web page for installation instructions.</p>
+<p><strong>Note:</strong> unixODBC already provides a driver for PostgreSQL.  However, it’s recommended to install the latest drivers provided by the respective vendors.</p>
+<a class="header" href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html#odbc-installation-for-postgresql" id="odbc-installation-for-postgresql"><h3>ODBC Installation for PostgreSQL</h3></a>
+<ol>
+<li>Get ODBC configuration information:
+<ul>
+<li>Execute: <code>odbcinst -j</code></li>
+<li>Note where unixODBC installed the configuration files for: drivers, system data sources and user data sources.  These files will be needed in the following steps.</li>
+</ul>
+</li>
+<li>Install the PostgresSQL ODBC driver
+<ul>
+<li>Please refer to the <a href="https://wiki.postgresql.org/wiki/Detailed_installation_guides">PostgreSQL installation wiki</a> for availability of a package for the ODBC driver.</li>
+<li>Alternatively, the ODBC driver can be built from source
+<ul>
+<li>The source code can be downloaded from the <a href="http://www.postgresql.org/ftp/odbc/versions/src/">PostgresSQL downloads web page</a></li>
+<li>Please refer to the installation instructions provided with the source code.  Usually, the steps are:</li>
+</ul>
+<pre><code>    $ ./configure
+    $ make
+    % make install
+</code></pre>
+<ul>
+<li>After completing the installation, note the directory where the driver (.so file) was installed</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Register the PostgreSQL ODBC driver
+<ul>
+<li>Edit the <code>psql_odbc_driver.ini</code> file and fill in the required parameters:
+<ul>
+<li><strong>Driver:</strong> specify the absolute path where the PostgrSQL ODBC driver (.so file) was installed</li>
+<li>Execute the following command:
+<ul>
+<li><code>odbcinst –i –d –f psql_odbc_driver.ini</code></li>
+</ul>
+</li>
+<li>Open the ODBC driver configuration file and verify the driver was configured correctly</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Configure a DSN to connect to the Sensys DB
+<ul>
+<li><strong>Note:</strong> the DSN may be configured at the user level (visible only to the current user) or at the system level (visible to all users that log in to the machine).</li>
+<li>Edit the <code>orcmdb_psql.ini</code> file and fill in the required parameters:
+<ul>
+<li><strong>Driver:</strong> specify the exact name of the driver as configured in the ODBC driver configuration file</li>
+<li><strong>Server:</strong> specify the hostname or IP address of the server where the database was installed</li>
+</ul>
+</li>
+<li>Configure the DSN:
+<pre><code>$ odbcinst –i –s –f orcmdb_psql.ini –l
+</code></pre>
+<ul>
+<li><strong>Note:</strong>
+<ul>
+<li>This will configure the DSN at the system level (visible to all users)</li>
+<li>To configure the DSN at the user level (visible only to the current user):</li>
+</ul>
+<pre><code> $ odbcinst –i –s –f orcmdb_psql.ini –h
+</code></pre>
+</li>
+</ul>
+</li>
+<li>Open the respective DSN configuration file to verify the DSN was configured correctly</li>
+</ul>
+</li>
+<li>Verify the installation
+<ul>
+<li>Use the <code>isql</code> command-line utility provided by unixODBC to connect to the database:
+<pre><code>$ isql orcmdb_psql orcmuser &lt;orcmuser’s password&gt;
+</code></pre>
+</li>
+<li>Try executing an SQL command:
+<pre><code>select * from data_sample
+</code></pre>
+<ul>
+<li>The table will most likely be empty, but the query should at least succeed</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<a class="header" href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html#configuring-the-sensys-db-odbc-component" id="configuring-the-sensys-db-odbc-component"><h3>Configuring the Sensys DB odbc Component</h3></a>
+<p>The odbc component requires the following MCA parameters to be defined:</p>
+<ul>
+<li><strong>db_odbc_dsn:</strong> the DSN name configured in the previous section.</li>
+<li><strong>db_odbc_user:</strong> the user and password in the following format: <code>&lt;user&gt;:&lt;password&gt;</code>.</li>
+<li><strong>db_odbc_table:</strong> the database table that the DB component operations will use.  At the moment this parameter has no effect for RAS monitoring operation.  Please set to: <code>data_sample</code>.</li>
+</ul>
+<a class="header" href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html#setting-mca-parameters" id="setting-mca-parameters"><h2>Setting MCA Parameters</h2></a>
+<p>These MCA parameters may be specified in:</p>
+<ul>
+<li>The <code>openmpi-mca-params.conf</code> file</li>
+<li>The <code>orcm-site.xml</code> file</li>
+<li>The command line via the <code>-omca</code> command-line parameters</li>
+</ul>
+<p>For more details on setting MCA paramters, please refer to:
+<a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.11-Setting-MCA-Parameters.html">Setting MCA parameters</a>.</p>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.1-Database-Server.html" class="mobile-nav-chapters previous">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.3-Enabling-Data-Purge.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.1-Database-Server.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.3-Enabling-Data-Purge.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>

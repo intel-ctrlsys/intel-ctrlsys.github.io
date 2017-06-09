@@ -1,0 +1,441 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cluster Docker - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="../../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="Home.html">Introduction</a></li><li><a href="1-Sensys/1.1-Overview.html"><strong>1.</strong> Sensys</a></li><li><ul class="section"><li><a href="1-Sensys/1.2-Core-Features.html"><strong>1.1.</strong> Core features</a></li></ul></li><li><strong>2.</strong> Sensys Build and Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.01-Build-Dependencies.html"><strong>2.1.</strong> Build Dependencies</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.02-Pre-build-Configuration.html"><strong>2.2.</strong> Pre build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.03-Build-From-SRPMS.html"><strong>2.3.</strong> Build From SRPMS</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.04-Relocate-RPM-Install-Path.html"><strong>2.4.</strong> Relocate RPM Install Path</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.05-Build-From-Source-Tar-Files.html"><strong>2.5.</strong> Build From Source Tar Files</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.06-Build-From-GitHub-Repo.html"><strong>2.6.</strong> Build From GitHub Repo</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.07-Post-build-Configuration.html"><strong>2.7.</strong> Post build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.08-Setting-Up-pre-requisites-for-RAS-Monitoring.html"><strong>2.8.</strong> Setting Up pre requisites for RAS Monitoring</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.09-Startup-Instructions.html"><strong>2.9.</strong> Startup Instructions</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.10-Troubleshooting.html"><strong>2.10.</strong> Troubleshooting</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.11-Setting-MCA-Parameters.html"><strong>2.11.</strong> Setting MCA Parameters</a></li><li><strong>2.12.</strong> Database Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.1-Database-Server.html"><strong>2.12.1.</strong> Database Server</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html"><strong>2.12.2.</strong> Database Connectivity</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.3-Enabling-Data-Purge.html"><strong>2.12.3.</strong> Enabling Data Purge</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.4-Monitoring-Database-Size.html"><strong>2.12.4.</strong> Monitoring Database Size</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.5-Database-Distro-Specific-Examples.html"><strong>2.12.5.</strong> Database Distro Specific Examples</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.6-Database-ZeroMQ-Publishing.html"><strong>2.12.6.</strong> Database ZeroMQ Publishing</a></li></ul></li></ul></li><li><strong>3.</strong> Sensys User Guide</li><li><ul class="section"><li><a href="3-Sensys-User-Guide/3.1-Overview.html"><strong>3.1.</strong> Overview</a></li><li><a href="3-Sensys-User-Guide/3.2-orcmd.html"><strong>3.2.</strong> orcmd</a></li><li><a href="3-Sensys-User-Guide/3.3-orcmsched.html"><strong>3.3.</strong> orcmsched</a></li><li><a href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html"><strong>3.4.</strong> Sensys CFGI User Guide</a></li><li><a href="3-Sensys-User-Guide/3.5-Sensys-Regex.html"><strong>3.5.</strong> Sensys Regex</a></li><li><a href="3-Sensys-User-Guide/3.6-Sensys-Logical-Grouping.html"><strong>3.6.</strong> Sensys Logical Grouping</a></li><li><a href="3-Sensys-User-Guide/3.7-octl.html"><strong>3.7.</strong> octl</a></li><li><a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html"><strong>3.8.</strong> RAS Monitoring</a></li><li><a href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html"><strong>3.9.</strong> Data Smoothing Algorithms Analytics</a></li><li><a href="3-Sensys-User-Guide/3.10-ErrorManager-Notification.html"><strong>3.10.</strong> ErrorManager Notification</a></li><li><a href="3-Sensys-User-Guide/3.11-Diagnostics.html"><strong>3.11.</strong> Diagnostics</a></li><li><a href="3-Sensys-User-Guide/3.12-Sensys-Security-Aspects.html"><strong>3.12.</strong> Sensys Security Aspects</a></li><li><a href="3-Sensys-User-Guide/3.13-Sensys-Database-Multiple-Threads.html"><strong>3.13.</strong> Sensys Database Multiple Threads</a></li><li><a href="3-Sensys-User-Guide/3.14-Sensys-Database-Multi-Select.html"><strong>3.14.</strong> Sensys Database Multi Select</a></li></ul></li><li><strong>4.</strong> Developer Guide</li><li><ul class="section"><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.1-DB-Framework-API-Design.html"><strong>4.1.</strong> DB Framework API Design</a></li><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.2-DB-Framework-API.html"><strong>4.2.</strong> DB Framework API</a></li><li><a href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html"><strong>4.3.</strong> DB API</a></li><li><a href="4-Developer-Guide/4.3-Sensys-DB-Schema/4.3.1-DB-Schema-V2,0.html"><strong>4.4.</strong> DB Schema V2,0</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.1-Analytics-Plugin-API.html"><strong>4.5.</strong> Analytics Plugin API</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.2-Analytics-Plugin-Development.html"><strong>4.6.</strong> Analytics Plugin Development</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.3-Analytics-Plugin-Build-Install.html"><strong>4.7.</strong> Analytics Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.1-Sensor-Plugin-API.html"><strong>4.8.</strong> Sensor Plugin API</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.2-Sensor-Plugin-Development.html"><strong>4.9.</strong> Sensor Plugin Development</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.3-Sensor-Plugin-Build-Install.html"><strong>4.10.</strong> Sensor Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.6-dataContainer-reference.html"><strong>4.11.</strong> <code>dataContainer</code> class reference</a></li></ul></li><li><strong>5.</strong> Testing</li><li><ul class="section"><li><a href="5-Testing/5.1-Docker/5.1.1-Centos-Docker-Guide.html"><strong>5.1.</strong> Centos Docker Guide</a></li><li><a href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html"><strong>5.2.</strong> Multihost Docker</a></li><li><a href="5-Testing/5.1-Docker/5.1.3-Cluster-Docker.html" class="active"><strong>5.3.</strong> Cluster Docker</a></li></ul></li><li><strong>6.</strong> Appendix</li><li><ul class="section"><li><a href="Appendix/A.1-Terminology.html"><strong>6.1.</strong> Terminology</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.1-Following-the-Open-MPI-Model.html"><strong>6.2.</strong> Following the Open MPI Model</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.2-Contributing-to-the-Source-Code.html"><strong>6.3.</strong> Contributing to the Source Code</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.3-Development-Process.html"><strong>6.4.</strong> Development Process</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.4-Roles-and-Responsibilities.html"><strong>6.5.</strong> Roles and Responsibilities</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.5-Filing-Issues.html"><strong>6.6.</strong> Filing Issues</a></li><li><a href="Appendix/A.3-Maintaining-the-Wiki.html"><strong>6.7.</strong> Maintaining the Wiki</a></li></ul></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="5-Testing/5.1-Docker/5.1.3-Cluster-Docker.html#setting-up-a-docker-environment-in-a-cluster" id="setting-up-a-docker-environment-in-a-cluster"><h1>Setting up a Docker environment in a cluster</h1></a>
+<p>Setting up Docker on a Warewulf provisioned cluster is very similar to the <a href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html">multihost setup</a>. For this example we are going to use version 1.2 of Docker</p>
+<p>Note that this example uses<br />
+/home/test
+&lt;yourproxy:port&gt;
+<docker image><br />
+<chroot><br />
+which would all need to be replaced with site specific settings.</p>
+<ol>
+<li>Setting up a head node for Docker
+First install lxc and docker</li>
+</ol>
+<pre><code>    zypper -n in lxc
+    zypper -n in docker
+</code></pre>
+<ol start="2">
+<li>Increase some docker limits</li>
+</ol>
+<pre><code>    % vi /usr/lib/systemd/system/docker.service # add the following to the Service section
+    LimitNOFILE=1048576
+    LimitNPROC=1048576
+</code></pre>
+<ol start="3">
+<li>Disable Docker's automatic bridge device and setup proxy
+We need to disable docker from managing the bridge device since we want to manage it by hand, and we will need to use lxc instead of libcontainer to have control over setting our own container IP addresses.  Configure this in <code>/etc/sysconfig/docker</code>.</li>
+</ol>
+<pre><code>    % perl -pi -e 's/^DOCKER_OPTS/#DOCKER_OPTS/' /etc/sysconfig/docker
+    % echo &quot;DOCKER_OPTS=\&quot;-b=none -e=lxc\&quot;&quot; &gt;&gt; /etc/sysconfig/docker
+    % echo &quot;PROXY_ENABLED=\&quot;yes\&quot;&quot; &gt;&gt; /etc/sysconfig/docker
+    % echo &quot;HTTP_PROXY=\&quot;http://&lt;yourproxy:port&gt;/\&quot;&quot; &gt;&gt; /etc/sysconfig/docker
+    % echo &quot;HTTPS_PROXY=\&quot;https://&lt;yourproxy:port&gt;/\&quot;&quot; &gt;&gt; /etc/sysconfig/docker
+    % echo &quot;FTP_PROXY=\&quot;http://&lt;yourproxy:port&gt;/\&quot;&quot; &gt;&gt; /etc/sysconfig/docker
+    % echo &quot;NO_PROXY=\&quot;localhost, 127.0.0.1, .&lt;yourdomain&gt;\&quot;&quot; &gt;&gt; /etc/sysconfig/docker
+    % systemctl restart docker
+</code></pre>
+<ol start="4">
+<li>Setup our own bridge device</li>
+</ol>
+<pre><code>    % cat &lt;&lt;EOF &gt; /etc/sysconfig/network/ifcfg-eth0
+    % DEVICE=dockerbridge0
+    % TYPE=Bridge
+    % BOOTPROTO=none
+    % ONBOOT=yes
+    % IPV6INIT=no
+    % IPV6_AUTOCONF=no
+    % STP=no
+    % EOF
+ 
+    % cat &lt;&lt;EOF &gt; /etc/sysconfig/network/ifcfg-dockerbridge0
+    % DEVICE=eth0
+    % BOOTPROTO=dhcp
+    % HWADDR=
+    % ONBOOT=yes
+    % NETMASK=
+    % GATEWAY=
+    % BRIDGE=dockerbridge0
+    % BRIDGE_PORTS=eth0
+    % EOF
+</code></pre>
+<ol start="5">
+<li>Drop the previous address binding</li>
+</ol>
+<pre><code>    % ip addr flush eth0
+    % ifup eth0
+    % brctl addbr dockerbridge0
+    % brctl addif dockerbridge0 eth0
+    % ifup dockerbridge0
+</code></pre>
+<ol start="6">
+<li>Set up provisioning of nodes with support for Docker
+We need to enable the provisioned initrd to have support for Docker usage of bridges, for this we add the bridge kernel module to it.  In Warewulf it will look something like this:</li>
+</ol>
+<pre><code>    % echo &quot;# Added support for network bridges for Docker&quot; &gt;&gt; /etc/warewulf/bootstrap.conf
+    % echo &quot;drivers += kernel/net/bridge&quot; &gt;&gt; /etc/warewulf/bootstrap.conf
+    % echo &quot;modprobe += bridge&quot; &gt;&gt; /etc/warewulf/bootstrap.conf
+</code></pre>
+<ol start="7">
+<li>Add the bridge-utils and docker packages to the vnfs image</li>
+</ol>
+<pre><code>    % zypper -n --root=&lt;chroot&gt; install bridge-utils
+    % zypper -n --root=&lt;chroot&gt; install lxc
+    % zypper -n --root=&lt;chroot&gt; install docker
+    % zypper -n --root=&lt;chroot&gt; install bridge-utils
+    % zypper -n --root=&lt;chroot&gt; install -t pattern apparmor
+</code></pre>
+<ol start="8">
+<li>Setup our own bridge device</li>
+</ol>
+<pre><code>    % cat &lt;&lt;EOF &gt; &lt;chroot&gt;/etc/sysconfig/network/ifcfg-eth0
+    % DEVICE=dockerbridge0
+    % TYPE=Bridge
+    % BOOTPROTO=none
+    % ONBOOT=yes
+    % IPV6INIT=no
+    % IPV6_AUTOCONF=no
+    % STP=no
+    % EOF
+ 
+    % cat &lt;&lt;EOF &gt; &lt;chroot&gt;/etc/sysconfig/network/ifcfg-dockerbridge0
+    % DEVICE=eth0
+    % BOOTPROTO=dhcp
+    % HWADDR=
+    % ONBOOT=yes
+    % NETMASK=
+    % GATEWAY=
+    % BRIDGE=dockerbridge0
+    % BRIDGE_PORTS=eth0
+    % EOF
+</code></pre>
+<ol start="9">
+<li>Disable Docker's automatic bridge device</li>
+</ol>
+<pre><code>    % perl -pi -e 's/^DOCKER_OPTS/#DOCKER_OPTS/' &lt;chroot&gt;/etc/sysconfig/docker
+    % echo &quot;DOCKER_OPTS=\&quot;-b=none -e=lxc\&quot;&quot; &gt;&gt; &lt;chroot&gt;/etc/sysconfig/docker
+</code></pre>
+<ol start="10">
+<li>Drop the previous address binding
+We use etc/rc.d/after.local to add the Docker bridge.  Note that this is not very friendly to systemd startup.
+We also add an optional route to the headnode if packet forwarding is needed.</li>
+</ol>
+<pre><code>    % echo &quot;# Drop the previous address binding&quot; &gt;&gt; &lt;chroot&gt;/etc/rc.d/after.local
+    % echo &quot;ip addr flush eth0&quot; &gt;&gt; &lt;chroot&gt;/etc/rc.d/after.local
+    % echo &quot;ifup eth0&quot; &gt;&gt; &lt;chroot&gt;/etc/rc.d/after.local
+    % echo &quot;brctl addbr dockerbridge0&quot; &gt;&gt; &lt;chroot&gt;/etc/rc.d/after.local
+    % echo &quot;brctl addif dockerbridge0 eth0&quot; &gt;&gt; &lt;chroot&gt;/etc/rc.d/after.local
+    % echo &quot;ifup dockerbridge0&quot; &gt;&gt; &lt;chroot&gt;/etc/rc.d/after.local
+    % echo &quot;route add default gw 192.168.0.1 dockerbridge0&quot; &gt;&gt; &lt;chroot&gt;/etc/rc.d/after.local
+    % echo &quot;service docker restart&quot; &gt;&gt; &lt;chroot&gt;/etc/rc.d/after.local
+</code></pre>
+<ol start="11">
+<li>Use the new bridge for provisioning</li>
+</ol>
+<pre><code>    % perl -pi -e 's/^network device = eth0/network device = dockerbridge0/' /etc/warewulf/provision.conf
+    % perl -pi -e 's/DHCPD_INTERFACE=&quot;eth0&quot;/DHCPD_INTERFACE=&quot;dockerbridge0&quot;/' /etc/sysconfig/dhcpd
+</code></pre>
+<ol start="12">
+<li>Rebuild the bootstrap and the vnfs</li>
+</ol>
+<pre><code>    % wwbootstrap `uname -r`
+    % wwvnfs -y --chroot &lt;chroot&gt;
+</code></pre>
+<a class="header" href="5-Testing/5.1-Docker/5.1.3-Cluster-Docker.html#running-sensys-in-a-docker-cluster-environment" id="running-sensys-in-a-docker-cluster-environment"><h1>Running Sensys in a Docker cluster environment</h1></a>
+<p>We use the following IP address scheme to create the hosts file:</p>
+<pre><code>    192.168.254.&lt;1-32&gt; -- used for AG nodes
+    192.168.254.255 -- used for Master / Scheduler node
+    192.168.254.254 -- used for DB node
+    192.168.254.200 -- login node
+    192.168.254.201 -- login node2
+    192.168.255.&lt;1-32&gt; -- used for host addresses
+    192.168.&lt;1-32&gt;.&lt;0-255&gt; -- used for CNs
+</code></pre>
+<ol>
+<li>Create the hosts file
+We use the following bash script to create the hosts file that will be sent to Docker.
+Note that this uses the orcm-site.xml 3.0 support.</li>
+</ol>
+<pre><code>    % echo &quot;192.168.254.250 db&quot; &gt; orcm_hosts.txta
+    % echo &quot;192.168.254.255 master01&quot; &gt;&gt; orcm_hosts.txt
+    % echo &quot;192.168.254.1 agg01&quot; &gt;&gt; orcm_hosts.txt
+    % echo &quot;192.168.254.2 agg02&quot; &gt;&gt; orcm_hosts.txt
+    % echo &quot;192.168.254.3 agg03&quot; &gt;&gt; orcm_hosts.txt
+    % echo &quot;192.168.254.4 agg04&quot; &gt;&gt; orcm_hosts.txt
+    % n=0; for i in `seq -w 0 0255`; do echo &quot;192.168.1.$n node$i&quot; ; n=$((n+1)); done &gt;&gt; orcm_hosts.txt
+    % n=0; for i in `seq -w 0256 0511`; do echo &quot;192.168.2.$n node$i&quot; ; n=$((n+1)); done &gt;&gt; orcm_hosts.txt
+    % n=0; for i in `seq -w 0512 0767`; do echo &quot;192.168.3.$n node$i&quot; ; n=$((n+1)); done &gt;&gt; orcm_hosts.txt
+    % n=0; for i in `seq -w 0768 1023`; do echo &quot;192.168.4.$n node$i&quot; ; n=$((n+1)); done &gt;&gt; orcm_hosts.txt
+ 
+    % cat &lt;&lt;EOF &gt; orcm-site.xml
+    % &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+    % &lt;configuration&gt;
+    %    &lt;version&gt;3.0&lt;/version&gt;
+    %    &lt;role&gt;RECORD&lt;/role&gt;
+    %    &lt;junction&gt;
+    %        &lt;type&gt;cluster&lt;/type&gt;
+    %        &lt;name&gt;master3&lt;/name&gt;
+    %        &lt;junction&gt;
+    %            &lt;type&gt;row&lt;/type&gt;
+    %            &lt;name&gt;row1&lt;/name&gt;
+    % EOF
+    % n=0; m=255; for i in `seq -w 01 04`; do cat &lt;&lt;EOF &gt;&gt; orcm-site.xml ;  n=$((n+256)); m=$((n+255)); done
+    %            &lt;junction&gt;
+    %                &lt;type&gt;rack&lt;/type&gt;
+    %                &lt;name&gt;agg$i&lt;/name&gt;
+    %                &lt;controller&gt;
+    %                    &lt;host&gt;agg$i&lt;/host&gt;
+    %                    &lt;port&gt;55805&lt;/port&gt;
+    %                    &lt;aggregator&gt;yes&lt;/aggregator&gt;
+    %                &lt;/controller&gt;
+    %                &lt;junction&gt;
+    %                    &lt;type&gt;node&lt;/type&gt;
+    %                    &lt;name&gt;node[4:$n-$m]&lt;/name&gt;
+    %                    &lt;controller&gt;
+    %                        &lt;host&gt;@&lt;/host&gt;
+    %                        &lt;port&gt;55805&lt;/port&gt;
+    %                        &lt;aggregator&gt;no&lt;/aggregator&gt;
+    %                    &lt;/controller&gt;
+    %                &lt;/junction&gt;
+    %            &lt;/junction&gt;
+    % EOF
+    % cat &lt;&lt;EOF &gt;&gt; orcm-site.xml
+    %        &lt;/junction&gt;
+    %    &lt;/junction&gt;
+    %    &lt;scheduler&gt;
+    %        &lt;shost&gt;master01&lt;/shost&gt;
+    %        &lt;port&gt;55820&lt;/port&gt;
+    %    &lt;/scheduler&gt;
+    % &lt;/configuration&gt;
+    % EOF
+</code></pre>
+<ol start="2">
+<li>Create the launch scripts for the master and the aggregator daemons (AGs)</li>
+</ol>
+<pre><code>    # Master
+    % echo &quot;/usr/bin/docker run -d --name master01 -h master01 -v /home/test/orcm_hosts.txt:/etc/hosts \
+        -v /home/test/openmpi-mca-params.conf:/opt/openrcm/etc/openmpi-mca-params.conf \
+        -v /home/test/orcm-site.xml:/opt/openrcm/etc/orcm-site.xml \
+        --lxc-conf=\&quot;lxc.network.type = veth\&quot; --lxc-conf=\&quot;lxc.network.ipv4 = 192.168.254.255/16\&quot; \
+        --lxc-conf=\&quot;lxc.network.link = dockerbridge0\&quot; --lxc-conf=\&quot;lxc.network.name = eth0\&quot; \
+        --lxc-conf=\&quot;lxc.network.flags = up\&quot; &lt;docker image&gt; /opt/openrcm/bin/orcmsched &quot; &gt;&gt; master_docker_start.txt;
+ 
+    # agg01
+    % echo &quot;/usr/bin/docker run -d --name agg01 -h agg01 -v /home/test/orcm_hosts.txt:/etc/hosts \
+        -v /home/test/openmpi-mca-params.conf:/opt/openrcm/etc/openmpi-mca-params.conf \
+        -v /home/test/orcm-site.xml:/opt/openrcm/etc/orcm-site.xml \
+        --lxc-conf=\&quot;lxc.network.type = veth\&quot; --lxc-conf=\&quot;lxc.network.ipv4 = 192.168.254.1/16\&quot; \
+        --lxc-conf=\&quot;lxc.network.link = dockerbridge0\&quot; --lxc-conf=\&quot;lxc.network.name = eth0\&quot; \
+        --lxc-conf=\&quot;lxc.network.flags = up\&quot; &lt;docker image&gt; /opt/openrcm/bin/orcmd &quot; &gt; agg01_docker_start.txt;
+    # agg02
+    % echo &quot;/usr/bin/docker run -d --name agg02 -h agg02 -v /home/test/orcm_hosts.txt:/etc/hosts \
+        -v /home/test/openmpi-mca-params.conf:/opt/openrcm/etc/openmpi-mca-params.conf \
+        -v /home/test/orcm-site.xml:/opt/openrcm/etc/orcm-site.xml \
+        --lxc-conf=\&quot;lxc.network.type = veth\&quot; --lxc-conf=\&quot;lxc.network.ipv4 = 192.168.254.2/16\&quot; \
+        --lxc-conf=\&quot;lxc.network.link = dockerbridge0\&quot; --lxc-conf=\&quot;lxc.network.name = eth0\&quot; \
+        --lxc-conf=\&quot;lxc.network.flags = up\&quot; &lt;docker image&gt; /opt/openrcm/bin/orcmd &quot; &gt; agg02_docker_start.txt;
+    # agg03
+    % echo &quot;/usr/bin/docker run -d --name agg03 -h agg03 -v /home/test/orcm_hosts.txt:/etc/hosts \
+        -v /home/test/openmpi-mca-params.conf:/opt/openrcm/etc/openmpi-mca-params.conf \
+        -v /home/test/orcm-site.xml:/opt/openrcm/etc/orcm-site.xml \
+        --lxc-conf=\&quot;lxc.network.type = veth\&quot; --lxc-conf=\&quot;lxc.network.ipv4 = 192.168.254.3/16\&quot; \
+        --lxc-conf=\&quot;lxc.network.link = dockerbridge0\&quot; --lxc-conf=\&quot;lxc.network.name = eth0\&quot; \
+        --lxc-conf=\&quot;lxc.network.flags = up\&quot; &lt;docker image&gt; /opt/openrcm/bin/orcmd &quot; &gt; agg03_docker_start.txt;
+    # agg04
+    % echo &quot;/usr/bin/docker run -d --name agg04 -h agg04 -v /home/test/orcm_hosts.txt:/etc/hosts \
+        -v /home/test/openmpi-mca-params.conf:/opt/openrcm/etc/openmpi-mca-params.conf \
+        -v /home/test/orcm-site.xml:/opt/openrcm/etc/orcm-site.xml \
+        --lxc-conf=\&quot;lxc.network.type = veth\&quot; --lxc-conf=\&quot;lxc.network.ipv4 = 192.168.254.4/16\&quot; \
+        --lxc-conf=\&quot;lxc.network.link = dockerbridge0\&quot; --lxc-conf=\&quot;lxc.network.name = eth0\&quot; \
+        --lxc-conf=\&quot;lxc.network.flags = up\&quot; &lt;docker image&gt; /opt/openrcm/bin/orcmd &quot; &gt; agg04_docker_start.txt;
+</code></pre>
+<ol start="3">
+<li>Create the launch scripts for the Compute Node Deamons (CNs)</li>
+</ol>
+<pre><code>    % # CN for node0-255
+    % rm c1_docker_start.txt
+    % n=0; for i in `seq -w 0 0255`; do
+    % echo &quot;/usr/bin/docker run -d --name node$i -h node$i -v /home/test/orcm_hosts.txt:/etc/hosts \
+        -v /home/test/openmpi-mca-params.conf:/opt/openrcm/etc/openmpi-mca-params.conf \
+        -v /home/test/orcm-site.xml:/opt/openrcm/etc/orcm-site.xml \
+        --lxc-conf=\&quot;lxc.network.type = veth\&quot; --lxc-conf=\&quot;lxc.network.ipv4 = 192.168.1.$n/16\&quot; \
+        --lxc-conf=\&quot;lxc.network.link = dockerbridge0\&quot; --lxc-conf=\&quot;lxc.network.name = eth0\&quot; \
+        --lxc-conf=\&quot;lxc.network.flags = up\&quot; &lt;docker_image&gt; /opt/openrcm/bin/orcmd &quot; &gt;&gt; c1_docker_start.txt;
+    % n=$((n+1));
+    % done
+ 
+    % # CN for node256-511
+    % rm c2_docker_start.txt
+    % n=0; for i in `seq -w 0256 0511`; do
+    % echo &quot;/usr/bin/docker run -d --name node$i -h node$i -v /home/test/orcm_hosts.txt:/etc/hosts \
+        -v /home/test/openmpi-mca-params.conf:/opt/openrcm/etc/openmpi-mca-params.conf \
+        -v /home/test/orcm-site.xml:/opt/openrcm/etc/orcm-site.xml \
+        --lxc-conf=\&quot;lxc.network.type = veth\&quot; --lxc-conf=\&quot;lxc.network.ipv4 = 192.168.2.$n/16\&quot; \
+        --lxc-conf=\&quot;lxc.network.link = dockerbridge0\&quot; --lxc-conf=\&quot;lxc.network.name = eth0\&quot; \
+        --lxc-conf=\&quot;lxc.network.flags = up\&quot; &lt;docker_image&gt; /opt/openrcm/bin/orcmd &quot; &gt;&gt; c2_docker_start.txt
+    % n=$((n+1));
+    % done
+ 
+    % # CN for node512-767
+    % rm c3_docker_start.txt
+    % n=0; for i in `seq -w 0512 0767`; do
+    % echo &quot;/usr/bin/docker run -d --name node$i -h node$i -v /home/test/orcm_hosts.txt:/etc/hosts \
+        -v /home/test/openmpi-mca-params.conf:/opt/openrcm/etc/openmpi-mca-params.conf \
+        -v /home/test/orcm-site.xml:/opt/openrcm/etc/orcm-site.xml \
+        --lxc-conf=\&quot;lxc.network.type = veth\&quot; --lxc-conf=\&quot;lxc.network.ipv4 = 192.168.3.$n/16\&quot; \
+        --lxc-conf=\&quot;lxc.network.link = dockerbridge0\&quot; --lxc-conf=\&quot;lxc.network.name = eth0\&quot; \
+        --lxc-conf=\&quot;lxc.network.flags = up\&quot; &lt;docker_image&gt; /opt/openrcm/bin/orcmd &quot; &gt;&gt; c3_docker_start.txt
+    % n=$((n+1));
+    % done
+ 
+    % # CN for node768-1023
+    % rm c4_docker_start.txt
+    % n=0; for i in `seq -w 0768 1023`; do
+    % echo &quot;/usr/bin/docker run -d --name node$i -h node$i -v /home/test/orcm_hosts.txt:/etc/hosts \
+        -v /home/test/openmpi-mca-params.conf:/opt/openrcm/etc/openmpi-mca-params.conf \
+        -v /home/test/orcm-site.xml:/opt/openrcm/etc/orcm-site.xml\
+        --lxc-conf=\&quot;lxc.network.type = veth\&quot; --lxc-conf=\&quot;lxc.network.ipv4 = 192.168.4.$n/16\&quot; \
+        --lxc-conf=\&quot;lxc.network.link = dockerbridge0\&quot; --lxc-conf=\&quot;lxc.network.name = eth0\&quot; \
+        --lxc-conf=\&quot;lxc.network.flags = up\&quot; &lt;docker_image&gt; /opt/openrcm/bin/orcmd &quot; &gt;&gt; c4_docker_start.txt
+    % n=$((n+1));
+    % done
+</code></pre>
+<ol start="4">
+<li>Launch the master and AG nodes</li>
+</ol>
+<pre><code>    % # scheduler running on head node
+    % bash master_docker_start.txt
+    % # AGs 
+    % pdsh -w c[01-04] 'bash /home/test/agg0$((%n + 1))_docker_start.txt'
+</code></pre>
+<ol start="5">
+<li>Launch the CN nodes</li>
+</ol>
+<pre><code>    % # Docker CNs 
+    % pdsh -w c[05-08] 'bash /home/test/c$((%n + 1))_docker_start.txt'
+</code></pre>
+<ol start="6">
+<li>Stopping and removing docker containers</li>
+</ol>
+<pre><code>    % pdsh -w c[01-04]  'docker stop $(docker ps -a -q)' 
+    % pdsh -w c[01-04]  'docker rm $(docker ps -a -q)' 
+    % pdsh -w c[05-08]  'docker stop $(docker ps -a -q)' 
+    % pdsh -w c[05-08]  'docker rm $(docker ps -a -q)' 
+    % docker stop $(docker ps -a -q)
+    % docker rm $(docker ps -a -q)
+</code></pre>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html" class="mobile-nav-chapters previous">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="Appendix/A.1-Terminology.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="Appendix/A.1-Terminology.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>

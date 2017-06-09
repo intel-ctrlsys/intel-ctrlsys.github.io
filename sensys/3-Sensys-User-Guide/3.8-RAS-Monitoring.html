@@ -1,0 +1,478 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>RAS Monitoring - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="Home.html">Introduction</a></li><li><a href="1-Sensys/1.1-Overview.html"><strong>1.</strong> Sensys</a></li><li><ul class="section"><li><a href="1-Sensys/1.2-Core-Features.html"><strong>1.1.</strong> Core features</a></li></ul></li><li><strong>2.</strong> Sensys Build and Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.01-Build-Dependencies.html"><strong>2.1.</strong> Build Dependencies</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.02-Pre-build-Configuration.html"><strong>2.2.</strong> Pre build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.03-Build-From-SRPMS.html"><strong>2.3.</strong> Build From SRPMS</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.04-Relocate-RPM-Install-Path.html"><strong>2.4.</strong> Relocate RPM Install Path</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.05-Build-From-Source-Tar-Files.html"><strong>2.5.</strong> Build From Source Tar Files</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.06-Build-From-GitHub-Repo.html"><strong>2.6.</strong> Build From GitHub Repo</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.07-Post-build-Configuration.html"><strong>2.7.</strong> Post build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.08-Setting-Up-pre-requisites-for-RAS-Monitoring.html"><strong>2.8.</strong> Setting Up pre requisites for RAS Monitoring</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.09-Startup-Instructions.html"><strong>2.9.</strong> Startup Instructions</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.10-Troubleshooting.html"><strong>2.10.</strong> Troubleshooting</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.11-Setting-MCA-Parameters.html"><strong>2.11.</strong> Setting MCA Parameters</a></li><li><strong>2.12.</strong> Database Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.1-Database-Server.html"><strong>2.12.1.</strong> Database Server</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html"><strong>2.12.2.</strong> Database Connectivity</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.3-Enabling-Data-Purge.html"><strong>2.12.3.</strong> Enabling Data Purge</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.4-Monitoring-Database-Size.html"><strong>2.12.4.</strong> Monitoring Database Size</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.5-Database-Distro-Specific-Examples.html"><strong>2.12.5.</strong> Database Distro Specific Examples</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.6-Database-ZeroMQ-Publishing.html"><strong>2.12.6.</strong> Database ZeroMQ Publishing</a></li></ul></li></ul></li><li><strong>3.</strong> Sensys User Guide</li><li><ul class="section"><li><a href="3-Sensys-User-Guide/3.1-Overview.html"><strong>3.1.</strong> Overview</a></li><li><a href="3-Sensys-User-Guide/3.2-orcmd.html"><strong>3.2.</strong> orcmd</a></li><li><a href="3-Sensys-User-Guide/3.3-orcmsched.html"><strong>3.3.</strong> orcmsched</a></li><li><a href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html"><strong>3.4.</strong> Sensys CFGI User Guide</a></li><li><a href="3-Sensys-User-Guide/3.5-Sensys-Regex.html"><strong>3.5.</strong> Sensys Regex</a></li><li><a href="3-Sensys-User-Guide/3.6-Sensys-Logical-Grouping.html"><strong>3.6.</strong> Sensys Logical Grouping</a></li><li><a href="3-Sensys-User-Guide/3.7-octl.html"><strong>3.7.</strong> octl</a></li><li><a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html" class="active"><strong>3.8.</strong> RAS Monitoring</a></li><li><a href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html"><strong>3.9.</strong> Data Smoothing Algorithms Analytics</a></li><li><a href="3-Sensys-User-Guide/3.10-ErrorManager-Notification.html"><strong>3.10.</strong> ErrorManager Notification</a></li><li><a href="3-Sensys-User-Guide/3.11-Diagnostics.html"><strong>3.11.</strong> Diagnostics</a></li><li><a href="3-Sensys-User-Guide/3.12-Sensys-Security-Aspects.html"><strong>3.12.</strong> Sensys Security Aspects</a></li><li><a href="3-Sensys-User-Guide/3.13-Sensys-Database-Multiple-Threads.html"><strong>3.13.</strong> Sensys Database Multiple Threads</a></li><li><a href="3-Sensys-User-Guide/3.14-Sensys-Database-Multi-Select.html"><strong>3.14.</strong> Sensys Database Multi Select</a></li></ul></li><li><strong>4.</strong> Developer Guide</li><li><ul class="section"><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.1-DB-Framework-API-Design.html"><strong>4.1.</strong> DB Framework API Design</a></li><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.2-DB-Framework-API.html"><strong>4.2.</strong> DB Framework API</a></li><li><a href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html"><strong>4.3.</strong> DB API</a></li><li><a href="4-Developer-Guide/4.3-Sensys-DB-Schema/4.3.1-DB-Schema-V2,0.html"><strong>4.4.</strong> DB Schema V2,0</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.1-Analytics-Plugin-API.html"><strong>4.5.</strong> Analytics Plugin API</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.2-Analytics-Plugin-Development.html"><strong>4.6.</strong> Analytics Plugin Development</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.3-Analytics-Plugin-Build-Install.html"><strong>4.7.</strong> Analytics Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.1-Sensor-Plugin-API.html"><strong>4.8.</strong> Sensor Plugin API</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.2-Sensor-Plugin-Development.html"><strong>4.9.</strong> Sensor Plugin Development</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.3-Sensor-Plugin-Build-Install.html"><strong>4.10.</strong> Sensor Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.6-dataContainer-reference.html"><strong>4.11.</strong> <code>dataContainer</code> class reference</a></li></ul></li><li><strong>5.</strong> Testing</li><li><ul class="section"><li><a href="5-Testing/5.1-Docker/5.1.1-Centos-Docker-Guide.html"><strong>5.1.</strong> Centos Docker Guide</a></li><li><a href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html"><strong>5.2.</strong> Multihost Docker</a></li><li><a href="5-Testing/5.1-Docker/5.1.3-Cluster-Docker.html"><strong>5.3.</strong> Cluster Docker</a></li></ul></li><li><strong>6.</strong> Appendix</li><li><ul class="section"><li><a href="Appendix/A.1-Terminology.html"><strong>6.1.</strong> Terminology</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.1-Following-the-Open-MPI-Model.html"><strong>6.2.</strong> Following the Open MPI Model</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.2-Contributing-to-the-Source-Code.html"><strong>6.3.</strong> Contributing to the Source Code</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.3-Development-Process.html"><strong>6.4.</strong> Development Process</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.4-Roles-and-Responsibilities.html"><strong>6.5.</strong> Roles and Responsibilities</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.5-Filing-Issues.html"><strong>6.6.</strong> Filing Issues</a></li><li><a href="Appendix/A.3-Maintaining-the-Wiki.html"><strong>6.7.</strong> Maintaining the Wiki</a></li></ul></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#ras-monitoring" id="ras-monitoring"><h1>RAS monitoring</h1></a>
+<p>RAS monitoring encompasses the collection of all metrics &amp; sensor related data from each node. It is primarily implemented under the <strong>sensor</strong> framework present under the Sensys project. It contains several plugins that monitor various metrics related to different features present in each node. These metrics range from sensor related ‘tangible’ information like Temperature, Voltage, Power Usage, etc., to non-tangible metrics related to OS parameters like, Memory Usage, Disk Usage, Process information, file monitoring, etc.</p>
+<p>The RAS Monitoring in Sensys relies on the <strong>Aggregator - Compute Node</strong> model. Most of the sensor components running in each compute node scan the system and record metrics and send it to the aggregator, which acts as a collector and filters the data to be logged into the database. As an exception, Sensys has a couple of sensors that run actively only in the aggregator nodes collecting data from a separated data stream, these sensors create a dedicated communication channel to retrieve telemetry from diferent kinds of devices using their propietary retrival methods. These types of sensors are known as <strong>OOB</strong> (Out Of Band) sensors and are listed below:</p>
+<ul>
+<li>IPMI</li>
+<li>SNMP</li>
+</ul>
+<p><img src="3-Sensys-User-Guide/Sensor-Data-Flow.png" alt="Sensys RAS Monitoring Flow" /></p>
+<p>RAS monitoring is enabled by default in the Sensys, if it was configured during build time. Alternatively any of the sensor plugins can be selected or deselected by passing specific MCA parameters.  For example, for enabling only the sensor <code>ipmi</code>, <code>coretemp</code>, we need to pass:</p>
+<pre><code>% orcmd --omca sensor heartbeat,ipmi,coretemp
+</code></pre>
+<p>Note that some sensors, such as ipmi, require <code>orcmd</code> to be run as root for access to the underlying metric collection.</p>
+<p><code>heartbeat</code> is a special plugin under the sensor framework which collects a bucket of data holding all the sampled data metrics by each sensor and sends it to the aggregator, so we need to enable it every time we need collect sensor related data.</p>
+<p>If no mca parameters are passed w.r.t. sensor then the framework by default enables all the plugins that are available and able to run. Some plugins contain special mca parameters that define certain special conditions in their functionality, they are listed under each corresponding plugin where ever applicable.</p>
+<p>Apart from RAS monitoring, the sensor framework is also used to collect the inventory details of the compute nodes. The <code>dmidata</code> plugin is a unique plugin which collects only the inventory information but doesn't collect any periodic metrics.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mca-parameters-for-sensor-framework" id="mca-parameters-for-sensor-framework"><h2>MCA Parameters for sensor framework:</h2></a>
+<ul>
+<li><code>sensor_base_verbose</code>: Set the verbosity level while launching the <code>orcmd</code> daemon. The amount of debug messages getting logged depends on the verbosity levels.</li>
+<li><code>sensor_base_sample_rate</code>: Set the sampling rate at which each of the sensor components sample their respective metrics.</li>
+<li><code>sensor_base_log_samples</code>: Enable/Disable logging the collected metrics into the database.</li>
+<li><code>sensor_base_collect_metrics</code>: Enable collecton of the metrics.</li>
+<li><code>sensor_base_collect_inventory</code>: Enable collecton of the inventory details.</li>
+<li><code>sensor_base_set_dynamic_inventory</code>: N/A</li>
+<li><code>sensor_limit_sample_rate</code>: The goal of this MCA parameter is to limit the user from setting excessive sample rates for each node. This would act as a protection mechanism for limiting excessive load sent to the aggregator node. If a daemon have sensors with sample rates off limits, those values would be adjusted to the limit value; on the other hand, if the sample rate is changed via octl, an error would be thrown whenever the user set sampling rates beyond the limits via <code>CLI</code>. There is no default limit, and the feature would be disabled unless a limit is specified.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#test-vectors-and-dfx-for-debug" id="test-vectors-and-dfx-for-debug"><h2>Test vectors and DFx for debug</h2></a>
+<p>Most of the sensors provide one or more mechanisms which produces fake sample data, which are known as DFx (Design for X) hooks. These should be enabled by means of an MCA parameter (usually <code>test</code>), but it may vary in a per sensor basis (e.g., <code>ipmi_ts</code> sensor provides both <code>test</code> flag and <code>dfx</code> flag).</p>
+<p>In order to have access to such functionality, Sensys should be compiled in debug mode using the <code>enable-debug</code> flag at the configuration phase. Otherwise, these MCA parameters will not be available for the user. For example, the flag can be set from the command line:</p>
+<pre><code>$ ./configure --enable-debug=yes
+</code></pre>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#available-sensor-plugins" id="available-sensor-plugins"><h2>Available sensor plugins</h2></a>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#coretemp" id="coretemp"><h3>coretemp</h3></a>
+<p>This component is used to read the DTS temperature sensor values from each Processor present on each compute node.  The <code>coretemp.ko</code> kernel module needs to be loaded for this plugin to function. This can be done by running:</p>
+<pre><code># modprobe coretemp
+</code></pre>
+<p>If this module is not present in the linux distro, then the <code>lm-sensors</code> package needs to be installed. See the instructions <a href="http://www.lm-sensors.org/">here</a>.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mca-parameters" id="mca-parameters"><h4>MCA parameters:</h4></a>
+<ul>
+<li><code>sensor_coretemp_test</code>: Enable logging a random test sample by the plugin for testing sensor to database connectivity</li>
+<li><code>sensor_coretemp_enable_packagetemp</code>: Enable/Disable collecting the package or die temperature. Enabled by default.</li>
+<li><code>sensor_coretemp_use_progress_thread</code>: Enable coretemp to run on it's own separate thread.</li>
+<li>sensor_coretemp_sample_rate: If coretemp is running in a separate thread, then this parameter is used to configure the sample rate at which the data will be sampled.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#file" id="file"><h3>file</h3></a>
+<p>This component is used by applications to detect stalled programs. It tests to see if the specified file has been modified since the last time we looked, if it hasn't been touched for the specified number of times, then we declare the application to have stalled.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mca-parameters-1" id="mca-parameters-1"><h4>MCA parameters:</h4></a>
+<ul>
+<li><code>sensor_file_file</code>: The name of the file that needs to be monitored</li>
+<li><code>sensor_file_check_size</code>: Boolean value to indicate whether the file size needs to be monitored or not.</li>
+<li><code>sensor_file_check_access</code>: Boolean value to indicate whether the last access time has to be monitored or not.</li>
+<li><code>sensor_file_check_mod</code>: Boolean value to indicate whether the last modified time has to be monitored or not.</li>
+<li><code>sensor_file_limit</code>: Integer value indicating the maximum count before which the staleness of the file can be ignored, it is by default set to 3.</li>
+<li><code>sensor_file_test</code>: Enable logging a random test sample by the plugin for testing sensor to database connectivity</li>
+<li><code>sensor_file_use_progress_thread</code>: Enable file to run on it's own separate thread.</li>
+<li><code>sensor_file_sample_rate</code>: If file is running in a separate thread, then this parameter is used to configure the sample rate at which the data will be sampled.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#freq" id="freq"><h3>freq</h3></a>
+<p>This component is used to read the CPU frequency scaling values from each Processor present in each compute node.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mca-parameters-2" id="mca-parameters-2"><h4>MCA parameters:</h4></a>
+<ul>
+<li><code>sensor_freq_test</code>: Enable logging a random test sample by the plugin for testing sensor to database connectivity</li>
+<li><code>sensor_freq_pstate</code>: Enable collection of the intel_pstate related information</li>
+<li><code>sensor_freq_use_progress_thread</code>: Enable freq to run on it's own separate thread.</li>
+<li><code>sensor_freq_sample_rate</code>: If freq is running in a separate thread, then this parameter is used to configure the sample rate at which the data will be sampled.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#ft_tester" id="ft_tester"><h3>ft_tester</h3></a>
+<p>This component is used to test the fault tolerance/resilience of the system. This component will roll a random number generator each sampling time. If the lucky number hits, then the plugin will terminate either the indicated app proc or the daemon itself will kill itself, based on the specified parameter setting.</p>
+<p>MCA parameters:</p>
+<ul>
+<li><code>sensor_ft_tester_fail_prob</code>: Set an upper threshold probability value for killing a child process.</li>
+<li><code>sensor_ft_tester_multi_allowed</code>: Boolean value to indicate whether multiple child processes should be killed or not.</li>
+<li><code>sensor_ft_tester_daemon_fail_prob</code>: Set an upper threshold probability value for killing itself.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#heartbeat" id="heartbeat"><h3>heartbeat</h3></a>
+<p>This component is used to gather all the relevant data sampled by the other sensor components that have been enables and properly send that data to the appropriate log function.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#ipmi" id="ipmi"><h3>ipmi</h3></a>
+<p><strong>NOTE</strong>: this sensor is deprecated. Use <code>ipmi_ts</code> instead.</p>
+<p>This component is used to read IPMIUtil data from the BMC(s) present in each compute node using out of band communication. This is an OOB sensor, and it is intended to be run on the aggregator only. Currently, there is no support for running this sensor on compute nodes.</p>
+<p><strong>NOTE</strong>: Due to limitations in the BMC and/or the ipmiutil driver, the following conditions apply:</p>
+<ul>
+<li><code>ipmi</code>, <code>nodepower</code>, and <code>ipmi_ts</code> sensors cannot be executed simultaneously on different threads.</li>
+<li>If you want to collect metrics of <code>ipmi</code> and <code>nodepower</code> you can use <code>ipmi_ts</code> sensor instead which will collect both.</li>
+<li><code>nodepower</code>, <code>ipmi</code>, and <code>ipmi_ts</code> sensors may interfere with the OCTL command <code>chassis-id</code>.</li>
+</ul>
+<p><strong>NOTE</strong>: The <code>ipmi</code> sensor plugin might take as long as a couple of minutes to perform inventory collection per BMC. In order to avoid a bottleneck on inventory collection, and potentially in collecting samples for BMCs reporting large volume of data, ipmi sensor should be run in a different thread than the other sensors (with the exception of nodepower sensor as mentioned above).</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mca-parameters-3" id="mca-parameters-3"><h4>MCA parameters:</h4></a>
+<ul>
+<li><code>sensor_ipmi_sensor_list</code>: Used to set the list of BMC monitored sensor names whose value is to be retrieved. Use the sensor names stored in the BMC as defined in section 43.1.  For example: &quot;PS1 Power In,Processor 2 Fan,Fan 1&quot;</li>
+<li><code>sensor_ipmi_sensor_group</code>: Used to set the group of BMC monitored sensor names whose value is to be retrieved, any sensor whose name contains this term will be retrieved. For example: &quot;Fan&quot; (This will filter out all the sensors with the term 'fan' in it)</li>
+<li><code>sensor_ipmi_test</code>: Enable logging a random test sample by the plugin for testing sensor to database connectivity</li>
+<li><code>sensor_ipmi_use_progress_thread</code>: Enable ipmi to run on its own separate thread.</li>
+<li><code>sensor_ipmi_sample_rate</code>: If <code>ipmi</code> is running in a separate thread, then this parameter is used to configure the sample rate at which the data will be sampled.</li>
+<li><code>sensor_ipmi_sel_state_filename</code>: When collecting IPMI SEL Records, this is the filename where the last read record ID is saved so the records are not re-read and stored multiple times in the database.  Frequently <code>/var/run/orcmd-sel-persist.dat</code> is used.  The default is no file which will cause all records to be re-read on orcmd startup.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#configuration-file-section" id="configuration-file-section"><h4>Configuration file section:</h4></a>
+<p>The BMC lan parameters have to be configured in an XML file. This file should be located on <code>&lt;path/to/orcm/install&gt;/etc</code> and its default name is <code>orcm-site.xml</code>. The syntax for the <code>ipmi</code> section is as follows:</p>
+<p>One or more <code>bmc_node</code> tags. These tags should have the mandatory attribute name, being
+the same as the compute node the BMC is related to. The following tags within the <code>bmc_node</code> are mandatory:</p>
+<ul>
+<li><code>bmc_address</code> is the IP address of the BMC. This is not the same as the IP address of the node.</li>
+<li><code>user</code> is the username of the remote BMC nodes for retrieving the metrics via the IPMI interface.</li>
+<li><code>pass</code> is the password of the remote BMC nodes for retrieving the metrics via the IPMI interface,
+for the above configured username.</li>
+<li><code>aggregator</code> is the aggregator retrieving the metrics.</li>
+</ul>
+<p>The following tags within the <code>bmc_node</code> are optional:</p>
+<ul>
+<li><code>auth_method</code> is the authentication method. Valid values are: <code>NONE</code>, <code>MD2</code>, <code>MD5</code>, <code>UNUSED</code>,
+<code>PASSWORD</code>, <code>AUTH_OEM</code>. The default value is <code>PASSWORD</code>.</li>
+<li><code>priv_level</code> is the privilege levels. Valid values are: <code>CALLBACK</code>, <code>USER</code>, <code>OPERATOR</code>, <code>ADMIN</code>,
+<code>OEM</code>. The default value is <code>USER</code>.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#configuration-section-example" id="configuration-section-example"><h4>Configuration section example:</h4></a>
+<pre><code class="language-XML">&lt;ipmi&gt;
+    &lt;bmc_node name=&quot;node04&quot;&gt;
+        &lt;bmc_address&gt;192.168.0.104&lt;/bmc_address&gt;
+        &lt;user&gt;bmc_username_01&lt;/user&gt;
+        &lt;pass&gt;bmc_password_01&lt;/pass&gt;
+        &lt;auth_method&gt;PASSWORD&lt;/auth_method&gt;
+        &lt;priv_level&gt;USER&lt;/priv_level&gt;
+        &lt;aggregator&gt;agg01&lt;/aggregator&gt;
+    &lt;/bmc_node&gt;
+&lt;/ipmi&gt;
+</code></pre>
+<p><strong>Note</strong>: This example is a valid example for the <code>orcm-site.xml</code> file version 3 and 3.1.</p>
+<p>The IPMI sensor plugin connects to the channel 1 of the BMC. Also, the default port for IPMI is used (623).</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#security-advisory" id="security-advisory"><h1>Security Advisory:</h1></a>
+<p>The file <code>orcm-site.xml</code> stores password fields for authentication in plain text format. For that reason, this
+file should be restricted to authorized admin users, and the read and write permissions should be set accordingly.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#sigar" id="sigar"><h3>sigar</h3></a>
+<p>This component reads memory, swap memory, cpu load, disk, and network data for each compute node. This component is mutually exclusive with the resusage component. Which means that only one component can be operational at any given time. The metrics collected by this component are logged as 'procstat' or 'procstat_&lt;process_name&gt;' for per child process related metrics.</p>
+<p><strong>NOTE</strong>: Please note that the exact list of metrics collected and in some cases the units of measurement could differ between these two components for some parameters.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mca-parameters-4" id="mca-parameters-4"><h4>MCA parameters:</h4></a>
+<ul>
+<li><code>sensor_sigar_test</code>: Enable logging a random test sample by the plugin for testing sensor to database connectivity</li>
+<li><code>sensor_sigar_mem</code>: Enable collecting and logging memory usage details.</li>
+<li><code>sensor_sigar_swap</code>: Enable collecting and logging swap memory usage details.</li>
+<li><code>sensor_sigar_cpu</code>: Enable collecting and logging cpu usage details.</li>
+<li><code>sensor_sigar_load</code>: Enable collecting and logging system load details.</li>
+<li><code>sensor_sigar_disk</code>: Enable collecting and logging disk access details.</li>
+<li><code>sensor_sigar_network</code>: Enable collecting and logging network usage details.</li>
+<li><code>sensor_sigar_sys</code>: Enable collecting and logging system usage details.</li>
+<li><code>sensor_sigar_proc</code>: Enable collecting and logging system wide process details as well as orcmd and child process details. Note that the child process stats will be logged into the database with the primary key - <code>procstat_&lt;child_name&gt;</code>. This also means that if orcm is launched from an emulator like valgrind it will be logged with a different primary key than <code>procstat_orcm</code>.</li>
+<li><code>sensor_sigar_use_progress_thread</code>: Enable sigar to run on it's own separate thread.</li>
+<li><code>sensor_sigar_sample_rate</code>: If sigar is running in a separate thread, then this parameter is used to configure the sample rate at which the data will be sampled.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#resusage" id="resusage"><h3>resusage</h3></a>
+<p>This is an alternative to the sigar component, which collects OS metrics by directly accessing the file system, without using any third party libraries. This component is mutually exclusive with the sigar component. Which means that only one component can be operational at any given time. The metrics collected by this component are logged as <code>procstat</code> or <code>procstat_&lt;process_name&gt;</code> for per child process related metrics.</p>
+<p><strong>NOTE</strong>: Please note that the exact list of metrics collected and in some cases the units of measurement could differ between these two components for some parameters.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mca-parameters-5" id="mca-parameters-5"><h4>MCA parameters:</h4></a>
+<ul>
+<li><code>sensor_resusage_sample_rate</code>: N/A</li>
+<li><code>sensor_resusage_node_memory_limit</code>: N/A</li>
+<li><code>sensor_resusage_proc_memory_limit</code>: N/A</li>
+<li><code>sensor_resusage_log_node_stats</code>: Whether the sampled node status information is to be sent to the log function for further processing.</li>
+<li><code>sensor_resusage_log_process_stats</code>: Whether the sampled process status information is to be sent to the log function for further processing.</li>
+<li><code>sensor_resusage_test</code>: Enable logging a random test sample by the plugin for testing sensor to database connectivity</li>
+<li><code>sensor_resusage_use_progress_thread</code>: Enable resusage to run on it's own separate thread.</li>
+<li><code>sensor_resusage_sample_rate</code>: If resusage is running in a separate thread, then this parameter is used to configure the sample rate at which the data will be sampled.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#nodepower" id="nodepower"><h3>nodepower</h3></a>
+<p>This component is used to read node power using raw commands supported by PSUs. Currently the input power to PSUs is reported.</p>
+<p><strong>NOTE</strong>: Due to limitations in the BMC and/or the ipmiutil driver, the following conditions apply:</p>
+<ul>
+<li>Nodepower and ipmi sensors cannot be executed simultaneously on different threads. The ipmi sensor plugin might take as long as a couple of minutes per BMC to perform inventory collection; this bottleneck, and a potential bottleneck in collecting samples for BMCs reporting large volume of data, might affect nodepower sampling.</li>
+<li>If you want to collect metrics of ipmi and nodepower you can use ipmi_ts sensor instead which will collect both.</li>
+<li><code>nodepower</code>, <code>ipmi</code>, and <code>ipmi_ts</code> sensors may interfere with the OCTL command <code>chassis-id</code>.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mca-parameters-6" id="mca-parameters-6"><h4>MCA parameters:</h4></a>
+<ul>
+<li><code>sensor_nodepower_use_progress_thread</code>: Enable nodepower to run on it's own separate thread.</li>
+<li>sensor_nodepower_sample_rate`: If nodepower is running in a separate thread, then this parameter is used to configure the sample rate at which the data will be sampled.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#componentpower" id="componentpower"><h3>componentpower</h3></a>
+<p>This component is used to read CPU and DDR power using RAPL MSRs.</p>
+<p>MCA parameters:</p>
+<ul>
+<li><code>sensor_componentpower_use_progress_thread</code>: Enable componentpower to run on it's own separate thread.</li>
+<li><code>sensor_componentpower_sample_rate</code>: If componentpower is running in a separate thread, then this parameter is used to configure the sample rate at which the data will be sampled.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#dmidata" id="dmidata"><h3>dmidata</h3></a>
+<p>This component is used to collect the inventory information from the node</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mca-parameters-7" id="mca-parameters-7"><h4>MCA parameters:</h4></a>
+<ul>
+<li><code>sensor_dmidata_test</code>: Enable logging a random test sample by the plugin for testing sensor to database connectivity</li>
+<li><code>sensor_dmidata_ntw_dev</code>: Enable collecting the network interface details</li>
+<li><code>sensor_dmidata_blk_dev</code>: Enable collecting the block/hard drive details</li>
+<li><code>sensor_dmidata_mem_dev</code>: Enable collecting memory module details.</li>
+<li><code>sensor_dmidata_pci_dev</code>: Enable collecting PCI devices details (Needed for collecting ntw.blk,mem device details)</li>
+<li><code>sensor_dmidata_freq_steps</code>: Enable collection of the available frequency steps at which the CPU can be configured to run.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mcedata" id="mcedata"><h3>mcedata</h3></a>
+<p>This component is used to collect the Machine Check Errors (MCE) that have been encountered by the OS. The open source <code>mcelog</code> daemon has to run in the background. It also needs to run in the 'raw' mode, for <code>mcedata</code> plugin to extract the data accurately.</p>
+<p><strong>NOTE</strong>: Due to a kernel bug in machinecheck handling, the edac driver has to be disabled in order for mcelog to collect all the memory module related errors. This bug is fixed in v4.0-rc1 kernel release.</p>
+<p>The following types of errors are currently read and decoded:</p>
+<ul>
+<li>Cache Errors</li>
+<li>Memory Controller Errors</li>
+<li>Bus &amp; Interconnect Errors</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mca-parameters-8" id="mca-parameters-8"><h4>MCA parameters:</h4></a>
+<ul>
+<li><code>sensor_mcedata_logfile</code>: Pass the path to the logfile into which mcelog stores the recorded errors. It must match the logfile configured in mcelog.conf</li>
+<li><code>sensor_mcedata_use_progress_thread</code>: Enable mcedata to run on it's own separate thread.</li>
+<li><code>sensor_mcedata_sample_rate</code>: If mcedata is running in a separate thread, then this parameter is used to configure the sample rate at which the Machine Check Event occurrences will be sampled.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#syslog" id="syslog"><h3>syslog</h3></a>
+<p>This component is used to identify syslog entries and, depending on the criticality, send notifications to the administrators. Critical and non-critical entries will be recorded in the database.</p>
+<p><strong>NOTE</strong>: the syslog component expects SELinux to be disabled when used. Functionality of the syslog component cannot be guaranteed if SELinux is enabled.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mca-parameters-9" id="mca-parameters-9"><h4>MCA parameters:</h4></a>
+<ul>
+<li><code>sensor_syslog_use_progress_thread</code>: Enable syslog to run on it's own separate thread</li>
+<li><code>sensor_syslog_sample_rate</code>: If syslog is running in a separate thread, then this parameter is used to configure the sample rate at which the data will be sampled</li>
+</ul>
+<p>In order to get the syslog sensor working you need to meet this environment:</p>
+<ul>
+<li>Installation of rsyslog server (rsyslogd).</li>
+<li>Sensys scheduler running, it can be launched from:</li>
+</ul>
+<pre><code># &lt;orcm_install_path&gt;/bin/orcmsched
+</code></pre>
+<ul>
+<li>Execute Sensys with the desired sensor which we want to use for analytics, i.e.:</li>
+</ul>
+<pre><code># &lt;orcm_install_path&gt;/bin/orcmd --omca sensor syslog,heartbeat --omca analytics_base_verbose 100
+</code></pre>
+<ul>
+<li>Execute OCTL to activate the workflow xml file which we created, i.e.:</li>
+</ul>
+<pre><code># &lt;orcm_install_path&gt;/bin/octl workflow add &lt;path_to_workflow_xml_file&gt;
+</code></pre>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#workflow-for-notifications" id="workflow-for-notifications"><h4>Workflow for notifications</h4></a>
+<p>Additionally to that, the syslog sensor needs a workflow xml file with the following content:</p>
+<pre><code class="language-XML">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+    &lt;workflows&gt;
+    &lt;aggregator&gt;*aggregator_name*&lt;/aggregator&gt;
+    &lt;workflow name = &quot;wf1&quot;&gt;
+        &lt;step name = &quot;filter&quot;&gt;
+            &lt;data_group&gt;syslog&lt;/data_group&gt;
+        &lt;/step&gt;
+        &lt;step name = &quot;genex&quot;&gt;
+            &lt;msg_regex&gt;access granted&lt;/msg_regex&gt;
+            &lt;severity&gt;info&lt;/severity&gt;
+            &lt;notifier&gt;smtp&lt;/notifier&gt;
+        &lt;/step&gt;
+    &lt;/workflow&gt;
+    &lt;/workflows&gt;
+</code></pre>
+<ul>
+<li><code>&lt;aggregator&gt;</code> tag: Specifies the list of nodes in which the workflow will be tracked.</li>
+<li><code>&lt;data_group&gt;</code>: A sensor list which will interact with the analytics framework, this list is separated by a semicolon. i.e. “syslog;freq;coretemp”</li>
+<li><code>genex</code> section: Has the arguments set for a given sensor. Arguments can change depending on which sensor is specified, for syslog sensor you can specify the following arguments:</li>
+<li><code>msg_regex</code>: Regular expression to filter which messages are going to be send to notification framework.</li>
+<li><code>severity</code>: Message severity which has to be met in order to send it to notification framework.</li>
+<li><code>notifier</code>: The notifier logging method option for event notifications.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#rsyslog-configuration" id="rsyslog-configuration"><h4>rsyslog configuration</h4></a>
+<p>The <code>rsyslog</code> service support additional configuration files than can be placed inside a configuration directory (<code>/etc/rsyslog.d</code>, in the case of supported Linux distributions – SLES and RHEL). This file would contain the required configuration to communicate rsyslog and Sensys, as well as the configuration required for the communication between Journal and rsyslog, and filter the messages for redirection.</p>
+<p>For example, the configuration file might look like this:</p>
+<pre><code>$ModLoad imuxsock
+$AddUnixListenSocket /run/systemd/journal/syslog
+$ModLoad omuxsock
+$OMUxSockSocket /dev/orcm_log
+*.alert;*.crit;*.err;auth.warn;authpriv.warn;kern.warn;user.warn;daemon.warn;cron.warn :omuxsock:
+</code></pre>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#errcounts" id="errcounts"><h3>errcounts</h3></a>
+<p>This component collects the uncorrectable and correctable ECC memory error counts from the EDAC sysfs entries. This is mostly intended for the analytic framework plugins to consume since these values are only relative to to each other by time and are reset on each reboot.  The <code>mcedata</code> plugin above should be used if you require historical data and more details about the ECC errors.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mca-parameters-10" id="mca-parameters-10"><h4>MCA parameters:</h4></a>
+<ul>
+<li><code>sensor_errcounts_use_progress_thread</code>: Enable <code>errcounts</code> to run on it's own separate thread.</li>
+<li><code>sensor_errcounts_sample_rate</code>: If <code>errcounts</code> is running in a separate thread, then this parameter is used to configure the sample rate at which the occurrences will be sampled.</li>
+</ul>
+<p>This plugin returns data in about 1-10ms so per-thread sampling may not be optimal for this plugin.</p>
+<p>Use the following configuration line to include in the configure step of Sensys:</p>
+<pre><code>with_errcounts=yes
+</code></pre>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#snmp" id="snmp"><h3>snmp</h3></a>
+<p>This component is used to read variables from SNMP devices. This is an OOB sensor, and it is intended to be run on the aggregator only. Currently, there is no support for running this sensor on compute nodes.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mca-parameters-11" id="mca-parameters-11"><h4>MCA parameters:</h4></a>
+<ul>
+<li><code>sensor_snmp_use_progress_thread</code>: Enable <code>snmp</code> to run on its own separate thread</li>
+<li><code>sensor_snmp_sample_rate</code>: If <code>snmp</code> is running in a separate thread, then this parameter is used to configure the sample rate at which the data will be sampled</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#configuration-file-sections" id="configuration-file-sections"><h4>Configuration file sections:</h4></a>
+<p>The SNMP lan parameters and variables have to be configured in an XML file. This file should be located on
+<code>&lt;path/to/orcm/install&gt;/etc</code> and its default name is <code>orcm-site.xml</code>. The syntax for the <code>snmp</code> section is as follows:</p>
+<p>Each device should be configured using a <code>config</code> tag. A mandatory <code>name</code> attribute should be specified. The following attributes should be specified as well:</p>
+<ul>
+<li>SNMPv1 Devices:
+<ul>
+<li><code>version=1</code></li>
+<li><code>user</code>, is the community user of the device.</li>
+<li><code>location</code>, an optional argument for providing additional info for locating the device.</li>
+</ul>
+</li>
+<li>SNMPv3 Devices:
+<ul>
+<li><code>version=3</code></li>
+<li><code>user</code>, is the username of the credential to access the device.</li>
+<li><code>pass</code>, is the password of the credential to access the device.</li>
+<li><code>auth</code>, is the encryption mechanism. This can be <code>MD5</code> or <code>SHA1</code>. It defaults to <code>MD5</code>.</li>
+<li><code>sec</code>, is the security access method. This can be <code>NOAUTH</code>, <code>AUTHNOPRIV</code>, <code>AUTHPRIV</code>. It defaults to <code>AUTHNOPRIV</code>. In case of using <code>AUTHPRIV</code>, the default protocol on Net-SNMP library will be used (<code>DES</code> in most cases, unless being disabled at compile time in the library).</li>
+<li><code>location</code>, an optional argument for providing additional info for locating the device.</li>
+</ul>
+</li>
+</ul>
+<p>Within the <code>config</code> section, the following tags should be provided (mandatory):</p>
+<ul>
+<li><code>aggregator</code>, is a single string specifying which aggregator would be in charge of collecting the SNMP data of the device.</li>
+<li><code>hostname</code>, is the device hostname or ip address. This can be a comma separated list, logical group and/or regular expression.</li>
+<li><code>oids</code>, is the comma separated list of oids to query. Both numerical OIDs and textual MIB names are supported.</li>
+</ul>
+<p>In order to use MIB (Management Information Base) names, MIB database files needs to be installed in a location reachable by Net-SNMP library. These databases are vendor dependent, and should be obtained from vendor websites. These files might use propietary licenses and the user is responsible on attaining to those.</p>
+<p>In a per user basis, the MIB files should be copied into: <code>$HOME/.snmp/mibs/</code>. For global use of these files, they should be copied into: <code>/usr/share/snmp/mibs</code>. In the <code>IMPORT</code> section of the MIB file, we can check for the dependencies upon other MIB files.</p>
+<p>Configuration section example:</p>
+<pre><code class="language-XML">&lt;snmp&gt;
+    &lt;config name=&quot;snmp1&quot; version=&quot;3&quot; user=&quot;user&quot; pass=&quot;12345678&quot; auth=&quot;MD5&quot; sec=&quot;AUTHNOPRIV&quot;&gt;
+        &lt;aggregator&gt;localhost&lt;/aggregator&gt;
+        &lt;hostname&gt;server[2:0-20],server21&lt;/hostname&gt;
+        &lt;oids&gt;1.3.6.1.4.1.343.1.1.3.1,1.3.6.1.4.1.343.1.1.3.4&lt;/oids&gt;
+    &lt;/config&gt;
+    &lt;config name=&quot;snmp2&quot; version=&quot;1&quot; user=&quot;user&quot; location=&quot;X Lab&quot;&gt;
+        &lt;aggregator&gt;node01&lt;/aggregator&gt;
+        &lt;hostname&gt;switches[2:0-20],switch21&lt;/hostname&gt;
+        &lt;oids&gt;1.3.6.1.4.1.343.1.1.3.1,1.3.6.1.4.1.343.1.1.3.4&lt;/oids&gt;
+    &lt;/config&gt;
+&lt;/snmp&gt;
+</code></pre>
+<p><strong>NOTE</strong>: Buffer overflow in net-snmp library, see <a href="https://sourceforge.net/p/net-snmp/bugs/2568">bug 2568</a>. This issue might be hit by Sensys when using a configuration with an unavailable OID after several attempts to sample such an OID. Patch available on net-snmp, commit af8c1. Affected net-snmp versions: 5.7.2 and 5.7.3. Those versions have been proved to fail, nevertheless, there may be more that fail.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#security-advisory-1" id="security-advisory-1"><h1>Security Advisory:</h1></a>
+<p>The file <code>orcm-site.xml</code> stores password fields for authentication in plain text format. For that reason, this
+file should be restricted to authorized admin users, and the read and write permissions should be set accordingly.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#ipmi_ts" id="ipmi_ts"><h3>ipmi_ts</h3></a>
+<p>This component is intended to replace IPMI component making it thread safe (TS  = thread safe). <code>ipmi_ts</code> plugin solves the scalability limitations that IPMI currently has as the bottlenecks on inventory collection and collection samples for BMCs.</p>
+<p>To avoid bottlenecks, <code>impi_ts</code> uses a <em>Producer/Consumer</em> pattern which allows it to collect the samples in the background and send them to the data base as they are received from the different BMCs.</p>
+<p>This component also collects <code>nodepower</code> metrics with an OOB mechanism (BMC configuration within CFGI may need ADMIN privilege level for this to work properly). The simultaneity execution of <code>ipmi_ts</code>, <code>ipmi</code> and <code>nodepower</code> might have unexpected behavior. Also <code>ipmi_ts</code> may interfere with the OCTL command chassis-id.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#mca-parameters-12" id="mca-parameters-12"><h4>MCA parameters:</h4></a>
+<ul>
+<li><code>sensor_ipmi_ts_test</code>: Enable logging a random test sample by the plugin for testing sensor to database connectivity.</li>
+<li><code>sensor_ipmi_ts_dfx</code>: Enable logging using a mocked IPMIUtil for testing purposes.</li>
+<li><code>sensor_ipmi_ts_agents</code>: Number of dispaching agents for collecting data. Each agent will run on its own thread and will send the response to the database. This feature is not releated to the Sensys Database Multiple Threads. The minimum value is 1 and the maximum is 100, by default is set to 4.</li>
+<li><code>sensor_ipmi_ts_use_progress_thread</code>: Enable <code>ipmi_ts</code> to run on its own separate thread.</li>
+<li><code>sensor_ipmi_ts_sample_rate</code>: If <code>ipmi_ts</code> is running in a separate thread, then this parameter is used to configure the sample rate at which the data will be sampled.</li>
+<li><code>sensor_ipmi_ts_sel_state_filename</code>: When collecting IPMI SEL Records, this is the filename where the last read record ID is saved so the records are not re-read and stored multiple times in the database.  Frequently <code>/var/run/orcmd-sel-persist.dat</code> is used.  The default is no file which will cause all records to be re-read on orcmd startup.</li>
+</ul>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#data-flow" id="data-flow"><h2>Data Flow</h2></a>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#sensors-initialization--start" id="sensors-initialization--start"><h3>Sensors Initialization &amp; Start</h3></a>
+<p><img src="3-Sensys-User-Guide/sensors-init.png" alt="Sensys RAS Monitoring - Initialization" /></p>
+<p>Before sampling data using any of the underlying components, the framework and each component has to be initialized. This is required for detecting the available plugins and verifying their underlying dependencies are met. Initialization stage also provides a safe state to allocate memory/space that's required for the component's functioning.</p>
+<p>The base framework also detects the priority assigned for each component and selects the plugin with the highest priority in case of conflicting &quot;component name&quot;. This step also calls the init functions of each component in effect instructing them to initialize their structures/memories and check for any particular  dependencies. If anything is not in order and the init sequence fails, then the sensors framework removes the concerned plugin from it's 'bucket' list and in turn from sampling that particular metric(s).</p>
+<p>The sensors framework's start call in turn sets up an event loop with a user defined time interval, with a specific callback function - &quot;manually_sample&quot;, which gets invoked at after each trigger.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#sensors-sample" id="sensors-sample"><h3>Sensors Sample</h3></a>
+<p><img src="3-Sensys-User-Guide/sensors-sample.png" alt="Sensys RAS Monitoring - Sample" /></p>
+<p>The sampling stage of the sensors is pretty simple. The event loop (setup during the initialization stage) triggers after every sampling period and invokes the sample function of each active module. The order of selecting the sample function is based on the priority of each component and is assigned by the developer. Each components 'samples' their respective metrics and packs it into a large bucket, preceded with a string containing the plugin's name. The plugin with the lowest priority is the heartbeat plugin and it gets invoked the last. This is a special plugin in the sense that it it takes the packed buffer and sends it the aggregator, via the RML layer's send call by using a dedicated tag.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#sensors-log" id="sensors-log"><h3>Sensors Log</h3></a>
+<p><img src="3-Sensys-User-Guide/sensors-log.png" alt="Sensys RAS Monitoring - Sample" /></p>
+<p>This state is valid only for the aggregator nodes, since the packed RAS metric data sent by the <code>heartbeat</code> plugin is 'always' directed at the aggregator node. Once the aggregator node received the buffer, it unpacks it and directs the contents to the log function of the respective component. This is possible since each component is expected to pack it's name preceding the metric contents.</p>
+<a class="header" href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html#sensors-stop--finalize" id="sensors-stop--finalize"><h3>Sensors Stop &amp; Finalize</h3></a>
+<p><img src="3-Sensys-User-Guide/sensors-finalize.png" alt="Sensys RAS Monitoring - Sample" /></p>
+<p>Once the user application decides to stop sampling the metric data, it can invoke the finalize function call of the base framework which in turn removes the event from the event loop.</p>
+<p><strong>NOTE</strong>: All the above explanation is valid for a single thread sampling. Per-thread sampling is slightly different from the above process.</p>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a href="3-Sensys-User-Guide/3.7-octl.html" class="mobile-nav-chapters previous">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="3-Sensys-User-Guide/3.7-octl.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Multihost Docker - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="../../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="Home.html">Introduction</a></li><li><a href="1-Sensys/1.1-Overview.html"><strong>1.</strong> Sensys</a></li><li><ul class="section"><li><a href="1-Sensys/1.2-Core-Features.html"><strong>1.1.</strong> Core features</a></li></ul></li><li><strong>2.</strong> Sensys Build and Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.01-Build-Dependencies.html"><strong>2.1.</strong> Build Dependencies</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.02-Pre-build-Configuration.html"><strong>2.2.</strong> Pre build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.03-Build-From-SRPMS.html"><strong>2.3.</strong> Build From SRPMS</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.04-Relocate-RPM-Install-Path.html"><strong>2.4.</strong> Relocate RPM Install Path</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.05-Build-From-Source-Tar-Files.html"><strong>2.5.</strong> Build From Source Tar Files</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.06-Build-From-GitHub-Repo.html"><strong>2.6.</strong> Build From GitHub Repo</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.07-Post-build-Configuration.html"><strong>2.7.</strong> Post build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.08-Setting-Up-pre-requisites-for-RAS-Monitoring.html"><strong>2.8.</strong> Setting Up pre requisites for RAS Monitoring</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.09-Startup-Instructions.html"><strong>2.9.</strong> Startup Instructions</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.10-Troubleshooting.html"><strong>2.10.</strong> Troubleshooting</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.11-Setting-MCA-Parameters.html"><strong>2.11.</strong> Setting MCA Parameters</a></li><li><strong>2.12.</strong> Database Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.1-Database-Server.html"><strong>2.12.1.</strong> Database Server</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html"><strong>2.12.2.</strong> Database Connectivity</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.3-Enabling-Data-Purge.html"><strong>2.12.3.</strong> Enabling Data Purge</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.4-Monitoring-Database-Size.html"><strong>2.12.4.</strong> Monitoring Database Size</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.5-Database-Distro-Specific-Examples.html"><strong>2.12.5.</strong> Database Distro Specific Examples</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.6-Database-ZeroMQ-Publishing.html"><strong>2.12.6.</strong> Database ZeroMQ Publishing</a></li></ul></li></ul></li><li><strong>3.</strong> Sensys User Guide</li><li><ul class="section"><li><a href="3-Sensys-User-Guide/3.1-Overview.html"><strong>3.1.</strong> Overview</a></li><li><a href="3-Sensys-User-Guide/3.2-orcmd.html"><strong>3.2.</strong> orcmd</a></li><li><a href="3-Sensys-User-Guide/3.3-orcmsched.html"><strong>3.3.</strong> orcmsched</a></li><li><a href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html"><strong>3.4.</strong> Sensys CFGI User Guide</a></li><li><a href="3-Sensys-User-Guide/3.5-Sensys-Regex.html"><strong>3.5.</strong> Sensys Regex</a></li><li><a href="3-Sensys-User-Guide/3.6-Sensys-Logical-Grouping.html"><strong>3.6.</strong> Sensys Logical Grouping</a></li><li><a href="3-Sensys-User-Guide/3.7-octl.html"><strong>3.7.</strong> octl</a></li><li><a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html"><strong>3.8.</strong> RAS Monitoring</a></li><li><a href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html"><strong>3.9.</strong> Data Smoothing Algorithms Analytics</a></li><li><a href="3-Sensys-User-Guide/3.10-ErrorManager-Notification.html"><strong>3.10.</strong> ErrorManager Notification</a></li><li><a href="3-Sensys-User-Guide/3.11-Diagnostics.html"><strong>3.11.</strong> Diagnostics</a></li><li><a href="3-Sensys-User-Guide/3.12-Sensys-Security-Aspects.html"><strong>3.12.</strong> Sensys Security Aspects</a></li><li><a href="3-Sensys-User-Guide/3.13-Sensys-Database-Multiple-Threads.html"><strong>3.13.</strong> Sensys Database Multiple Threads</a></li><li><a href="3-Sensys-User-Guide/3.14-Sensys-Database-Multi-Select.html"><strong>3.14.</strong> Sensys Database Multi Select</a></li></ul></li><li><strong>4.</strong> Developer Guide</li><li><ul class="section"><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.1-DB-Framework-API-Design.html"><strong>4.1.</strong> DB Framework API Design</a></li><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.2-DB-Framework-API.html"><strong>4.2.</strong> DB Framework API</a></li><li><a href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html"><strong>4.3.</strong> DB API</a></li><li><a href="4-Developer-Guide/4.3-Sensys-DB-Schema/4.3.1-DB-Schema-V2,0.html"><strong>4.4.</strong> DB Schema V2,0</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.1-Analytics-Plugin-API.html"><strong>4.5.</strong> Analytics Plugin API</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.2-Analytics-Plugin-Development.html"><strong>4.6.</strong> Analytics Plugin Development</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.3-Analytics-Plugin-Build-Install.html"><strong>4.7.</strong> Analytics Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.1-Sensor-Plugin-API.html"><strong>4.8.</strong> Sensor Plugin API</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.2-Sensor-Plugin-Development.html"><strong>4.9.</strong> Sensor Plugin Development</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.3-Sensor-Plugin-Build-Install.html"><strong>4.10.</strong> Sensor Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.6-dataContainer-reference.html"><strong>4.11.</strong> <code>dataContainer</code> class reference</a></li></ul></li><li><strong>5.</strong> Testing</li><li><ul class="section"><li><a href="5-Testing/5.1-Docker/5.1.1-Centos-Docker-Guide.html"><strong>5.1.</strong> Centos Docker Guide</a></li><li><a href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html" class="active"><strong>5.2.</strong> Multihost Docker</a></li><li><a href="5-Testing/5.1-Docker/5.1.3-Cluster-Docker.html"><strong>5.3.</strong> Cluster Docker</a></li></ul></li><li><strong>6.</strong> Appendix</li><li><ul class="section"><li><a href="Appendix/A.1-Terminology.html"><strong>6.1.</strong> Terminology</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.1-Following-the-Open-MPI-Model.html"><strong>6.2.</strong> Following the Open MPI Model</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.2-Contributing-to-the-Source-Code.html"><strong>6.3.</strong> Contributing to the Source Code</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.3-Development-Process.html"><strong>6.4.</strong> Development Process</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.4-Roles-and-Responsibilities.html"><strong>6.5.</strong> Roles and Responsibilities</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.5-Filing-Issues.html"><strong>6.6.</strong> Filing Issues</a></li><li><a href="Appendix/A.3-Maintaining-the-Wiki.html"><strong>6.7.</strong> Maintaining the Wiki</a></li></ul></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html#running-sensys-in-an-multihost-docker-environment" id="running-sensys-in-an-multihost-docker-environment"><h1>Running Sensys in an multihost docker environment</h1></a>
+<p>We are going to add a physical interface, connected to other hosts to the virtual bridge device that the docker containers connect to, so that the virtual network spans across our physical hosts as shown in the following figure:
+<img src="5-Testing/docker-multi-host.png" alt="" /></p>
+<p>We need to explicitly manage the IP address of the containers since all containers will be on the same network.  This is not the general use case for docker, so we need to get into a few advanced features.</p>
+<a class="header" href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html#network-setup" id="network-setup"><h2>Network setup</h2></a>
+<p>We need to disable docker from managing the bridge device since we want to manage it by hand, and we will need to use lxc instead of libcontainer to have control over setting our own container IP addresses. Configure this in <code>/etc/sysconfig/docker</code>:</p>
+<pre><code>    other_args=&quot;-b=none -e=lxc“
+    service docker restart
+</code></pre>
+<p>Setup our own bridge device</p>
+<pre><code>    sudo yum install bridge-utils
+    sudo brctl addbr docker0
+    sudo brctl addif docker0 eth0
+</code></pre>
+<p>change <code>eth0</code> to whatever interface you are using to physically connect the hosts together. To make this permanent, change <code>/etc/sysconfig/network-scripts/ifcfg-eth0</code> to:</p>
+<pre><code>    DEVICE=eth0
+    HWADDR=&lt;MAC ADDRESS&gt;
+    ONBOOT=yes
+    BOOTPROTO=none
+    BRIDGE=docker0
+</code></pre>
+<p>and <code>/etc/sysconfig/network-scripts/ifcfg-docker0</code> (IP configuration is optional, but if needed should be configured on bridge device not ethX device):</p>
+<pre><code>    DEVICE=docker0
+    TYPE=Bridge
+    #IPADDR=1.2.3.4
+    #GATEWAY=1.2.3.1
+    #NETMASK=255.255.255.0
+    ONBOOT=yes
+    BOOTPROTO=none
+    IPV6INIT=no
+    IPV6_AUTOCONF=no
+    STP=no
+</code></pre>
+<p>If all went well we should see our ethernet device associated with the bridge using this command</p>
+<pre><code>    # brctl show
+    bridge name bridge id           STP enabled interfaces
+    docker0     8000.000000000000   no  eth0
+</code></pre>
+<p>We need to add some lxc configuration options to our docker commands to setup the static IP addressing</p>
+<pre><code>    --lxc-conf=&quot;lxc.network.type = veth&quot; 
+    --lxc-conf=&quot;lxc.network.ipv4 = 172.16.0.1/16&quot; 
+    --lxc-conf=&quot;lxc.network.link = docker0&quot; 
+    --lxc-conf=&quot;lxc.network.name = eth0&quot; 
+    --lxc-conf=&quot;lxc.network.flags = up&quot;
+</code></pre>
+<p>This tells docker/lxc to use the virtual ethernet device with and IP address <code>172.16.0.1</code>, netmask <code>255.255.0.0</code>, connected to <code>docker0</code> bridge, configuring device <code>eth0</code> within the container, and automatically bringing the container interface up.
+It is important to have an address scheme defined before setup, because this is needed for generating an <code>/etc/hosts</code> file within the containers.  An example is:</p>
+<pre><code>172.16.0.1 db
+172.16.0.2 master (scheduler)
+172.16.0.3 agg01
+172.16.1.0 - 172.16.1.255 node001 - node256 (on host1)
+172.16.2.0 - 172.16.2.255 node257 - node512 (on host2)
+172.16.255.0.X reserved for login shells
+</code></pre>
+<a class="header" href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html#running-sensys-in-a-docker-environment" id="running-sensys-in-a-docker-environment"><h2>Running Sensys in a docker environment</h2></a>
+<p>In the following steps we assume that Sensys is installed in its default path inside the container i.e. '/opt/sensys' and the name of the docker container image is <code>sensys</code></p>
+<ol>
+<li>Launch database (any host)</li>
+</ol>
+<pre><code>    % docker run -d --name db -h db --lxc-conf=&quot;lxc.network.type = veth&quot; \
+        --lxc-conf=&quot;lxc.network.ipv4 = 172.16.0.1/16&quot; \
+        --lxc-conf=&quot;lxc.network.link = docker0&quot; --lxc-conf=&quot;lxc.network.name = eth0&quot; \
+        --lxc-conf=&quot;lxc.network.flags = up&quot; sensys sudo -u postgres /usr/pgsql-9.3/bin/postmaster \
+        -p 5432 -D /var/lib/pgsql/9.3/data
+</code></pre>
+<ol start="2">
+<li>Launch scheduler (any host)</li>
+</ol>
+<pre><code>    % docker run -d --name master -h master -v /root/hosts:/etc/hosts --lxc-conf=&quot;lxc.network.type = veth&quot; \
+        --lxc-conf=&quot;lxc.network.ipv4 = 172.16.0.2/16&quot; --lxc-conf=&quot;lxc.network.link = docker0&quot; \
+        --lxc-conf=&quot;lxc.network.name = eth0&quot; --lxc-conf=&quot;lxc.network.flags = up&quot; sensys
+        /opt/sensys/bin/orcmsched
+</code></pre>
+<ol start="3">
+<li>Launch aggregator (any host)</li>
+</ol>
+<pre><code>    % docker run -d --name agg01 -h agg01 -v /root/hosts:/etc/hosts --lxc-conf=&quot;lxc.network.type = veth&quot; \
+        --lxc-conf=&quot;lxc.network.ipv4 = 172.16.0.3/16&quot; --lxc-conf=&quot;lxc.network.link = docker0&quot; \
+        --lxc-conf=&quot;lxc.network.name = eth0&quot; --lxc-conf=&quot;lxc.network.flags = up&quot; sensys \
+        /opt/sensys/bin/orcmd --omca db_postgresq_uri db:4321 --omca db_postgres_user orcmuser:orcmpassword \
+        --omca db_postgres_database sensys-db --omca sensor heartbeat,sigar
+</code></pre>
+<ol start="4">
+<li>Launch nodes node001 - node256 (on first host)</li>
+</ol>
+<pre><code>    % docker run -d --name node001 -h node001 -v /root/hosts:/etc/hosts --lxc-conf=&quot;lxc.network.type = veth&quot; \
+        --lxc-conf=&quot;lxc.network.ipv4 = 172.16.1.0/16&quot; --lxc-conf=&quot;lxc.network.link = docker0&quot; \
+        --lxc-conf=&quot;lxc.network.name = eth0&quot; --lxc-conf=&quot;lxc.network.flags = up&quot; sensys \
+        /opt/sensys/bin/orcmd --omca sensor heartbeat,sigar
+    ...
+    % docker run -d --name node256 -h node256 -v /root/hosts:/etc/hosts --lxc-conf=&quot;lxc.network.type = veth&quot; \
+        --lxc-conf=&quot;lxc.network.ipv4 = 172.16.1.255/16&quot; --lxc-conf=&quot;lxc.network.link = docker0&quot; \
+        --lxc-conf=&quot;lxc.network.name = eth0&quot; --lxc-conf=&quot;lxc.network.flags = up&quot; sensys \
+        /opt/sensys/bin/orcmd --omca sensor heartbeat,sigar
+</code></pre>
+<ol start="5">
+<li>Launch nodes node257 - node512 (on second host)</li>
+</ol>
+<pre><code>    % docker run -d --name node257 -h node257 -v /root/hosts:/etc/hosts --lxc-conf=&quot;lxc.network.type = veth&quot; \
+        --lxc-conf=&quot;lxc.network.ipv4 = 172.16.2.0/16&quot; --lxc-conf=&quot;lxc.network.link = docker0&quot; \
+        --lxc-conf=&quot;lxc.network.name = eth0&quot; --lxc-conf=&quot;lxc.network.flags = up&quot; sensys \
+        /opt/sensys/bin/orcmd --omca sensor heartbeat,sigar
+    ...
+    % docker run -d --name node512 -h node512 -v /root/hosts:/etc/hosts --lxc-conf=&quot;lxc.network.type = veth&quot; \
+        --lxc-conf=&quot;lxc.network.ipv4 = 172.16.2.255/16&quot; --lxc-conf=&quot;lxc.network.link = docker0&quot; \
+        --lxc-conf=&quot;lxc.network.name = eth0&quot; --lxc-conf=&quot;lxc.network.flags = up&quot; sensys \
+        /opt/sensys/bin/orcmd --omca sensor heartbeat,sigar
+</code></pre>
+<ol start="6">
+<li>Launch interactive shell (simulating login node)</li>
+</ol>
+<pre><code>    % docker run -it --rm -v /root/hosts:/etc/hosts --lxc-conf=&quot;lxc.network.type = veth&quot; \
+        --lxc-conf=&quot;lxc.network.ipv4 = 172.16.255.1/16&quot; --lxc-conf=&quot;lxc.network.link = docker0&quot; \
+        --lxc-conf=&quot;lxc.network.name = eth0&quot; --lxc-conf=&quot;lxc.network.flags = up&quot; sensys /bin/bash
+</code></pre>
+<p>Please notice that in the above examples, the <code>-v</code> options allows us to bind mount a directory or file into the container from the host.  So if you would like to test a new orcm configuration file, you can add the option:</p>
+<pre><code>-v /path/to/orcm-site.xml:/opt/open-rcm/etc/orcm-site.xml
+</code></pre>
+<p>to the above docker commands.  The hostnames, entries in the config file, and entries in /etc/hosts in the container all have to match up.</p>
+<p>If you want a shared home directory across the virtual cluster, you could add:</p>
+<pre><code>-v /home:/home
+</code></pre>
+<p>to the shell and compute nodes and they would all share the common home directory.</p>
+<a class="header" href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html#environment-stop-and-clean-up" id="environment-stop-and-clean-up"><h2>Environment stop and clean up</h2></a>
+<ol>
+<li>Stop all running containers</li>
+</ol>
+<pre><code>    docker stop $(docker ps -a -q)
+</code></pre>
+<ol start="2">
+<li>Remove containers</li>
+</ol>
+<pre><code>    docker rm $(docker ps -a -q)
+</code></pre>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a href="5-Testing/5.1-Docker/5.1.1-Centos-Docker-Guide.html" class="mobile-nav-chapters previous">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="5-Testing/5.1-Docker/5.1.3-Cluster-Docker.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="5-Testing/5.1-Docker/5.1.1-Centos-Docker-Guide.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="5-Testing/5.1-Docker/5.1.3-Cluster-Docker.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>
