@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Getting Started - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="Home.html">Introduction</a></li><li class="affix"><a href="gettingStarted.html" class="active">Getting Started</a></li><li><a href="1-Sensys/1.1-Overview.html"><strong>1.</strong> Sensys</a></li><li><ul class="section"><li><a href="1-Sensys/1.2-Core-Features.html"><strong>1.1.</strong> Core features</a></li></ul></li><li><strong>2.</strong> Sensys Build and Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.01-Build-Dependencies.html"><strong>2.1.</strong> Build Dependencies</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.02-Pre-build-Configuration.html"><strong>2.2.</strong> Pre build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.03-Build-From-SRPMS.html"><strong>2.3.</strong> Build From SRPMS</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.04-Relocate-RPM-Install-Path.html"><strong>2.4.</strong> Relocate RPM Install Path</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.05-Build-From-Source-Tar-Files.html"><strong>2.5.</strong> Build From Source Tar Files</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.06-Build-From-GitHub-Repo.html"><strong>2.6.</strong> Build From GitHub Repo</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.07-Post-build-Configuration.html"><strong>2.7.</strong> Post build Configuration</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.08-Setting-Up-pre-requisites-for-RAS-Monitoring.html"><strong>2.8.</strong> Setting Up pre requisites for RAS Monitoring</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.09-Startup-Instructions.html"><strong>2.9.</strong> Startup Instructions</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.10-Troubleshooting.html"><strong>2.10.</strong> Troubleshooting</a></li><li><a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.11-Setting-MCA-Parameters.html"><strong>2.11.</strong> Setting MCA Parameters</a></li><li><strong>2.12.</strong> Database Installation</li><li><ul class="section"><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.1-Database-Server.html"><strong>2.12.1.</strong> Database Server</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.2-Database-Connectivity.html"><strong>2.12.2.</strong> Database Connectivity</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.3-Enabling-Data-Purge.html"><strong>2.12.3.</strong> Enabling Data Purge</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.4-Monitoring-Database-Size.html"><strong>2.12.4.</strong> Monitoring Database Size</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.5-Database-Distro-Specific-Examples.html"><strong>2.12.5.</strong> Database Distro Specific Examples</a></li><li><a href="2-Build-and-Installation-Guide/2.2-Database-Installation/2.2.6-Database-ZeroMQ-Publishing.html"><strong>2.12.6.</strong> Database ZeroMQ Publishing</a></li></ul></li></ul></li><li><strong>3.</strong> Sensys User Guide</li><li><ul class="section"><li><a href="3-Sensys-User-Guide/3.1-Overview.html"><strong>3.1.</strong> Overview</a></li><li><a href="3-Sensys-User-Guide/3.2-orcmd.html"><strong>3.2.</strong> orcmd</a></li><li><a href="3-Sensys-User-Guide/3.3-orcmsched.html"><strong>3.3.</strong> orcmsched</a></li><li><a href="3-Sensys-User-Guide/3.4-Sensys-CFGI-User-Guide.html"><strong>3.4.</strong> Sensys CFGI User Guide</a></li><li><a href="3-Sensys-User-Guide/3.5-Sensys-Regex.html"><strong>3.5.</strong> Sensys Regex</a></li><li><a href="3-Sensys-User-Guide/3.6-Sensys-Logical-Grouping.html"><strong>3.6.</strong> Sensys Logical Grouping</a></li><li><a href="3-Sensys-User-Guide/3.7-octl.html"><strong>3.7.</strong> octl</a></li><li><a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.html"><strong>3.8.</strong> RAS Monitoring</a></li><li><a href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html"><strong>3.9.</strong> Data Smoothing Algorithms Analytics</a></li><li><a href="3-Sensys-User-Guide/3.10-ErrorManager-Notification.html"><strong>3.10.</strong> ErrorManager Notification</a></li><li><a href="3-Sensys-User-Guide/3.11-Diagnostics.html"><strong>3.11.</strong> Diagnostics</a></li><li><a href="3-Sensys-User-Guide/3.12-Sensys-Security-Aspects.html"><strong>3.12.</strong> Sensys Security Aspects</a></li><li><a href="3-Sensys-User-Guide/3.13-Sensys-Database-Multiple-Threads.html"><strong>3.13.</strong> Sensys Database Multiple Threads</a></li><li><a href="3-Sensys-User-Guide/3.14-Sensys-Database-Multi-Select.html"><strong>3.14.</strong> Sensys Database Multi Select</a></li></ul></li><li><strong>4.</strong> Developer Guide</li><li><ul class="section"><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.1-DB-Framework-API-Design.html"><strong>4.1.</strong> DB Framework API Design</a></li><li><a href="4-Developer-Guide/4.1-Sensys-DB-Framework-API/4.1.2-DB-Framework-API.html"><strong>4.2.</strong> DB Framework API</a></li><li><a href="4-Developer-Guide/4.2-Sensys-DB-API/4.2.1-DB-API.html"><strong>4.3.</strong> DB API</a></li><li><a href="4-Developer-Guide/4.3-Sensys-DB-Schema/4.3.1-DB-Schema-V2,0.html"><strong>4.4.</strong> DB Schema V2,0</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.1-Analytics-Plugin-API.html"><strong>4.5.</strong> Analytics Plugin API</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.2-Analytics-Plugin-Development.html"><strong>4.6.</strong> Analytics Plugin Development</a></li><li><a href="4-Developer-Guide/4.4-Sensys-Simplified-Analytics-Interface/4.4.3-Analytics-Plugin-Build-Install.html"><strong>4.7.</strong> Analytics Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.1-Sensor-Plugin-API.html"><strong>4.8.</strong> Sensor Plugin API</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.2-Sensor-Plugin-Development.html"><strong>4.9.</strong> Sensor Plugin Development</a></li><li><a href="4-Developer-Guide/4.5-Sensys-Simplified-Sensor-Interface/4.5.3-Sensor-Plugin-Build-Install.html"><strong>4.10.</strong> Sensor Plugin Build Install</a></li><li><a href="4-Developer-Guide/4.6-dataContainer-reference.html"><strong>4.11.</strong> <code>dataContainer</code> class reference</a></li></ul></li><li><strong>5.</strong> Testing</li><li><ul class="section"><li><a href="5-Testing/5.1-Docker/5.1.1-Centos-Docker-Guide.html"><strong>5.1.</strong> Centos Docker Guide</a></li><li><a href="5-Testing/5.1-Docker/5.1.2-Multihost-Docker.html"><strong>5.2.</strong> Multihost Docker</a></li><li><a href="5-Testing/5.1-Docker/5.1.3-Cluster-Docker.html"><strong>5.3.</strong> Cluster Docker</a></li></ul></li><li><strong>6.</strong> Appendix</li><li><ul class="section"><li><a href="Appendix/A.1-Terminology.html"><strong>6.1.</strong> Terminology</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.1-Following-the-Open-MPI-Model.html"><strong>6.2.</strong> Following the Open MPI Model</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.2-Contributing-to-the-Source-Code.html"><strong>6.3.</strong> Contributing to the Source Code</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.3-Development-Process.html"><strong>6.4.</strong> Development Process</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.4-Roles-and-Responsibilities.html"><strong>6.5.</strong> Roles and Responsibilities</a></li><li><a href="Appendix/A.2-Sensys-Governance-Model/A.2.5-Filing-Issues.html"><strong>6.6.</strong> Filing Issues</a></li><li><a href="Appendix/A.3-Maintaining-the-Wiki.html"><strong>6.7.</strong> Maintaining the Wiki</a></li></ul></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="gettingStarted.html#getting-started-br" id="getting-started-br"><h1>Getting Started <br/></h1></a>
+<p>Sensys provides resilient and scalable monitoring for resource utilization and state of node health, collecting all the data in a database for subsequent analysis. Sensys includes several loadable plugins that monitor various metrics related to different features present in each node like temperature, voltage, power usage, memory, disk and process information.</p>
+<a class="header" href="gettingStarted.html#requirementsbr" id="requirementsbr"><h1>Requirements<br/></h1></a>
+<a class="header" href="gettingStarted.html#operating-systems" id="operating-systems"><h2>Operating Systems</h2></a>
+<ul>
+<li>CentOS 7.3</li>
+<li>SLES 12 SP2</li>
+</ul>
+<a class="header" href="gettingStarted.html#dependencies" id="dependencies"><h2>Dependencies</h2></a>
+<table><thead><tr><th>Name </th><th> Version</th></tr></thead><tbody>
+<tr><td>Sigar </td><td> 1.6.5</td></tr>
+<tr><td>libesmtp </td><td>  1.0.6</td></tr>
+<tr><td>net-snmp </td><td>  5.7.3</td></tr>
+<tr><td>net-snmp-devel </td><td>    5.7.3</td></tr>
+<tr><td>ipmiutil </td><td>  2.9.6</td></tr>
+<tr><td>ipmiutil-devel </td><td>    2.9.6</td></tr>
+<tr><td>postgresql </td><td>    9.3</td></tr>
+<tr><td>postgresql-devel </td><td>  9.3</td></tr>
+<tr><td>numactl-libs </td><td>  2.0.9</td></tr>
+<tr><td>openssl </td><td>   1.0.1</td></tr>
+<tr><td>zeromq </td><td>    4.0.5</td></tr>
+</tbody></table>
+<p>The dependencies above are needed in order to build Sensys with full support. For more information visit <a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.01-Build-Dependencies.html">Build dependencies</a>.</p>
+<a class="header" href="gettingStarted.html#download-and-installation-br" id="download-and-installation-br"><h1>Download and Installation <br/></h1></a>
+<a class="header" href="gettingStarted.html#installing-sensys" id="installing-sensys"><h2>Installing Sensys</h2></a>
+<a class="header" href="gettingStarted.html#download-desired-rpms-centossles" id="download-desired-rpms-centossles"><h3>Download desired RPMs [CentOS|SLES]</h3></a>
+<p>Sensys RPMs can be downloaded from:</p>
+<pre><code>https://github.com/intel-ctrlsys/sensys/releases
+</code></pre>
+<a class="header" href="gettingStarted.html#install-on-centos" id="install-on-centos"><h3>Install on CentOS</h3></a>
+<p>After Downloading RPMs, install them using yum:</p>
+<pre><code># yum install -y sensys-x-y-z.x86_64.rpm \
+sensys-common-x-y-z.x86_64.rpm
+</code></pre>
+<p>Where x,y,z = version</p>
+<a class="header" href="gettingStarted.html#install-on-sles" id="install-on-sles"><h3>Install on SLES</h3></a>
+<p>After Downloading RPMs, install them using zypper:</p>
+<pre><code># zypper install sensys-x-y-z.x86_64.rpm \
+sensys-common-x-y-z.x86_64.rpm
+</code></pre>
+<p>Where x,y,z = version</p>
+<a class="header" href="gettingStarted.html#source-code" id="source-code"><h3>Source Code</h3></a>
+<p>Alternatively, Sensys source code can be obtained by cloning the repo as shown below:</p>
+<pre><code>$ git clone https://github.com/intel-ctrlsys/sensys.git
+</code></pre>
+<p>Once the source is downloaded, just compile and install as follows:</p>
+<pre><code>$ ./autogen.pl
+$ ./configure --prefix=/opt/sensys --with-platform=contrib/platform/intel/hillsboro/orcm-nightly-build
+$ make
+# make install
+</code></pre>
+<p>Default installation path is <code>/opt/sensys</code> but you can modify it on <code>--prefix=&lt;path&gt;</code></p>
+<a class="header" href="gettingStarted.html#configure-and-run-a-sensor-br" id="configure-and-run-a-sensor-br"><h1>Configure and run a sensor <br/></h1></a>
+<p>Once installed, Sensys binaries can be found on <code>/opt/sensys/bin</code> (on source builds, installation path was specified using --prefix parameter)</p>
+<p>The following sections show how to execute Sensys coretemp and freq sensors. For more information visit <a href="3-Sensys-User-Guide/3.8-RAS-Monitoring.md">RAS Monitoring</a>.</p>
+<a class="header" href="gettingStarted.html#core-frequency-test" id="core-frequency-test"><h3>Core-Frequency test</h3></a>
+<p>The example below shows how to start monitoring core frequency using Sensys:</p>
+<pre><code># orcmd --omca sensor heartbeat,freq \
+-omca sensor_base_sample_rate 1 \
+-omca db print
+</code></pre>
+<a class="header" href="gettingStarted.html#core-temp-test" id="core-temp-test"><h3>Core-Temp test</h3></a>
+<p>The example below shows how to start monitoring core temperature using Sensys:</p>
+<pre><code># orcmd -omca sensor heartbeat,coretemp \
+-omca sensor_base_sample_rate 1 \
+-omca db print
+</code></pre>
+<a class="header" href="gettingStarted.html#mca-parameters" id="mca-parameters"><h3>MCA Parameters</h3></a>
+<p>The set of parameters in the examples above mean:</p>
+<p><strong>orcmd</strong>  <code>[--omca sensor &lt;sensora&gt;,&lt;sensorb&gt;] [--omca sensor_base_sample_rate &lt;t&gt;] [--omca db print]</code></p>
+<ul>
+<li>-omca sensor <sensora>,<sensorb>: Here you shall specify the sensor you want to sample</li>
+<li>-omca sensor_base_sample_rate <t>: Here you shall specify time between samplings, measured in seconds (default sample rate is 300)</li>
+<li>-omca db print: This print sensor sampling on screen terminal</li>
+</ul>
+<p>For more details visit <a href="2-Build-and-Installation-Guide/2.1-Sensys-Build-and-Installation/2.1.11-Setting-MCA-Parameters.md">MCA Parameters</a> and more information about <strong>orcmd</strong> sensors at <a href="3-Sensys-User-Guide/3.2-orcmd.html">orcmd</a></p>
+<a class="header" href="gettingStarted.html#link-metrics-to-database-br" id="link-metrics-to-database-br"><h1>Link metrics to database <br/></h1></a>
+<p>In order to run all Sensys features properly, you have to install and configure postgresSQL as follows:</p>
+<a class="header" href="gettingStarted.html#install-postgresql-on-centos" id="install-postgresql-on-centos"><h3>Install postgresql on CentOS</h3></a>
+<pre><code># yum install -y postgresql
+</code></pre>
+<a class="header" href="gettingStarted.html#install-postgresql-on-sles" id="install-postgresql-on-sles"><h3>Install postgresql on SLES</h3></a>
+<pre><code># zipper install -y postgresql
+</code></pre>
+<a class="header" href="gettingStarted.html#postgresql-post-install-configuration" id="postgresql-post-install-configuration"><h2>Postgresql post-install configuration</h2></a>
+<p>After installing postgres run these commands as follows:</p>
+<a class="header" href="gettingStarted.html#setting-up-database" id="setting-up-database"><h3>Setting up database:</h3></a>
+<pre><code>$ sudo –u postgres createuser –P orcmuser
+$ sudo -u postgres createdb --owner orcmuser orcmdb
+</code></pre>
+<a class="header" href="gettingStarted.html#database-schema-installation" id="database-schema-installation"><h2>Database schema installation</h2></a>
+<p>Sensys is distributed with a SQL script for the setup of the database schema. A file <code>sensys-schema.sql</code> can be found under <code>contrib/database</code> folder in the <strong>source code of Sensys</strong> or <code>/opt/sensys/share/db-schema/</code> if you are <strong>installing from rpm</strong>.</p>
+<pre><code>$ psql -U orcmuser -W -f sensys-schema.sql orcmdb
+</code></pre>
+<a class="header" href="gettingStarted.html#sensys-sensor-with-database-storage-feature" id="sensys-sensor-with-database-storage-feature"><h2>Sensys sensor with database storage feature</h2></a>
+<p>The example below shows how to start monitoring frequency and storing its output into the database at same time.</p>
+<pre><code># orcmd -omca sensor heartbeat,coretemp \
+-omca sensor_base_sample_rate 1 \
+-omca db_postgres_uri localhost:5432 \
+-omca db_postgres_user orcmuser:orcmpassword \
+-omca db_postgres_database orcmdb
+</code></pre>
+<p>Notice that there are a few new parameters here:</p>
+<ul>
+<li>-omca db_postgres_uri <hostname>:<port>: Here you shall specify the host name and port of database configuration</li>
+<li>-omca db_postgres_user <user>:<password>:  Here you shall specify user and password of database role</li>
+<li>-omca db_postgres_database &lt;database_name&gt;: Here you shall specify database name.</li>
+</ul>
+<a class="header" href="gettingStarted.html#querying-stored-data" id="querying-stored-data"><h2>Querying Stored Data</h2></a>
+<p>As we mentioned above by enabling Sensys database feature it allows storing sampling data into configured database.</p>
+<p>If you want to check if everything works out well you have to log in as follows:</p>
+<pre><code>$ psql -d &lt;database_name&gt; -U &lt;database_user&gt;
+</code></pre>
+<p>If you used the configuration above in <code>Database schema installation</code> section just run as follows:</p>
+<pre><code>$ psql -d orcmdb -U orcmuser
+</code></pre>
+<p>Once logged in you can use SQL statements to check any available table. As an example:</p>
+<pre><code>$ SELECT * FROM data_sample_raw;
+</code></pre>
+<p>The query above must show sampling data of the <strong>orcmd</strong> as shows:</p>
+<table><thead><tr><th>hostname </th><th> dataitem </th><th> time_stamp </th><th> valueint  </th><th> valuereal </th><th> valuestr </th><th>  units    </th><th> datatypeid </th><th> appvaluetypeid </th><th> eventid </th><th> datasampleid</th></tr></thead><tbody>
+<tr><td>localhost </td><td> coretemp_storage_type </td><td> 2017-07-03 10:17:58 </td><td>         0 </td><td>            </td><td>           </td><td>           </td><td>           11 </td><td>                11 </td><td>    19155 </td><td>          74566</td></tr>
+<tr><td>localhost </td><td> coretemp_core0        </td><td> 2017-07-03 10:17:58 </td><td>           </td><td>         29 </td><td>           </td><td> degrees C </td><td>           16 </td><td>                16 </td><td>    19155 </td><td>          74567</td></tr>
+<tr><td>localhost </td><td> coretemp_core1        </td><td> 2017-07-03 10:17:58 </td><td>           </td><td>         35 </td><td>           </td><td> degrees C </td><td>           16 </td><td>                16 </td><td>    19155 </td><td>          74568</td></tr>
+<tr><td>localhost </td><td> coretemp_core2        </td><td> 2017-07-03 10:17:58 </td><td>           </td><td>         26 </td><td>           </td><td> degrees C </td><td>           16 </td><td>                16 </td><td>    19155 </td><td>          74569</td></tr>
+<tr><td>localhost </td><td> coretemp_core3        </td><td> 2017-07-03 10:17:58 </td><td>           </td><td>         29 </td><td>           </td><td> degrees C </td><td>           16 </td><td>                16 </td><td>    19155 </td><td>          74570</td></tr>
+<tr><td>localhost </td><td> coretemp_core4        </td><td> 2017-07-03 10:17:58 </td><td>           </td><td>         33 </td><td>           </td><td> degrees C </td><td>           16 </td><td>                16 </td><td>    19155 </td><td>          74571</td></tr>
+<tr><td>localhost </td><td> freq_storage_type     </td><td> 2017-07-03 10:17:58 </td><td>         0 </td><td>            </td><td>           </td><td>           </td><td>           11 </td><td>                11 </td><td>    19156 </td><td>          74579</td></tr>
+<tr><td>localhost </td><td> freq_core0            </td><td> 2017-07-03 10:17:58 </td><td>           </td><td>      1.596 </td><td>           </td><td> GHz       </td><td>           16 </td><td>                16 </td><td>    19156 </td><td>          74580</td></tr>
+<tr><td>localhost </td><td> freq_core1            </td><td> 2017-07-03 10:17:58 </td><td>           </td><td>      1.596 </td><td>           </td><td> GHz       </td><td>           16 </td><td>                16 </td><td>    19156 </td><td>          74581</td></tr>
+<tr><td>localhost </td><td> freq_core2            </td><td> 2017-07-03 10:17:58 </td><td>           </td><td>      1.596 </td><td>           </td><td> GHz       </td><td>           16 </td><td>                16 </td><td>    19156 </td><td>          74582</td></tr>
+<tr><td>localhost </td><td> freq_core3            </td><td> 2017-07-03 10:17:58 </td><td>           </td><td>      1.596 </td><td>           </td><td> GHz       </td><td>           16 </td><td>                16 </td><td>    19156 </td><td>          74583</td></tr>
+<tr><td>localhost </td><td> freq_core4            </td><td> 2017-07-03 10:17:58 </td><td>           </td><td>      1.596 </td><td>           </td><td> GHz       </td><td>           16 </td><td>                16 </td><td>    19156 </td><td>          74584</td></tr>
+</tbody></table>
+<p>The table above was a result from coretemp and freq sensor.</p>
+<a class="header" href="gettingStarted.html#aggregator-node-and-multi-node-execution" id="aggregator-node-and-multi-node-execution"><h1>Aggregator node and multi-node execution</h1></a>
+<p>Sensys has a daemon called <code>orcmd</code> that runs at root level. This daemon is able to perform two different types of roles: the aggregator and the compute node.</p>
+<p><img src="Getting-started/aggregator.png" alt="Aggregator" /></p>
+<p>Sensys architecture allows you to connect multiple nodes to a single aggregator.</p>
+<a class="header" href="gettingStarted.html#aggregator" id="aggregator"><h2>Aggregator</h2></a>
+<p>An aggregator is an interface that receives all the telemetry collected by a single or multiple nodes in a cluster. This role's responsbility is to provide a data analytics for the incoming telemetry to dispatch data to a database.</p>
+<p><img src="Getting-started/agg-capabilities.png" alt="Aggregator-capabilities" /></p>
+<p>The aggregator and the compute node roles are given by the user. Those are specified on the configuration file named <code>orcm-site.xml</code>. The example below is the most basic configuration having an aggregator node <code>agg01</code> and a compute node <code>cn02</code>.</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;configuration&gt;
+    &lt;version&gt;3.1&lt;/version&gt;
+    &lt;role&gt;RECORD&lt;/role&gt;
+    &lt;junction&gt;
+        &lt;type&gt;cluster&lt;/type&gt;
+        &lt;name&gt;My_cluster&lt;/name&gt;
+        &lt;junction&gt;
+            &lt;type&gt;row&lt;/type&gt;
+            &lt;name&gt;My_row&lt;/name&gt;
+            &lt;junction&gt;
+                &lt;type&gt;rack&lt;/type&gt;
+                &lt;name&gt;agg01&lt;/name&gt;
+                &lt;controller&gt;
+                     &lt;host&gt;agg01&lt;/host&gt;
+                     &lt;port&gt;55805&lt;/port&gt;
+                     &lt;aggregator&gt;yes&lt;/aggregator&gt;
+                &lt;/controller&gt;
+                &lt;junction&gt;
+                     &lt;type&gt;node&lt;/type&gt;
+                     &lt;name&gt;cn01&lt;/name&gt;
+                &lt;/junction&gt;
+            &lt;/junction&gt;
+        &lt;/junction&gt;
+    &lt;/junction&gt;
+
+    &lt;scheduler&gt;
+        &lt;shost&gt;SMS&lt;/shost&gt;
+        &lt;port&gt;55820&lt;/port&gt;
+    &lt;/scheduler&gt;
+&lt;configuration&gt;
+</code></pre>
+<a class="header" href="gettingStarted.html#scheduler" id="scheduler"><h2>Scheduler</h2></a>
+<p>The <code>orcmshed</code> is another Sensys daemon run at root level. The main purpose of the daemon is to keep the status of each of the <code>orcmd</code> it also acts as a communication gateway between them. For further details please take a look at our wiki section <a href="3.3-orcmsched">3.3 orcmsched</a></p>
+<a class="header" href="gettingStarted.html#sensys-configuration" id="sensys-configuration"><h2>Sensys configuration</h2></a>
+<p>The previous configuration file shown has a hierarchy-based cluster architecture which presents the interconnection between aggregator node and compute node. Sensys allows multiple aggregator and compute node configuration by simply adding junction type <code>rack</code> to describe the aggregator-node connectivity, ie:</p>
+<pre><code class="language-XML">&lt;junction&gt;
+    &lt;type&gt;rack&lt;/type&gt;
+    &lt;name&gt;agg02&lt;/name&gt;
+    &lt;controller&gt;
+         &lt;host&gt;agg02&lt;/host&gt;
+         &lt;port&gt;55805&lt;/port&gt;
+         &lt;aggregator&gt;yes&lt;/aggregator&gt;
+    &lt;/controller&gt;
+    &lt;junction&gt;
+        &lt;type&gt;node&lt;/type&gt;
+        &lt;name&gt;cn[2:00-49]&lt;/name&gt;
+        &lt;controller&gt;
+            &lt;host&gt;@&lt;/host&gt;
+            &lt;port&gt;55805&lt;/port&gt;
+            &lt;aggregator&gt;no&lt;/aggregator&gt;
+        &lt;/controller&gt;
+    &lt;/junction&gt;
+&lt;/junction&gt;
+
+</code></pre>
+<p>Above configuration specifies the connection between an aggregator called <code>agg02</code> and fifty compute nodes name as cnXX starting from <code>cn00</code> to <code>cn49</code>. The configuration file makes use of regular expressions to configure multiple compute nodes with a single junction node description. The special character <code>@</code> parameter in the <code>host</code> tag is used to indicate that the <code>name</code> tag value of the parent junction will be used to replace the character.</p>
+<p>As mentioned on the previous section, <code>orcmd</code> can be configured using mca parameters. As the <code>orcmd</code> parameter list increases it also becomes difficult to handle it on a one-liner command. Therefore Sensys offers two solutions:</p>
+<ol>
+<li>Include a mca parameter list on the orcm-site.xml configuration file as follows:</li>
+</ol>
+<pre><code class="language-XML">&lt;mca-params&gt;sensor_sample_rate=10,sensor_base_verbose=100&lt;/mca-params&gt;
+</code></pre>
+<p>This options is recommended when you want to have a dedicated configuration for certain nodes or aggregators. This tag can be used inside the <code>scheduler</code> and <code>controller</code> tags.</p>
+<ol start="2">
+<li>Use an specific configuration file located and named as <code>&lt;sensys_installation_path&gt;/etc/openmpi-mca-params.conf</code></li>
+</ol>
+<pre><code>sensor_sample_rate=10
+sensor_base_verbose=100
+</code></pre>
+<p>This option is recommended to create a default configuration that applies to all the nodes in the system.</p>
+<a class="header" href="gettingStarted.html#advanced-features" id="advanced-features"><h1>Advanced features</h1></a>
+<a class="header" href="gettingStarted.html#data-analytics" id="data-analytics"><h2>Data analytics</h2></a>
+<p>The data analytics is a framework that provides data processing through plug-ins that performs different data analysis like: data filtering, average, threshold among others. This service can be requested and configured using workflows. For specific details of the available plug-ins, scope and usage please refer to our wiki section <a href="3.9-Data-Smoothing-Algorithms-Analytics">3.9 Data Smoothing Algorithms Analytics</a>.</p>
+<a class="header" href="gettingStarted.html#notification-events" id="notification-events"><h2>Notification events</h2></a>
+<p>The notification event provides information for system events or errors. Sensys provides two notification mechanisms through plug-ins: smtp and syslog. Notification events are requested using workflows. For further details please visit section <a href="3.10-ErrorManager-Notification">3.10 ErrorManager Notification</a>.</p>
+<p>The example below shows a threshold data analytics with a notification event using syslog:</p>
+<pre><code class="language-XML">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+&lt;workflows&gt;
+    &lt;aggregator&gt;aggregator1&lt;/aggregator&gt;
+    &lt;workflow name = &quot;wf1&quot;&gt;
+         &lt;step name = &quot;filter&quot;&gt;
+             &lt;hostname&gt;c[2:00-10]&lt;/hostname&gt;
+             &lt;data_group&gt;coretemp&lt;/data_group&gt;
+             &lt;core&gt;core0&lt;/core&gt;
+             &lt;notifier_action&gt;syslog&lt;/notifier_action&gt;
+        &lt;/step&gt;
+    &lt;/workflow&gt;
+&lt;/workflows&gt;
+</code></pre>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a href="Home.html" class="mobile-nav-chapters previous">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="1-Sensys/1.1-Overview.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="Home.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="1-Sensys/1.1-Overview.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        
+
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>
