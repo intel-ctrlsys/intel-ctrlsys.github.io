@@ -244,7 +244,7 @@ $ sudo -u postgres createdb --owner orcmuser orcmdb
 &lt;configuration&gt;
 </code></pre>
 <a class="header" href="gettingStarted.html#scheduler" id="scheduler"><h2>Scheduler</h2></a>
-<p>The <code>orcmshed</code> is another Sensys daemon run at root level. The main purpose of the daemon is to keep the status of each of the <code>orcmd</code> it also acts as a communication gateway between them. For further details please take a look at our wiki section <a href="3.3-orcmsched">3.3 orcmsched</a></p>
+<p>The <code>orcmshed</code> is another Sensys daemon run at root level. The main purpose of the daemon is to keep the status of each of the <code>orcmd</code> it also acts as a communication gateway between them. For further details please take a look at our wiki section <a href="3-Sensys-User-Guide/3.3-orcmsched.html">3.3 orcmsched</a></p>
 <a class="header" href="gettingStarted.html#sensys-configuration" id="sensys-configuration"><h2>Sensys configuration</h2></a>
 <p>The previous configuration file shown has a hierarchy-based cluster architecture which presents the interconnection between aggregator node and compute node. Sensys allows multiple aggregator and compute node configuration by simply adding junction type <code>rack</code> to describe the aggregator-node connectivity, ie:</p>
 <pre><code class="language-XML">&lt;junction&gt;
@@ -284,9 +284,9 @@ sensor_base_verbose=100
 <p>This option is recommended to create a default configuration that applies to all the nodes in the system.</p>
 <a class="header" href="gettingStarted.html#advanced-features" id="advanced-features"><h1>Advanced features</h1></a>
 <a class="header" href="gettingStarted.html#data-analytics" id="data-analytics"><h2>Data analytics</h2></a>
-<p>The data analytics is a framework that provides data processing through plug-ins that performs different data analysis like: data filtering, average, threshold among others. This service can be requested and configured using workflows. For specific details of the available plug-ins, scope and usage please refer to our wiki section <a href="3.9-Data-Smoothing-Algorithms-Analytics">3.9 Data Smoothing Algorithms Analytics</a>.</p>
+<p>The data analytics is a framework that provides data processing through plug-ins that performs different data analysis like: data filtering, average, threshold among others. This service can be requested and configured using workflows. For specific details of the available plug-ins, scope and usage please refer to our wiki section <a href="3-Sensys-User-Guide/3.9-Data-Smoothing-Algorithms-Analytics.html">3.9 Data Smoothing Algorithms Analytics</a>.</p>
 <a class="header" href="gettingStarted.html#notification-events" id="notification-events"><h2>Notification events</h2></a>
-<p>The notification event provides information for system events or errors. Sensys provides two notification mechanisms through plug-ins: smtp and syslog. Notification events are requested using workflows. For further details please visit section <a href="3.10-ErrorManager-Notification">3.10 ErrorManager Notification</a>.</p>
+<p>The notification event provides information for system events or errors. Sensys provides two notification mechanisms through plug-ins: smtp and syslog. Notification events are requested using workflows. For further details please visit section <a href="3-Sensys-User-Guide/3.10-ErrorManager-Notification.html">3.10 ErrorManager Notification</a>.</p>
 <p>The example below shows a threshold data analytics with a notification event using syslog:</p>
 <pre><code class="language-XML">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
 &lt;workflows&gt;
